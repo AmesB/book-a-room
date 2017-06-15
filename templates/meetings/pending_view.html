@@ -1,0 +1,128 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Pending Reservations</h2>
+</div>
+<form id="form1" name="form1" method="post" action="">
+  <table class="tableMain">
+    <tr>
+      <td>Name</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td><strong>Branch and Room </strong></td>
+      <td>#branchName#<br />
+        #roomName#</td>
+    </tr>
+    <tr>
+      <td><strong>Date</strong></td>
+      <td>#formDate#</td>
+    </tr>
+    <tr>
+      <td><strong>Requested times</strong></td>
+      <td>#startTimeDisp# to #endTimeDisp#</td>
+    </tr>
+    <tr>
+      <td><strong>Event/Organization name</strong></td>
+      <td>#eventName#</td>
+    </tr>
+    <tr>
+      <td><strong>Number of attendees</strong></td>
+      <td>#numAttend#</td>
+    </tr>
+    <tr>
+      <td><strong>Purpose of meeting</strong></td>
+      <td>#desc#</td>
+    </tr>
+    <tr>
+      <td><strong>Contact name</strong></td>
+      <td>#contactName#</td>
+    </tr>
+    <tr>
+      <td><strong>Primary phone</strong></td>
+      <td>#contactPhonePrimary#</td>
+    </tr>
+    <tr>
+      <td><strong>Alternative phone</strong></td>
+      <td>#contactPhoneSecondary#</td>
+    </tr>
+    <tr>
+      <td><strong>#address1_name#</strong></td>
+      <td>#contactAddress1#</td>
+    </tr>
+    <tr>
+      <td><strong>#address2_name#</strong></td>
+      <td>#contactAddress2#</td>
+    </tr>
+    <tr>
+      <td><strong>#city_name#</strong></td>
+      <td>#contactCity#</td>
+    </tr>
+    <tr>
+      <td><strong>#state_name#</strong></td>
+      <td>#contactState#</td>
+    </tr>
+    <tr>
+      <td><strong>#zip_name#</strong></td>
+      <td>#contactZip#</td>
+    </tr>
+    <tr>
+      <td><strong>Email Address</strong></td>
+      <td><a href="mailto:#contactEmail#">#contactEmail#</a></td>
+    </tr>
+    <tr>
+      <td><strong>Non Profit 501(c)(3)</strong></td>
+      <td>#nonProfitDisp#</td>
+    </tr>
+    <tr>
+      <td><strong>Organization Website</strong></td>
+      <td><a href="#contactWebsite#" target="_new">#contactWebsite#</a></td>
+    </tr>
+    <tr>
+      <td><strong>Amenities</strong></td>
+      <td>#amenityVal#</td>
+    </tr>
+    <tr>
+      <td><strong>Notes</strong></td>
+      <td>#notes#</td>
+    </tr>
+    <tr>
+      <td><strong>Deposit</strong></td>
+      <td>$ #deposit#</td>
+    </tr>
+    <tr>
+      <td><strong>Room cost</strong></td>
+      <td>$ #roomPrice#</td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td>$ #totalPrice#</td>
+    </tr>
+    <tr>
+      <td><strong>Due Date</strong></td>
+      <td>#paymentDate#</td>
+    </tr>
+    <tr>
+      <td><strong>Social?</strong></td>
+      <td>#socialDisp#</td>
+    </tr>
+    <tr>
+      <td><strong>Library Card</strong></td>
+      <td>#libcardNum#</td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><a href="?page=bookaroom_meetings&amp;action=edit&amp;res_id=#res_id#">Click here to edit this reservation.</a></td>
+    </tr>
+    <tr>
+      <td><strong>Status</strong></td>
+      <td><select name="status" id="status">
+        #drop_start#<option value="#dropVal#"#dropSelected#>#dropDesc#</option>#drop_end#
+      </select></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="res_id[]" type="hidden" id="res_id[#res_id#]" value="#res_id#" />
+      <input name="action" type="hidden" id="action" value="changeStatus" />        <input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>

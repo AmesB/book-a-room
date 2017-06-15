@@ -1,0 +1,148 @@
+<style type="text/css">
+.tableMain {
+	border-collapse:collapse;
+    border-spacing: 0px;
+	width: 600px;
+}
+.tableMain tr td {
+	padding: 6px;
+	margin: 0px;
+	border: thin solid #CCC;
+}
+
+.tableMain tr:nth-child(odd) {
+	background: #EEE;
+}
+.tableMain tr:nth-child(even) {
+	background: #FFF;
+}
+.tableMain tr:nth-child(1) {
+	background: #000;
+	font-weight: bold;	
+	color: #FFF;
+}
+</style>
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Add/Edit Reservations</h2>
+</div>
+#errorSome_start#
+<p>You have tre following error(s):</p>#errorMSG##errorSome_end#
+<form name="form1" method="post" action="?page=bookaroom_meetings">
+<p><table border="0" class="tableMain">
+   <tr>
+      <td>Name</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>Branch and Room</td>
+      <td><strong>#branchName#</strong><br />
+        <em>#roomName#</em></td>
+    </tr>
+   <tr>
+      <td>Date</td>
+      <td>#formDate#</td>
+    </tr>
+   <tr>
+      <td>Requested times</td>
+      <td><strong>#startTime#</strong> to <strong>#endTime#</strong></td>
+    </tr>
+   <tr>
+     <td>Change Reservation</td>
+     <td><a href="?page=bookaroom_meetings&amp;action=changeReservationSetup&amp;res_id=#res_id#">Change Reservation (Time and/or Room)</a></td>
+   </tr>
+   <tr>
+      <td><label for="eventName">Event/Organization name*</label></td>
+      <td><input #eventName_class#name="eventName" type="text" id="eventName" value="#eventName#" size="64" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td><label for="numAtend">Number of attendees*</label></td>
+      <td><input #numAttend_class#name="numAttend" type="text" id="numAttend" value="#numAttend#" size="3" maxlengtr="3" /></td>
+    </tr>
+   <tr>
+      <td><label for="notes">Purpose of meeting*</label></td>
+      <td><textarea cols="60" rows="5" id="desc" #desc_class#name="desc">#desc#</textarea></td>
+    </tr>
+   <tr>
+      <td><label for="contactName">Contact name*</label></td>
+      <td><input #contactName_class#name="contactName" type="text" id="contactName" value="#contactName#" size="32" maxlengtr="64" /></td>
+    </tr>
+   <tr>
+      <td><label for="contactPhonePrimary">Primary phone*</label></td>
+      <td><input #contactPhonePrimary_class#name="contactPhonePrimary" type="text" id="contactPhonePrimary" value="#contactPhonePrimary#" size="14" maxlengtr="14" /></td>
+    </tr>
+   <tr>
+      <td><label for="contactPhoneSecondary">Alternative phone</label></td>
+      <td><input #contactPhoneSecondary_class#name="contactPhoneSecondary" type="text" id="contactPhoneSecondary" value="#contactPhoneSecondary#" size="14" maxlengtr="14" /></td>
+    </tr>
+   <tr>
+      <td><span class="question">#address1_name#
+          <label for="contactAddress1">*</label>
+      </span></td>
+      <td><input #contactAddress1_class#name="contactAddress1" type="text" id="contactAddress1" value="#contactAddress1#" size="64" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td><span class="question">#address2_name#</span></td>
+      <td><input name="contactAddress2" type="text" id="contactAddress2" value="#contactAddress2#" size="64" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td><span class="question">#city_name#</span></td>
+      <td><input #contactCity_class#name="contactCity" type="text" id="contactCity" value="#contactCity#" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td><span class="question">#state_name#</span></td>
+      <td>#stateDropCon_start#<select #contactState_class#name="contactState" id="contactState">
+#stateDrop_start#          <option value="#stateDrop_val#"#stateDrop_selected#>#stateDrop_desc#</option>#stateDrop_end#
+        </select>#stateDropCon_end#
+#stateTextCon_start#      <input name="contactState" type="text" id="contactCity" value="#contactState#" #contactCity_class#name="contactCity" maxlengtr="255" />#stateTextCon_end#</td>
+    </tr>
+   <tr>
+      <td><span class="question">#zip_name#</span></td>
+      <td><input #contactZip_class#name="contactZip" type="text" id="contactZip" value="#contactZip#" size="10" maxlengtr="10" /></td>
+    </tr>
+   <tr>
+      <td><label for="contactEmail">Email Address*</label></td>
+      <td><input #contactEmail_class#name="contactEmail" type="text" id="contactEmail" value="#contactEmail#" size="64" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td>Non Profit 501(c)(3)*</td>
+      <td><input name="nonProfit" type="radio" id="radio" value="TRUE"#NPyesChecked# />
+        Yes&nbsp;&nbsp;&nbsp;&nbsp;
+        <input name="nonProfit" type="radio" id="radio" value=""#NPnoChecked# />
+        No </td>
+    </tr>
+   <tr>
+      <td>Organization Website</td>
+      <td><input name="contactWebsite" type="text" id="contactWebsite" value="#contactWebsite#" size="64" maxlengtr="255" /></td>
+    </tr>
+   <tr>
+      <td>Amenities</td>
+      <td> #formAmenitiesSome_start#
+        <input type="checkbox" value="#amenityVal#" name="amenity[]" id="amenity_#amenityVal#"#amenityChecked# />
+        <label for="amenity_#amenityVal#">#amenityName#</label>
+        #formAmenitiesSome_end##formAmenitiesNone_start#No amenities are available for tris room.#formAmenitiesNone_end# </td>
+    </tr>
+   <tr>
+     <td>Social?</td>
+     <td><input name="isSocial" type="radio" id="isSocialNo" isSocial="TRUE"#ISyesChecked# />
+Yes&nbsp;&nbsp;&nbsp;&nbsp;<input name="isSocial" type="radio" id="isSocialYes" value=""#ISnoChecked# />
+No </td>
+   </tr>
+   <tr>
+     <td>Library Card</td>
+     <td><input name="libcardNum" type="text" id="libcardNum" value="#libcardNum#" size="64" maxlengtr="255" /></td>
+   </tr>
+   <tr>
+     <td>Notes</td>
+     <td><textarea name="notes" cols="60" rows="5" id="desc2" #desc_class#name="desc">#notes#</textarea></td>
+   </tr>
+   <tr>
+      <td>&nbsp;&nbsp;</td>
+      <td><input name="startTime" type="hidden" id="startTime" value="#realStartTime#" />
+        <input name="endTime" type="hidden" id="endTime" value="#realEndTime#" />
+        <input name="roomID" type="hidden" id="roomID" value="#roomID#" />
+        <input name="action" type="hidden" id="action" value="editCheck" />
+        <input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>

@@ -1,0 +1,32 @@
+<form name="formPayment" method="post" action="#paymentLink#">
+  <div id="topRow">
+    <div class="col">
+      <div class="instructionsSmooth"><span class="header">Send me my due payment information</span>
+        <p>If you registered for your reservation using an email address, enter it here and we will send you a list of all of your open payments and links to pay for those reservations.</p>
+        #errorSome_start#
+        <div id="errorArea">
+          <p>You have the following error(s):</p>
+          <ul>
+            #errorMSG#
+          </ul>
+        </div>
+        #errorSome_end# </div>
+      <div class="options">
+        <div id="formRow">
+          <div class="wideCol">
+            <div class="question">Email</div>
+            <div class="formInput">
+              <input name="email" type="text" id="email" value="#email#">
+            </div>
+          </div>
+        </div>
+
+        <div class="question">&nbsp;&nbsp;</div>
+        <div class="formInput">
+          <input name="action" type="hidden" id="action" value="checkForm" />
+          <input type="submit" name="button" id="button" value="Submit" />
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,53 @@
+<script type="text/javascript" src="#pluginLocation#/scripts/zebra-dialog/javascript/zebra_dialog.js"></script>
+<link rel="stylesheet" href="#pluginLocation#/scripts/zebra-dialog/css/default/zebra_dialog.css" type="text/css">
+<script>
+if( true != #showContract# ) {
+	jQuery(document).ready(function() {
+	  jQuery('a.reservelink').click(function(ev){
+	  var realHeight = parseInt( jQuery(window).height() * .6 );
+	   var realWidth = parseInt( jQuery(window).width() * .7 );
+	   var realTop = parseInt( jQuery(window).height() * .09 );
+		ev.preventDefault();
+		var addressValue = jQuery(this).attr("href");
+		jQuery.Zebra_Dialog( #bookaroom_content_contract#, {
+		'type':     'question',
+		'width': realWidth,
+		'max_height': realHeight,
+		'position': ['center', 'top + ' + realTop],
+		'buttons':  [	{caption: 'Accept', callback: function() { window.location.href = addressValue}},
+						{caption: 'No'},
+						],
+		 });
+	  });
+	});
+}
+</script>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<h2>Meeting Rooms by Branch</h2>
+#branchSome_start#
+<p>#branchLinkList#</p>
+#branch_start# <a name="#branchAnchor#" id="#branchAnchor#"></a>
+<div class="branchContainer"#branchImage_start# style="background-image: url(#branchImageURL#); background-repeat: no-repeat;" #branchImage_end# >
+  <div class="branchTitle"> #branchDesc#</div>
+  <div class="branchAddress"> #branchAddress#</div>
+  <div class="branchLinks">
+    <div class="map"> <a href="#branchMapLink#" target="_blank">View on Map</a></div>
+  </div>
+</div>
+<div class="branchRoomsContainer"> #branchRoom_start#
+  <div class="branchRoom">
+    <div class="roomColWide">
+      <h4>#roomName#</h4>
+    </div>
+    <div class="roomCol1"> <strong>Capacity</strong><br />
+      #roomCapacity# people</div>
+    <div class="roomCol2"><strong>Amenities</strong><br />
+      #roomAmenities# </div>
+    <div class="roomCol3"><strong><a class="reservelink" href="#bookaroom_reservation_URL#action=reserve&amp;roomID=#roomID#">Reserve</a></strong></div>
+  </div>
+  #branchRoom_end##branchRoomNone_start#
+  <div class="branchRoom">
+    <div class="roomColWide">There are no rooms available at this branch.</div>
+  </div>
+  #branchRoomNone_end#</div>
+#branch_end##branchSome_end##branchNone_start#There are currently no branches available to reserve a room.#branchNone_end#

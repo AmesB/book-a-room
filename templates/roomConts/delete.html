@@ -1,0 +1,46 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Room Containers</h2>
+</div>
+<h2>Delete Room Container</h2>
+<table class="tableMain">
+  <tr>
+    <td><strong>Container Name</strong></td>
+    <td>#roomContDesc#</td>
+  </tr>
+  <tr>
+    <td><strong>Branch</strong></td>
+    <td>#branch#</td>
+  </tr>
+  <tr>
+    <td><strong>Public?</strong></td>
+    <td>#isPublic#</td>
+  </tr>  
+  #room_some_start#
+  <tr>
+    <td rowspan="#rowSpan#" valign="top"><strong>Rooms</strong></td>
+    <td>#room1#</td>
+  </tr>
+  #room_more_start#
+  <tr>
+    <td>#room_more#</td>
+  </tr>
+  #room_more_end##room_some_end#
+  #room_one_start#
+  <tr>
+    <td rowspan><strong>Rooms</strong></td>
+    <td>#room#</td>
+  </tr>
+  #room_one_end#
+  #room_none_start#
+  <tr>
+    <td rowspan><strong>Rooms</strong></td>
+    <td>No rooms</td>
+  </tr>
+  #room_none_end#
+</table>
+<p>Deleting a room containeris permanent and cannot be undone.</p>
+<p><a class="errorText" href="?page=bookaroom_Settings_RoomCont&amp;roomContID=#roomContID#&amp;action=deleteCheck">Click here to permanantly delete this room container.</a></p>
+<p><a href="?page=bookaroom_Settings_RoomCont">Return to Room Container Home.</a></p>
+</form>

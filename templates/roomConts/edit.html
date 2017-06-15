@@ -1,0 +1,48 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Room Containers</h2>
+</div>
+<h2>#actionName# a room container</h2>
+#error_start#<p style="color: red"><strong>#errorMsg#</strong></p>#error_end#
+<form name="form1" method="post" action="?page=bookaroom_Settings_RoomCont&action=#action#&roomContID=#roomContID#&branchID=#branchID#">
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Room Container Information</td>
+    </tr>
+    <tr>
+      <td><label for="roomContDesc">Container Name</label></td>
+      <td>
+      <input name="roomContDesc" type="text" id="roomContDesc" value="#roomContDesc#" size="48" maxlength="64"></td>
+    </tr>
+    <tr>
+      <td>Max Occupancy</td>
+      <td><input name="occupancy" type="text" id="occupancy" value="#occupancy#" size="4" maxlength="4" /></td>
+    </tr>
+    <tr>
+      <td>Public?</td>
+      <td><input name="isPublic" type="checkbox" id="isPublic" value="true"#isPublic_checked# /></td>
+    </tr>
+    <tr>
+      <td>Hide on daily?</td>
+      <td><input name="hideDaily" type="checkbox" id="hideDaily" value="true"#hideDaily_checked# /></td>
+    </tr>
+    <tr>
+      <td>Branch</td>
+      <td>#branchName#</td>
+    </tr>
+    <tr>
+      <td colspan="2"><h3>Rooms</h3></td>
+    </tr>
+#room_start#    <tr>
+      <td><label for="room[#roomID#]">#roomDesc#</label></td>
+      <td>
+      <input name="room[#roomID#]" type="checkbox" id="room[#roomID#]" #room_checked#></td>
+    </tr>#room_end#
+<tr>
+  <td colspan="2"> <input type="submit" name="button" id="button" value="Submit"></td>
+  </tr>
+
+  </table>
+</form>
+<p><a href="?page=bookaroom_Settings_RoomCont">Return to Room Container Home.</a></p>

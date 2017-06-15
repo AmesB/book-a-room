@@ -1,0 +1,330 @@
+<script language="javascript">
+function disableYear( $checkedName, $dropName ) {
+	checker = document.getElementById($checkedName).checked;
+	drop	= document.getElementById($dropName);
+	if(checker == true) {
+		drop.disabled = true;
+		drop.options[0].selected=true;
+	} else {
+		drop.disabled = false;
+	}
+}
+
+function showHideRoomType() {
+	dropType	= document.getElementById( "roomType" ).value;
+	divRoomList	= document.getElementById( "roomList" );
+	
+	switch( dropType ) {
+		case 'all':
+			divRoomList.className = "hiddenDiv";
+			break;
+		
+		case 'choose':
+			divRoomList.className = "visibleDiv";
+			break;
+		
+		default:
+			divRoomList.className = "hiddenDiv";
+			break;
+	}
+}
+		
+function showHideSection(dropType) {
+	dropType	= document.getElementById( "selType" ).value;
+	divDate		= document.getElementById( "typeDate" );
+	divRange	= document.getElementById( "typeRange" );
+	divSpecial	= document.getElementById( "typeSpecial" );
+	//divRoomList	= document.getElementById( "roomList" );
+	
+	switch( dropType ) {
+		case 'date':
+			divDate.className = "visibleDiv";
+			divRange.className = "hiddenDiv";
+			divSpecial.className = "hiddenDiv";
+			//divRoomList.className = "visibleDiv";
+			break;
+
+		case 'range':
+			divDate.className = "hiddenDiv";
+			divRange.className = "visibleDiv";
+			divSpecial.className = "hiddenDiv";
+			//divRoomList.className = "visibleDiv";
+			break;
+
+		case 'special':
+			divDate.className = "hiddenDiv";
+			divRange.className = "hiddenDiv";
+			divSpecial.className = "visibleDiv";
+			//divRoomList.className = "visibleDiv";
+			break;
+
+		default:
+			divDate.className = "hiddenDiv";
+			divRange.className = "hiddenDiv";
+			divSpecial.className = "hiddenDiv";
+			//divRoomList.className = "hiddenDiv";
+			break;
+	}
+}
+</script>
+<style type="text/css" media="screen">
+<!--
+.hiddenDiv {
+	display: none;
+}
+.visibleDiv {
+ display:;
+}
+-->
+</style>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Closings</h2>
+</div>
+<h2>#actionName# a closing</h2>
+#error_start#
+<p style="color: red"><strong>#errorMsg#</strong></p>
+#error_end#
+<form name="form1" method="post" action="?page=bookaroom_Settings_Closings">
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Closing Information </th>
+    </tr>
+    <tr>
+      <td colspan="2"><p>You do not have to put in a year value if you are creating a reoccuring closing.</p>
+        <p>Please use <em>dd/mm/yyyy</em> as your date format.</p>
+        <p><strong>For reoccuring dates</strong>, you do not have to enter a year. <br />
+          Both <em>dd/mm/yyyy</em> and <em>dd/mm</em> will work. </p></td>
+    </tr>
+    <tr>
+      <td>Closing Name</td>
+      <td><input name="closingName" type="text" id="closingName" value="#closingName#" size="60" /></td>
+    </tr>
+    <tr class="odd_row">
+      <td>Closing Type</td>
+      <td><select name="selType" id="selType" onchange="showHideSection()">
+          
+          #type_start#
+          <option value="#typeVal#"#typeSelected#>#typeDesc#</option>
+          #type_end#
+          
+        </select></td>
+    </tr>
+    <tr>
+      <td>Rooms Type</td>
+      <td><select name="roomType" id="roomType" onchange="showHideRoomType()">
+          
+          #roomType_start#
+        
+          <option value="#roomTypeVal#"#roomTypeSelected#>#roomTypeDesc#</option>
+          
+        #roomType_end#
+          
+      
+        </select></td>
+    </tr>
+  </table>
+  <div class="hiddenDiv" id="typeDate">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Date</th>
+      </tr>
+      <tr class="odd_row">
+        <td>Date (dd/mm/yy)</td>
+        <td><select name="date_single_month" id="date_single_month">
+            
+            
+            
+            #date_single_month_start#
+            
+            
+            <option value="#date_single_month_val#"#date_single_month_selected#>#date_single_month_disp#</option>
+            
+            
+            #date_single_month_end#
+          
+          
+          
+          </select>
+          <select name="date_single_day" id="date_single_day">
+            
+            
+            
+             #date_single_day_start#
+            
+            
+            <option value="#date_single_day_val#"#date_single_day_selected#>#date_single_day_disp#</option>
+            
+            
+             #date_single_day_end#
+          
+          
+          
+          </select>
+          <select name="date_single_year" id="date_single_year">
+            
+            
+            
+             #date_single_year_start#
+            
+            
+            <option value="#date_single_year_val#"#date_single_year_selected#>#date_single_year_disp#</option>
+            
+            
+             #date_single_year_end#
+          
+          
+          
+          </select></td>
+      </tr>
+      <tr class="even_row_no">
+        <td>Reoccuring?</td>
+        <td><input name="date_reoccuring" type="checkbox" id="date_reoccuring" value="TRUE" onclick="disableYear('date_reoccuring','date_single_year');"#date_reoccuringChecked# />
+          Yes</td>
+      </tr>
+    </table>
+  </div>
+  <div class="hiddenDiv" id="typeRange">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Date Range</th>
+      </tr>
+      <tr>
+        <td>Start Date</td>
+        <td><select name="date_start_month" id="date_start_month">
+        #date_start_month_start#<option value="#date_start_month_val#"#date_start_month_selected#>#date_start_month_disp#</option>#date_start_month_end#
+          </select>
+          <select name="date_start_day" id="date_start_day">
+             #date_start_day_start#<option value="#date_start_day_val#"#date_start_day_selected#>#date_start_day_disp#</option>#date_start_day_end#
+          </select>
+          <select name="date_start_year" id="date_start_year">
+             #date_start_year_start#<option value="#date_start_year_val#"#date_start_year_selected#>#date_start_year_disp#</option>#date_start_year_end#
+          </select></td>
+      </tr>
+      <tr class="odd_row">
+        <td>End Date</td>
+        <td><select name="date_end_month" id="date_end_month">
+            #date_end_month_start#<option value="#date_end_month_val#"#date_end_month_selected#>#date_end_month_disp#</option>#date_end_month_end#
+          </select>
+          <select name="date_end_day" id="date_end_day">
+             #date_end_day_start#<option value="#date_end_day_val#"#date_end_day_selected#>#date_end_day_disp#</option>#date_end_day_end#
+          </select>
+          <select name="date_end_year" id="date_end_year">
+             #date_end_year_start#<option value="#date_end_year_val#"#date_end_year_selected#>#date_end_year_disp#</option>#date_end_year_end#
+          </select></td>
+      </tr>
+      <tr class="even_row_no">
+        <td>Reoccuring?</td>
+        <td><input name="dateRange_reoccuring" type="checkbox" id="dateRange_reoccuring" value="TRUE" onclick="disableYear('dateRange_reoccuring','date_start_year'); disableYear('dateRange_reoccuring','date_end_year');"#dateRange_reoccuringChecked# />
+          Yes</td>
+      </tr>
+    </table>
+  </div>
+  <div class="hiddenDiv" id="typeSpecial">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Special</th>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td><select name="specialWeek" id="specialWeek">
+            #specialWeek_start#<option value="#specialWeek_val#"#specialWeek_selected#>#specialWeek_disp#</option>#specialWeek_end#
+          </select>
+          <select name="specialDay" id="specialDay">
+            #specialDay_start#<option value="#specialDay_val#"#specialDay_selected#>#specialDay_disp#</option>#specialDay_end#
+          </select>
+          of
+          <select name="specialMonth" id="specialMonth">
+            
+            #specialMonth_start#
+            <option value="#specialMonth_val#"#specialMonth_selected#>#specialMonth_disp#</option>
+            #specialMonth_end#
+          
+          </select>
+          <select name="specialYear" id="specialYear">
+            
+            #specialYear_start#
+            <option value="#specialYear_val#"#specialYear_selected#>#specialYear_disp#</option>
+            #specialYear_end#
+          
+          </select>
+      </tr>
+      <tr>
+        <td>Reoccuring?</td>
+        <td><input name="special_reoccuring" type="checkbox" id="special_reoccuring" value="TRUE" onclick="disableYear('special_reoccuring','specialYear');"#special_reoccuringChecked# />
+          Yes</td>
+      </tr>
+    </table>
+  </div>
+  <div class="hiddenDiv" id="roomList">
+    <table class="tableMain">
+      <tr>
+        <td >Rooms</th>
+      </tr>
+      <tr>
+        <td><div id="demo1" class="demo">
+            <ul>
+              <li id="roomsAll"> <a href="#">All</a> #branchList_start#
+                <ul>
+                  <li id="branch_#branch_id#"> <a href="#">#branch_desc#</a>
+                    <ul>
+                      #selRoom_start#
+                      <li id="room_#room_id#"> <a href="#">#selRoom_desc#</a></li>
+                      #selRoom_end#
+                    </ul>
+                  </li>
+                </ul>
+                #branchList_end#</li>
+            </ul>
+          </div></td>
+      </tr>
+    </table>
+  </div>
+  <table class="tableMain">
+    <tr>
+      <td colspan="2"><input name="action" type="hidden" id="action" value="#action#" />
+      <input name="closingID" type="hidden" id="closingID" value="#closingID#" />        <input type="submit" name="button2" id="button2" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+<p><a href="?page=bookaroom_Settings_Closings">Return to Closings Home.</a></p>
+  <script type="text/javascript" class="source below">
+jQuery(document).ready(function ($) {
+	// TO CREATE AN INSTANCE
+	// select the tree container using jQuery
+	$("#demo1")
+		// call `.jstree` with the options object
+		.jstree({
+			// the `plugins` array allows you to configure the active plugins on this instance
+			"plugins" : ["themes","html_data","ui","checkbox"],
+			// each plugin you have included can have its own config object
+			"core" : { "initially_open" : [ #init_open# ] }, 
+			// it makes sense to configure a plugin only if overriding the defaults
+			"checkbox" : { 
+				"real_checkboxes" : true, 
+				"real_checkboxes_names" : function(n){
+                        return [("roomChecked[" + (n[0].id || Math.ceil(Math.random() * 10000)))+"]", 1]; 
+                    }
+			}
+		})
+		// EVENTS
+		// each instance triggers its own events - to process those listen on the container
+		// all events are in the `.jstree` namespace
+		// so listen for `function_name`.`jstree` - you can function names from the docs
+		.bind("loaded.jstree", function (event, data) {
+			// you get two params - event & data - check the core docs for a detailed description
+			  #preChecked_start#$('#demo1').jstree("check_node","#room_#preChecked_id#");#preChecked_end#
+		});
+		
+
+});
+  </script>
+<script language="javascript">
+showHideSection();
+showHideRoomType();
+disableYear('date_reoccuring','date_single_year');
+disableYear('dateRange_reoccuring','date_start_year');
+disableYear('dateRange_reoccuring','date_end_year');
+disableYear('special_reoccuring','specialYear');
+  </script>

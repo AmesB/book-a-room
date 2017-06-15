@@ -1,0 +1,339 @@
+<script src="#pluginLocation#/css/css3-mediaqueries.js"></script>
+<script language="javascript">
+
+function checkSubmit() {
+	var hourChecks = document.getElementsByName('hours[]');
+
+	var boxCount = 0;	
+
+	for (var t=0, checkLength = hourChecks.length; t<checkLength; t++) {
+		if( hourChecks[t].type == 'checkbox' && hourChecks[t].checked == true ) {
+			boxCount++;
+		}
+    }
+
+	if( boxCount > 0 ) {
+		document.forms["hoursForm"].submit();
+	} else {
+		alert( "Error!\nYou haven't selected any times to reserve."	);
+	}
+}
+
+function checkHours(curChecked) {
+	/* are there only two checked boxes? */
+	//alert();
+	var hourChecks = document.getElementsByName('hours[]');
+	var boxArr = new Array();
+	var boxCount = 0;
+	var lastItem = false;
+
+	// count total boxes checked
+	for (var t=0, checkLength = hourChecks.length; t<checkLength; t++) {
+		if( hourChecks[t].type == 'checkbox' && hourChecks[t].checked == true ) {
+			boxArr[boxCount++] = t;
+		}
+    }
+
+	// is this unchecking - clear under
+	if( hourChecks[curChecked].checked == false && curChecked < boxArr[0] ) {
+		hourChecks[curChecked].checked = false;
+	} else if( hourChecks[curChecked].checked == false ) {
+		for (var t=curChecked, checkLength = hourChecks.length; t<checkLength; t++) {	
+			hourChecks[t].checked = false;
+		}
+	// is checked box higher? clear underneath (after first)
+	}else if(  hourChecks[curChecked].checked == true && boxArr[1] > curChecked ) {
+		var chkstat = true;
+		for (var t=curChecked, checkLength = hourChecks.length; t < checkLength; t++) {
+			hourChecks[t].checked = chkstat;
+			chkstat = false;
+			
+		}
+	// are there multiple and this is the first? just uncheck it
+	} else if( boxArr.length > 1) {
+		for( var s=boxArr[0]+1, e=boxArr[boxArr.length-1]; s<e; s++ ) {
+			var curHour = document.getElementById( 'hours_'+s );
+			
+			if( curHour.value == false ) {
+				hourChecks[curChecked].checked = false;
+				alert( "Error!\nI'm sorry, but there is already a reservation in the time you've selected. Please make sure your reservation times don't overlap someone else's reservation." );
+				break;
+			} else {
+				hourChecks[s].checked = true;
+			}
+		}
+	}
+}
+</script>
+  <div id="topRow">
+    <div class="col">
+      <div class="instructions"> <span class="header">Step 1. </span>
+        <p><em>Choose a branch. </em><br />
+          For a detailed view of branches and rooms, <a href="#permalinkCal#action=reserve">click here</a>.</p>
+      </div>
+      <div class="options"> <span class="header"> Branch List </span> #branchSelected_start#
+        <div class="selectedItem">#branchName#</div>
+        #branchSelected_end#
+        #branchSome_start#
+        <div class="normalItem"><a href="#permalinkCal#action=reserve&amp;branchID=#branchID#&amp;timestamp=#timestamp#">#branchName#</a></div>
+        #branchSome_end#
+        #branchNoneExist_start#
+        <div class="normalItem">There are no branches available.</div>
+        #branchNoneExist_end# </div>
+    </div>
+    <div class="col">
+      <div class="instructions"> <span class="header"> Step 2.</span>
+        <p><em>Choose a Room. </em><br />
+          Some rooms may be combinations of other rooms and aren't available if any of the single rooms that make them up are already reserved.</p>
+      </div>
+      <div class="options"> <span class="header"> Room List </span> #roomSelected_start#
+        <div class="itemCont">
+          <div class="selectedItem">#roomName#</div>
+          <div class="itemDesc">Occupancy: #occupancy#</div>
+        </div>
+        #roomSelected_end#
+        #roomSome_start#
+        <div class="itemCont">
+          <div class="normalItem"><a href="#permalinkCal#action=reserve&amp;roomID=#roomID#&amp;timestamp=#timestamp#">#roomName#</a></div>
+          <div class="itemDesc">Occupancy: #occupancy#</div>
+        </div>
+        #roomSome_end#
+        #roomNoneOrBranch_start#
+        <div class="normalItem">There are no branches or rooms available.</div>
+        #roomNoneOrBranch_end#
+        #roomNoneExist_start#
+        <div class="normalItem">There are no rooms available in this branch.</div>
+        #roomNoneExist_end#
+        #roomNoBranch_start#
+        <div class="normalItem">Please select a branch.</div>
+        #roomNoBranch_end# </div>
+    </div>
+    <div class="col">
+      <div class="instructions"> <span class="header">Step 3.</span>
+        <p><em>Choose a date. </em><br />
+          Once you have chosen a Branch, room and date, the hours that are available will be shown below.<br />
+        </p>
+      </div>
+      <div class="options"> <span class="header">Calendar</span>
+        <div class="calNav">
+          <div class="prevMonth"><a href="#permalinkCal#action=reserve&amp;roomID=#monthRoomID#&amp;timestamp=#prevTimestamp#">&lt;&nbsp;Prev</a></div>
+          <div class="curMonth">#month# #year#</div>
+          <div class="nextMonth"><a href="#permalinkCal#action=reserve&amp;roomID=#monthRoomID#&amp;timestamp=#nextTimestamp#">Next ></a></div>
+        </div>
+        <div id="calDisplay">
+          <div class="calWeek">
+            <div class="calCell">
+              <div class="dayHeader">Su</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">Mo</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">Tu</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">We</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">Th</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">Fr</div>
+            </div>
+            <div class="calCell">
+              <div class="dayHeader">Sa</div>
+            </div>
+          </div>
+          #week_start#
+          <div class="calWeek"> #noDay_start#
+            <div class="calCell">
+              <div class="calNoDay">&nbsp;</div>
+            </div>
+            #noDay_end#
+            #selDay_start#
+            <div class="calCell">
+              <div class="calSelectedDay"><a href="#permalinkCal#action=reserve&amp;roomID=#roomID#&amp;timestamp=#timestamp#">#dateNum#</a></div>
+            </div>
+            #selDay_end#
+            #today_start#
+            <div class="calCell">
+              <div class="calToday"><a href="#permalinkCal#action=reserve&amp;roomID=#roomID#&amp;timestamp=#timestamp#">#dateNum#</a></div>
+            </div>
+            #today_end#
+            #regDay_start#
+            <div class="calCell">
+              <div class="calContent"><a href="#permalinkCal#action=reserve&amp;roomID=#roomID#&amp;timestamp=#timestamp#">#dateNum#</a></div>
+            </div>
+            #regDay_end# </div>
+          #week_end# </div>
+        <div class="calNav">
+          <div id="calFormCont">
+            <form method="get" id="calForm">
+              <div class="calContain">
+                <select name="calMonth" id="calMonth">
+				#month_start#<option value="#monthKey#"#monthSelected#>#monthDisp#</option>#month_end#
+                </select>
+              </div>
+              <div class="calContain">
+                <select name="calYear" id="calYear">
+                #year_start#<option value="#yearKey#"#yearSelected#>#yearDisp#</option>#year_end#
+                </select>
+              </div>
+              <div class="calContain">
+                <input name="page_id" type="hidden" value="#page_id#" />
+                 <input name="roomID" type="hidden" value="#calRoomID#" />
+                <input name="action" type="hidden" value="calDate" />
+                <input type="submit" name="submitCal" id="submitCal" value="Go" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  #hoursRoomsSome_start#
+  <form action="#correctedLink#action=reserve" method="post" id="hoursForm">
+    <div id="botRow">
+      <div class="col1">
+        <div class="instructions"> <span class="header">Step 4. </span>
+          <p><em>Choose the hours you would like to reserve. </em> </p>
+        </div>
+        <div class="options">
+          <p class="header">Please check the start and the end time that you would like to reserve.</p>
+          <p>Please include any set up and clean up time you need in your reservation. Any times marked Unavailable on the schedule are for staff only.</p>
+          #unavail_all_start#
+          <p style="color: red;">*Rooms are available to reserve #unavail_pre_start##unavail_pre_num# day#unavail_pre_s# from today's date#unavail_pre_end##unavail_and##unavail_post_start#up to #unavail_post_num# day#unavail_post_s# after today's date#unavail_post_end#.</p>
+          #unavail_all_end#
+          <p id="topSubmit">
+            <input type="submit" name="submitHours" id="submitHours" value="Click here when you are finished" onclick="checkSubmit(); return false;" />
+            <br />
+            <input type="reset" name="Reset" id="resetHours" value="Clear the form" />
+          </p>
+        </div>
+      </div>
+      <div class="col2">
+        <div class="options">
+          <table id="hoursTable">
+            <tr class="calHours">
+              <td class="calCheckBox">Select </td>
+              <td class="calTime">Time</td>
+              <td class="calStatus">Status</td>
+            </tr>
+            #hourReg_start#
+            <tr class="calHours">
+              <td class="calCheckBox"><label for="hours_#hoursCount#">
+                  <input id="hours_#hoursCount#" name="hours[]" type="checkbox" value="#iterTimestamp#" onchange="checkHours('#hoursCount#')" />
+                </label></td>
+              <td class="calTime"><label for="hours_#hoursCount#">#timeDisp#</label></td>
+              <td class="calStatus"><label for="hours_#hoursCount#">Open</label></td>
+            </tr>
+            #hourReg_end#
+            #hourSetup_start#
+            <tr class="calHoursSetup" style="background: #setupColor#; color: #setupFont#">
+              <td class="calCheckBox"><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+              <td class="calTime">#timeDisp#</td>
+              <td class="calStatus">&nbsp;</td>
+            </tr>
+            #hourSetup_end#
+            #hourUnavailable_start#
+            <tr class="calHoursReserved" >
+              <td class="calCheckBox"><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" disabled="disabled"/></td>
+              <td class="calTime">#timeDisp#</td>
+              <td class="calStatus">Unavailable*</td>
+            </tr>
+            #hourUnavailable_end#
+            #hourReserved_start#
+            <tr class="calHoursReserved" style="background: #reservedColor#; color: #reservedFont#">
+              <td class="calCheckBox"><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+              <td class="calTime">#timeDisp#</td>
+              <td class="calStatus">#desc#</td>
+            </tr>
+            #hourReserved_end#
+            #hourLast_start#
+            <tr class="calHoursReserved">
+              <td class="calCheckBox"><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+              <td class="calTime">#timeDisp#</td>
+              <td class="calStatus">&nbsp;</td>
+            </tr>
+            #hourLast_end#
+          </table>
+        </div>
+      </div>
+      <div  id="botSubmit" >
+        <div class="col1">
+          <div class="instructions"> <span class="header">Step 4. </span>
+            <p><em>Choose the hours you would like to reserve. </em> </p>
+          </div>
+          <div class="options">
+            <p>
+              <input name="action" type="hidden" id="action" value="fillForm" />
+              <input name="session" type="hidden" id="session" value="#session#" />
+              <input name="roomID" type="hidden" id="roomID" value="#roomID#" />
+              <input type="submit" name="submitHours" id="submitHours" value="Click here when you are finished" onclick="checkSubmit(); return false;" />
+              <br />
+              <input type="reset" name="Reset" id="resetHours" value="Clear the form" />
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+  #hoursRoomsSome_end#
+  #hoursRoomsNone_start#
+  <div id="botRow">
+    <div class="col1">
+      <div class="instructions"> <span class="header">Step 4. </span>
+        <p><em>Choose the hours you would like to reserve. </em> </p>
+      </div>
+      <div class="options">
+        <p class="header">Please check the start and the end time that you would like to reserve.</p>
+        <p>There is a setup and cleanup time added to each reservation (light blue). These times are not reservable. </p>
+      </div>
+    </div>
+    <div class="col2">
+      <div class="options">
+        <table id="hoursTable">
+          <tr class="calHours">
+            <td class="calCheckBox">Select </td>
+            <td class="calTime">Time</td>
+            <td class="calStatus">Status</td>
+          </tr>
+          <tr class="calHours">
+            <td class="calCheckBox">&nbsp;</td>
+            <td class="calTime">There are no rooms available to request at this branch.</td>
+            <td class="calStatus">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  #hoursRoomsNone_end#
+  #hoursRoomsClosed_start#
+  <div id="botRow">
+    <div class="col1">
+      <div class="instructions"> <span class="header">Step 4. </span>
+        <p><em>Choose the hours you would like to reserve. </em> </p>
+      </div>
+      <div class="options">
+        <p class="header">Please check the start and the end time that you would like to reserve.</p>
+        <p>There is a setup and cleanup time added to each reservation (light blue). These times are not reservable. </p>
+      </div>
+    </div>
+    <div class="col2">
+      <div class="options">
+        <table id="hoursTable">
+          <tr class="calHours">
+            <td class="calCheckBox">Select </td>
+            <td class="calTime">Time</td>
+            <td class="calStatus">Status</td>
+          </tr>
+          <tr class="calHours">
+            <td class="calCheckBox">&nbsp;</td>
+            <td class="calTime">This branch isn't open today.</td>
+            <td class="calStatus">&nbsp;</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+#hoursRoomsClosed_end#

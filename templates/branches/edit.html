@@ -1,0 +1,111 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Branches</h2>
+</div><h2>#actionName# Branch</h2>
+#error_start#<p style="color: red"><strong>#errorMsg#</strong></p>
+#error_end#
+<form id="form1" name="form1" method="post" action="?page=bookaroom_Settings_Branches&branchID=#branchID#&action=#action#">
+  <table class="tableMain">
+    <tr>
+      <td>Description</td>
+      <td colspan="2">Setting</td>
+    </tr>
+
+    <tr>
+      <td>Branch Name</td>
+      <td colspan="2"><input name="branchDesc" type="text" id="branchDesc" value="#branchDesc#" maxlength="64" /></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td colspan="2"><textarea name="branchAddress" cols="50" rows="3" id="branchAddress">#branchAddress#</textarea></td>
+    <tr>
+      <td>Map Link</td>
+      <td colspan="2"><input name="branchMapLink" type="text" id="branchMapLink" value="#branchMapLink#" size="50" /></td>
+    <tr>
+      <td>Image URL (580x140)<br />
+        (Gradient between 176x420)</td>
+      <td colspan="2"><input name="branchImageURL" type="text" id="branchImageURL" value="#branchImageURL#" size="50" /></td>
+    <tr>
+      <td>Available to the public</td>
+      <td colspan="2"><input name="branch_isPublic" type="radio" id="branch_isPublic" value="true"#branch_isPublicTrue# />
+      Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="branch_isPublic" id="isPubli" value="false"#branch_isPublicFalse# />
+      No</td>
+    <tr>
+      <td>Has 'No Location'</td>
+      <td><input name="branch_hasNoloc" type="radio" id="branch_hasNolocTrue" value="true"#branch_hasNolocTrue# />
+Yes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="radio" name="branch_hasNoloc" id="branch_hasNolocFalse" value="false"#branch_hasNolocFalse# />
+No</td>
+      <td>&nbsp;</td>
+    <tr>
+      <td>Sunday Open/Close (HH:MM)</td>
+      <td><input name="branchOpen_0" type="text" id="branchOpen_0" value="#branchOpen_0#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_0PM" id="branchOpen_0PM" #branchOpen_0PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_0" type="text" id="branchClose_0" value="#branchClose_0#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_0PM" id="branchClose_0PM" #branchClose_0PM_checked#/>
+PM</td>
+
+
+<tr>
+      <td>Monday Open/Close</td>
+      <td><input name="branchOpen_1" type="text" id="branchOpen_1" value="#branchOpen_1#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_1PM" id="branchOpen_1PM" #branchOpen_1PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_1" type="text" id="branchClose_1" value="#branchClose_1#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_1PM" id="branchClose_1PM" #branchClose_1PM_checked#/>
+PM</td>
+
+<tr>
+      <td>Tuesday Open/Close</td>
+      <td><input name="branchOpen_2" type="text" id="branchOpen_2" value="#branchOpen_2#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_2PM" id="branchOpen_2PM" #branchOpen_2PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_2" type="text" id="branchClose_2" value="#branchClose_2#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_2PM" id="branchClose_2PM" #branchClose_2PM_checked#/>
+PM</td>
+
+<tr>
+      <td>Wednesday Open/Close</td>
+      <td><input name="branchOpen_3" type="text" id="branchOpen_3" value="#branchOpen_3#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_3PM" id="branchOpen_3PM" #branchOpen_3PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_3" type="text" id="branchClose_3" value="#branchClose_3#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_3PM" id="branchClose_3PM" #branchClose_3PM_checked#/>
+PM</td>
+
+<tr>
+      <td>Thursday Open/Close</td>
+      <td><input name="branchOpen_4" type="text" id="branchOpen_4" value="#branchOpen_4#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_4PM" id="branchOpen_4PM" #branchOpen_4PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_4" type="text" id="branchClose_4" value="#branchClose_4#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_4PM" id="branchClose_4PM" #branchClose_4PM_checked#/>
+PM</td>
+<tr>
+      <td>Friday Open/Close</td>
+      <td><input name="branchOpen_5" type="text" id="branchOpen_5" value="#branchOpen_5#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_5PM" id="branchOpen_5PM" #branchOpen_5PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_5" type="text" id="branchClose_5" value="#branchClose_5#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_5PM" id="branchClose_5PM" #branchClose_5PM_checked#/>
+PM</td>
+<tr>
+      <td>Saturday Open/Close</td>
+      <td><input name="branchOpen_6" type="text" id="branchOpen_6" value="#branchOpen_6#" size="5" maxlength="5" />
+      <input type="checkbox" name="branchOpen_6PM" id="branchOpen_6PM" #branchOpen_6PM_checked#/>
+      PM</td>
+      <td><input name="branchClose_6" type="text" id="branchClose_6" value="#branchClose_6#" size="5" maxlength="5" />
+        <input type="checkbox" name="branchClose_6PM" id="branchClose_6PM" #branchClose_6PM_checked#/>
+PM</td>
+    </tr>
+ 
+    <tr>
+      <td colspan="3"><input type="submit" name="button" id="button" value="Submit" />
+</td>
+    </tr>
+  </table>
+</form>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

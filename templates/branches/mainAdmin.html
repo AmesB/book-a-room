@@ -1,0 +1,25 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Branches</h2>
+</div>
+<h2>New Branch</h2>
+<p><a href="?page=bookaroom_Settings_Branches&amp;action=add">Add a new branch.</a></p>
+<p>&nbsp;</p>
+<h2>Current Branches</h2>
+#some_start#
+<table class="tableMain">
+  <tr>
+    <td>Branch Name</td>
+    <td>Actions</td>
+  </tr>
+  #line_start#
+  <tr>
+    <td>#branchName#</td>
+    <td width="100" align="right"><a href="?page=bookaroom_Settings_Branches&amp;branchID=#branchID#&amp;action=edit">Edit</a> | <a href="?page=bookaroom_Settings_Branches&amp;branchID=#branchID#&amp;action=delete">Delete</a></td>
+  </tr>
+  #line_end#
+</table>
+#some_end##none_start#
+<p>There are currently no branches.</p>
+#none_end#

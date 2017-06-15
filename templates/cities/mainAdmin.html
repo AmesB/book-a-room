@@ -1,0 +1,21 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room Administration - Cities</h2>
+</div>
+<h2>New City</h2>
+<p><a href="?page=bookaroom_Settings_cityManagement&action=add">Create a new city.</a></p>
+<p>&nbsp;</p>
+<h2>Current Cities</h2>
+#none_start#<p>You haven't added any cities.</p>#none_end##some_start#<table class="tableMain">
+  <tr>
+    <td>City Name</td>
+    <td width="150">Actions</td>
+    </tr>
+#line_start#  
+  <tr>
+    <td>#cityDesc#</td>
+    <td><a href="?page=bookaroom_Settings_cityManagement&action=edit&cityID=#cityID#">Edit</a> | <a href="?page=bookaroom_Settings_cityManagement&action=delete&cityID=#cityID#">Delete</a></td>
+  </tr>#line_end#
+</table>
+#some_end# <p><a href="?page=bookaroom_Settings">Return to Meeting Room Administration Home.</a> </p>

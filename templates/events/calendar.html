@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#startDate, #endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+	
+	$("#hideToggle").click(function(){
+		$("#filterCont").slideToggle();
+	});
+});
+
+
+</script>
+<link href="#pluginLocation#/css/calendar.css" rel="stylesheet" type="text/css" />
+<a href="#top"></a>
+<div id="monthWrapper">
+  <div class="monthTitle">Choose a month [#curMonth# #curYear#]</div>
+  <div class="monthDisp"><a href="?page=bookaroom_event_management_staff&timestamp=#prevYearTimestamp#&amp;category=#category#&amp;age=#age#">&lt;&lt; #prevYearDisp#</a></div>
+  #monthDisp_start#
+  <div class="monthDisp"><a href="?page=bookaroom_event_management_staff&timestamp=#monthTimestamp#&amp;category=#category#&amp;age=#age#">#monthDisp#</a></div>
+  #monthDisp_end##monthDispSel_start#
+  <div class="monthDisp selected">#monthDisp#</div>
+  #monthDispSel_end#
+  <div class="monthDisp"><a href="?page=bookaroom_event_management_staff&timestamp=#nextYearTimestamp#&amp;category=#category#&amp;age=#age#">#nextYearDisp# &gt;&gt;</a></div>
+</div>
+<div id="calEventWrapper"> #day_start#<a name="date_#curDay#" id="date_#curDay#"></a>
+  <div class="calSingleDateWrapper">
+    <div class="calDateBorder">
+      <div class="calDateWrapper">
+        <div class="calDateDayName">#dayName#</div>
+        <div class="calDateDayDate">#daySecondary#</div>
+        <div class="miniCalContainer">
+          <div class="calWeek">
+            <div class="calDay calHeader">Su</div>
+            <div class="calDay calHeader">Mo</div>
+            <div class="calDay calHeader">Tu</div>
+            <div class="calDay calHeader">We</div>
+            <div class="calDay calHeader">Th</div>
+            <div class="calDay calHeader">Fr</div>
+            <div class="calDay calHeader">Sa</div>
+          </div>
+          #smallCal_start#
+          <div class="calWeek">#smallCalDay_start#
+            <div class="calDay#dayClass#"><a href="#date_#dayDisp#">#dayDisp#</a></div>
+            #smallCalDay_end# </div>
+          #smallCal_end#</div>
+        <div class="calDateTop"><a href="#top">Back to the top</a></div>
+      </div>
+      <div class="calEventListWrapper"> #noEvents_start#
+        <div class="calEventListContents">
+          <div class="calEventItemTime">There are no events today.</div>
+        </div>
+        #noEvents_end#
+        #event_start#
+        <div class="calEventListContents">
+          <div class="calEventItemName"><a href="?page=bookaroom_event_management_staff&action=viewEvent&amp;eventID=#eventID#" target="_blank">#eventName#</a></div>
+          <div class="calEventItemTime">#times#</div>
+          <div class="calEventItemBranch">#branch#</div>          
+          <div class="calEventItemDesc">#eventDesc##extraInfo#</div>
+          <div class="calEventItemLink"><a href="?page=bookaroom_event_management_staff&action=viewEvent&amp;eventID=#eventID#" target="_blank">View the event's details.</a></div>
+        </div>
+        #event_end# </div>
+    </div>
+  </div>
+  #day_end# 
+  
+  <!-- ----------------------------------------------------------------------- --><!-- --> 
+</div>
+
+<!--
+
+<form name="form1" method="post" action="">
+  <input name="test" type="text" id="test" value="#test#">
+  <input type="submit" name="button" id="button" value="Submit">
+</form>
+
+--> 

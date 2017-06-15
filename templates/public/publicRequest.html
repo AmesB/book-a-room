@@ -1,0 +1,226 @@
+<form name="form1" method="post">
+  <div id="topRow">
+    <div class="col">
+      <div class="instructionsSmooth"><span class="header">Step 5. </span>
+        <p><em>Complete the registration form. </em></p>
+        <p>Completing the form does not immediately guarantee your reservation. You will be contacted at the email or phone number you supply to verify your registration.</p>
+        <p><em><strong>Items marked with an asterisk* are required fields.</strong></em></p>
+#errorSome_start#        <div id="errorArea">
+          <p>You have the following error(s):</p>
+          <ul>
+           #errorMSG#
+          </ul>
+        </div>#errorSome_end#
+      </div>
+      <div class="options">
+        <div id="formRow">
+          <div class="wideCol">
+            <div class="question">Branch and Room</div>
+            <div class="formInput"><strong>#branchName#</strong><br />
+              <em>#roomName#</em></div>
+          </div>
+          <div class="wideCol">
+            <div class="question">Date</div>
+            <div class="formInput">#formDate#</div>
+          </div>
+          <div class="wideCol">
+            <div class="question">Requested times</div>
+            <div class="formInput"><strong>#startTime#</strong> to <strong>#endTime#</strong></div>
+          </div>
+          <div class="wideCol">
+            <div class="question">Non Profit 501(c)(3)*</div>
+            <div class="formInput">           
+              <input name="nonProfit" type="radio" id="nonProfitYes" value="TRUE"#NPyesChecked# />Yes&nbsp;&nbsp;&nbsp;&nbsp;<input name="nonProfit" type="radio" id="nonProfitNo" value=""#NPnoChecked#/>No
+            </div>
+          </div>
+
+<!--  Start social code -->
+          <div class="wideCol" id="socialEvent">
+            <div class="question">Social Event?
+              
+            </div>
+            <div class="formInput">           
+              <input name="social" type="radio" id="socialYes" value="TRUE"#SOyesChecked# />Yes&nbsp;&nbsp;&nbsp;&nbsp;<input name="social" type="radio" id="socialNo" value=""#SOnoChecked# />No<br />
+<span style="font-size:.75em; font-weight: normal">(A baby shower or a birthday party, for example.)</span>
+
+            </div>
+          </div>
+<!--   Library Card -->
+          <div class="wideCol" id="libraryCard">
+            <div class="question">Library Card Number?*</div>
+            <div class="formInput">           
+              <input #libcardNum_class#name="libcardNum" type="text" id="libcardNum" value="#libcardNum#" />
+            </div>
+          </div>
+                            
+          <div class="wideCol">
+            <div class="question"><label for="eventName">Event/Organization name*</label></div>
+            <div class="formInput">
+              <input #eventName_class#name="eventName" type="text" id="eventName" value="#eventName#" size="64" maxlength="255" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="numAtend">Number of attendees*</label></div>
+            <div class="formInput">
+              <input #numAttend_class#name="numAttend" type="text" id="numAttend" value="#numAttend#" size="3" maxlength="3" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="desc">Purpose of meeting*</label></div>
+            <div class="formInput">
+              <textarea #desc_class#name="desc" rows="3" id="desc">#desc#</textarea>
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="contactName">Contact name*</label></div>
+            <div class="formInput">
+              <input #contactName_class#name="contactName" type="text" id="contactName" value="#contactName#" size="32" maxlength="64" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="contactPhonePrimary">Primary phone*</label></div>
+            <div class="formInput">
+              <input #contactPhonePrimary_class#name="contactPhonePrimary" type="text" id="contactPhonePrimary" value="#contactPhonePrimary#" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="contactPhoneSecondary">Alternative phone</label></div>
+            <div class="formInput">
+              <input #contactPhoneSecondary_class#name="contactPhoneSecondary" type="text" id="contactPhoneSecondary" value="#contactPhoneSecondary#" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question">#address1_name#
+              <label for="contactAddress1">*</label></div>
+            <div class="formInput">
+              <input #contactAddress1_class#name="contactAddress1" type="text" id="contactAddress1" value="#contactAddress1#" size="64" maxlength="255" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question">#address2_name#</div>
+            <div class="formInput">
+              <input name="contactAddress2" type="text" id="contactAddress2" value="#contactAddress2#" size="64" maxlength="255" />
+            </div>
+          </div>
+<!-- city information including drop down for social events -->
+          <div class="wideCol" id="cityFill">
+            <div class="question">
+              <label for="contactCity">#city_name#</label></div>
+            <div class="formInput">
+              <input #contactCity_class#name="contactCity" type="text" id="contactCity" value="#contactCity#" maxlength="255" />
+            </div>
+          </div>
+
+          <div class="wideCol" id="cityDrop">
+            <div class="question">
+              <label for="contactCityDrop">#city_name#</label></div>
+            <div class="formInput"><div class="formDiv">
+             <select #contactCity_class#name="contactCityDrop" id="contactCityDrop">
+                #contactCityDrop_start#<option value="#contactCityDrop_val#"#contactCityDrop_selected#>#contactCityDrop_desc#</option>#contactCityDrop_end#
+              </select></div>
+            </div>
+          </div>
+
+          <div class="wideCol">
+            <div class="question">
+              <label for="contactState">#state_name#</label></div>
+            <div class="formInput"><div class="formDiv">
+              #stateDropCon_start#<select #contactState_class#name="contactState" id="contactState">
+                #stateDrop_start#<option value="#stateDrop_val#"#stateDrop_selected#>#stateDrop_desc#</option>#stateDrop_end#
+              </select>#stateDropCon_end##stateTextCon_start#      <input name="contactState" type="text" id="contactCity" value="#contactState#" #contactCity_class#name="contactCity" maxlengtr="255" />#stateTextCon_end#</div>
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question">
+              <label for="contactZip">#zip_name#</label></div>
+            <div class="formInput">
+              <input #contactZip_class#name="contactZip" type="text" id="contactZip" value="#contactZip#" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question"><label for="contactEmail">Email Address*</label></div>
+            <div class="formInput">
+              <input #contactEmail_class#name="contactEmail" type="text" id="contactEmail" value="#contactEmail#" size="64" maxlength="255" />
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question">Amenities</div>
+            <div class="formInput"> 
+              #formAmenitiesSome_start#<div class="formAmenities">
+                <label for="amenity_#amenityVal#"><input type="checkbox" value="#amenityVal#" name="amenity[]" id="amenity_#amenityVal#"#amenityChecked# />
+                #amenityName#</label></div>
+                #formAmenitiesSome_end##formAmenitiesNone_start#No amenities are available for this room.#formAmenitiesNone_end#
+            </div>
+          </div>
+          <div class="wideCol">
+            <div class="question">&nbsp;&nbsp;</div>
+            <div class="formInput">
+              <input name="startTime" type="hidden" id="startTime" value="#realStartTime#" />
+              <input name="endTime" type="hidden" id="endTime" value="#realEndTime#" />
+              <input name="roomID" type="hidden" id="roomID" value="#roomID#" />
+              <input name="action" type="hidden" id="action" value="#action#" />
+<input type="submit" name="button" id="button" value="Submit" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<script>
+/* check if nonprofit is selected */
+jQuery( "#nonProfitYes" ).click(function() {
+	jQuery( "#socialEvent" ).hide();
+	jQuery( "#libraryCard" ).hide();
+	jQuery( "#cityDrop" ).hide();
+	jQuery( "#cityFill" ).show();	
+	refreshColors();
+});
+jQuery( "#nonProfitNo" ).click(function() {
+	jQuery( "#socialEvent" ).show();
+	if( jQuery( "input[name=social]:checked" ).val() == "TRUE" ) {
+		jQuery( "#libraryCard" ).show();
+	}
+	refreshColors();
+});
+
+jQuery( "#socialYes" ).click(function() {
+	jQuery( "#cityDrop" ).show();
+	jQuery( "#cityFill" ).hide();
+	jQuery( "#libraryCard" ).show();
+	refreshColors();
+});
+jQuery( "#socialNo" ).click(function() {
+	jQuery( "#cityDrop" ).hide();
+	jQuery( "#cityFill" ).show();
+	jQuery( "#libraryCard" ).hide();
+	refreshColors();
+});
+jQuery( document ).ready(function() {
+	if( jQuery( "input[name=nonProfit]:checked" ).val() == "" ) {
+		jQuery( "#socialEvent" ).show();
+	} else  {
+		jQuery( "#socialEvent" ).hide();
+		jQuery( "#libraryCard" ).hide();
+	}
+
+	if( jQuery( "input[name=social]:checked" ).val() == "" ) {
+		jQuery( "#cityDrop" ).hide();
+		jQuery( "#cityFill" ).show();
+		jQuery( "#libraryCard" ).hide();		
+		
+	} else  {
+		jQuery( "#cityDrop" ).show();
+		jQuery( "#cityFill" ).hide();
+		jQuery( "#libraryCard" ).show();
+	}
+
+	refreshColors();
+
+});
+
+function refreshColors() {
+	jQuery('#formRow div.question:visible:even, #formRow div.formInput:visible:even').css('background', '#FFF');
+	jQuery('#formRow div.question:visible:odd, #formRow div.formInput:visible:odd').css('background', '#EEE');
+}
+</script>

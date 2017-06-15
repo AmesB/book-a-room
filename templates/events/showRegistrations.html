@@ -1,0 +1,94 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#startDate, #endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+	
+	$("#hideToggle").click(function(){
+		$(".searchArea").toggle();
+	});
+});
+
+
+</script>
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Manage Registrations</h2>
+</div>
+<form name="form1" method="post" action="">
+  <table width="100%" class="tableMain freeWidth">
+    <tr>
+      <td>Event ID</td>
+      <td>Date/Time</td>
+      <td>Title/Desc</td>
+      <td>Branch/Room</td>
+    </tr>
+  <tr>
+    <td>#eventID#</td>
+    <td nowrap="nowrap">#date#<br />
+      <em>#time#</em></td>
+    <td><strong>#title#</strong><br />
+      #desc#</td>
+    <td nowrap="nowrap"><p><strong>#branch#</strong><br />
+      #room#</p></td>
+    </tr>
+  </table>
+  <h3>
+    Registrations
+  </h3>
+  <table class="tableMain">
+    <tr>
+      <td>Name</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Notes</td>
+      <td>Date</td>
+      <td>Action</td>
+    </tr>
+#noReg_start#    <tr>
+      <td colspan="6">No registrations.</td>
+    </tr>
+#noReg_end##reg_start#    <tr>
+      <td>#regName#</td>
+      <td>#regPhone#</td>
+      <td>#regEmail_start#<a href="mailto:#regEmail#">#regEmail#</a>#regEmail_end#</td>
+      <td>#regNotes#</td>
+      <td>#regDate#<br />
+        #regTime#</td>
+      <td><p><a href="?page=bookaroom_event_management&amp;action=edit_registration&amp;regID=#regID#&amp;eventID=#eventID#">Edit</a><br>
+      <a href="?page=bookaroom_event_management&amp;action=delete_registration&amp;regID=#regID#&amp;eventID=#eventID#">Delete</a></p></td>
+    </tr>
+#reg_end#
+  </table>
+<br />
+  <h3>
+    Waiting List
+  </h3>
+  <table class="tableMain">
+    <tr>
+      <td>Name</td>
+      <td>Phone</td>
+      <td>Email</td>
+      <td>Notes</td>
+      <td>Date</td>
+      <td>Action</td>
+    </tr>
+#noWaitList_start#    <tr>
+      <td colspan="6">No waiting list.</td>
+    </tr>
+#noWaitList_end##waitList_start#    <tr>
+      <td>#waitListName#</td>
+      <td>#waitListPhone#</td>
+      <td>#waitListEmail_start#<a href="mailto:#waitListEmail#">#waitListEmail#</a>#waitListEmail_end#</td>
+      <td>#waitListNotes#</td>
+      <td>#waitListDate#<br />
+        #waitListTime#</td>
+      <td><p><a href="?page=bookaroom_event_management&action=edit_registration&regID=#waitListID#&eventID=#eventID#">Edit</a><br>
+      <a href="?page=bookaroom_event_management&amp;action=delete_registration&amp;regID=#waitListID#&amp;eventID=#eventID#">      Delete</a></p></td>
+    </tr>
+#waitList_end#
+  </table>
+</form>

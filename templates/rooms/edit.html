@@ -1,0 +1,42 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Rooms</h2>
+</div>
+<h2>#actionName# a room</h2>
+#error_start#<p style="color: red"><strong>#errorMsg#</strong></p>
+#error_end#
+<form name="form1" method="post" action="?page=bookaroom_Settings_Rooms&action=#action#&roomID=#roomID#">
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Room Information</td>
+    </tr>
+    <tr>
+      <td><label for="roomDesc">Room Name</label></td>
+      <td>
+      <input name="roomDesc" type="text" id="roomDesc" value="#roomDesc#" size="48" maxlength="64"></td>
+    </tr>
+    <tr>
+      <td><label for="branch">Branch</label></td>
+      <td>
+        <select name="branch" id="branch">
+#branchList_start#          <option value="#branch_val#" #branch_selected#>#branch_disp#</option>#branchList_end#
+      </select></td>
+    </tr>
+    <tr>
+      <td colspan="2" class="subHeader">Amenities</td>
+    </tr>
+#amenityNone_start#    <tr>
+      <td colspan="2">You haven't created any amenities</td>
+    </tr>#amenityNone_end#
+#amenitySome_start#    <tr>
+      <td><label for="amenity[#amenityID#]">#amenity#</label></td>
+      <td>
+      <input name="amenity[#amenityID#]" type="checkbox" id="amenity[#amenityID#]" #amenity_checked#></td>
+    </tr>#amenitySome_end#
+<tr>
+  <td colspan="2"><input type="submit" name="button" id="button" value="Submit"></td>
+  </tr>
+
+  </table>
+</form>

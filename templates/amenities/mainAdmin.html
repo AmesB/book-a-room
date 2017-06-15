@@ -1,0 +1,23 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room Administration - Amenities</h2>
+</div>
+<h2>New amenity</h2>
+<p><a href="?page=bookaroom_Settings_Amenities&amp;action=add">Create a new amenity.</a></p>
+<p>&nbsp;</p>
+<h2>Current Amenities</h2>
+#none_start#<p>You haven't created any amenities.</p>#none_end##some_start#<table class="tableMain">
+  <tr>
+    <td>Amenity Name</td>
+    <td>Reservable?</td>
+    <td width="150">Actions</td>
+    </tr>
+#line_start#  
+  <tr>
+    <td>#amenityDesc#</td>
+    <td>#isReservable#</td>
+    <td><a href="?page=bookaroom_Settings_Amenities&amp;action=edit&amp;amenityID=#amenityID#">Edit</a> | <a href="?page=bookaroom_Settings_Amenities&amp;action=delete&amp;amenityID=#amenityID#">Delete</a></td>
+  </tr>#line_end#
+</table>
+#some_end# <p><a href="?page=bookaroom_Settings">Return to Meeting Room Administration Home.</a> </p>

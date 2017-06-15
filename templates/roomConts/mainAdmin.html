@@ -1,0 +1,46 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Room Containers</h2>
+</div>
+<h2>Current Room Containers by Branch</h2>
+#none_start#<p>You haven't created any room containers.</p>
+#none_end##some_start#
+<table class="tableMain">
+
+  <tr>
+    <td>#branchName# </td>
+    <td>#add_start#<a href="?page=bookaroom_Settings_RoomCont&amp;branchID=#branchID#&amp;action=add">Add a new container</a>#add_end##addNone_start#No rooms in this branch.#addNone_end#</td>
+  </tr>
+
+#roomCont_none_start#
+ <tr>
+    <td colspan="2">No rooms containers in this branch.</td>
+  </tr>#roomCont_none_end##roomCont_some_start#
+
+  <tr>
+    <td class="subHeader">Room Container Name</td>
+    <td width="250" class="subHeader">Settings</td>
+  </tr>
+  <tr>
+    <td class="bufferLeft"><strong>#roomContDesc##public_start# [Public]#public_end##hideDaily_start# [Hide]#hideDaily_end#</strong></td>
+    <td width="250"><a href="?page=bookaroom_Settings_RoomCont&amp;&amp;roomContID=#roomContID#&amp;action=edit">Edit</a> | <a href="?page=bookaroom_Settings_RoomCont&amp;&amp;roomContID=#roomContID#&amp;action=delete">Delete</a></td>
+  </tr>
+#roomCont_noRooms_start#
+  <tr>
+    <td colspan="2">This container has no rooms.</td>
+  </tr>
+#roomCont_noRooms_end##roomCont_rooms_start#
+  <tr>
+    <td colspan="2" class="bufferLeftDouble">#roomDesc#</td>
+  </tr>
+<tr>
+  <td colspan="2" class="bufferLeftTriple"><em>Amenities: #amenityList#</em></td>
+</tr>
+#roomCont_rooms_end##roomCont_some_end##some_end#</table>
+#noneBranch_start#
+<p><a href="#"></a>You haven't created any branches yet so you can't create any room containers.</p>
+<p><a href="?page=bookaroom_Settings_Branches&amp;action=add">Create a new branch.</a> </p>#noneBranch_end##noneRoom_start#
+<p><a href="#"> </a>You haven't created any rooms yet so you can't create any room containers.</p>
+<p><a href="?page=bookaroom_Settings_Rooms&amp;action=add">Create a new room.</a> #noneRoom_end#</p>
+<p><a href="?page=bookaroom_Settings_RoomCont">Return to Room Container Home.</a></p>

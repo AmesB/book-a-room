@@ -1,0 +1,61 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Events - Category Admin</h2>
+</div>
+#error_start#
+<p><h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+<h2>Active List of categories</h2>
+<p><table width="100%" border="0" class="tableMain">
+  <tr>
+    <td width="85%">Name</td>
+    <td width="5%">Edit</td>
+    <td width="5%">Deactivate</td>
+    <td width="5%">Order</td>
+  </tr>
+#active_start#  <tr>
+  <td>#groupName#</td>
+  <td><a href="?page=bookaroom_event_settings_categories&action=edit&groupID=#groupID#">Edit</a></td>
+    <td><a href="?page=bookaroom_event_settings_categories&action=deactivate&groupID=#groupID#">Deactivate</a></td>
+    <td nowrap>#linkLine#</td>
+  </tr>#active_end#
+#activeNone_start#  <tr>
+    <td colspan="4">There are currently no active categories.<a href="?page=bookaroom_event_settings_categories&action=moveUp&id=#groupID#"></a></td>
+  </tr>#activeNone_end#
+</table>
+</p><p>
+<form action="?page=bookaroom_event_settings_categories" method="post" name="addCategory" id="addCategory">
+  <h2>Add a new categories.</h2>
+  <table width="100%" border="0" class="tableMain">
+    <tr>
+      <td>Option</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>Category name</td>
+      <td><input name="newName" type="text" id="newName" value="#newName#"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input name="action" type="hidden" id="action" value="addCheck">        <input type="submit" name="button2" id="button2" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+</p><p>
+  <h2>Inactive categories</h2>
+  <table width="100%" border="0" cellspacing="2" cellpadding="2" class="tableMain">
+    <tr>
+      <td width="90%">Group Name</td>
+      <td width="5%">Uses</td>
+      <td width="5%" nowrap>Reactivate?</td>
+    </tr>
+#inactive_start#    <tr>
+      <td nowrap>#groupName#</td>
+      <td nowrap>#groupUses#</td>
+      <td nowrap><a href="?page=bookaroom_event_settings_categories&amp;action=reactivate&amp;groupID=#groupID#">Reactivate</a></td>
+    </tr>#inactive_end#
+#inactiveNone_start#    <tr>
+      <td colspan="3">There are no inactive categories.</td>
+      </tr>#inactiveNone_end#
+  </table>
+</p>

@@ -1,0 +1,47 @@
+<html>
+<body style="font-family: Verdana, Geneva, sans-serif">
+<div style="font-size: 1.25em; font-weight: bold; padding-bottom: 10px;">
+   <p>Meeting room schedule for #dateChosen#.</p></div>
+#none_start#
+<div style="width: 600px; padding-top: 4px; padding-bottom: 4px;">There are no meetings on this date.</div>
+#none_end#
+#some_start#
+<table width="100%" style="border: thin solid #666; font-size: 1.1em;">
+  <tr>
+    <td colspan="5" style="border: thin solid #666; padding: 6px; background: #44F; font-weight: bold; text-align: center; color: #FFF;">#dateChosen#</td>
+  </tr>
+  <tr>
+    <td style="border: thin solid #666; padding: 6px; background: #333; font-weight: bold; text-align: center; color: #FFF;">Location</td>
+    <td style="border: thin solid #666; padding: 6px; background: #333; font-weight: bold; text-align: center; color: #FFF;">Time</td>
+    <td style="border: thin solid #666; padding: 6px; background: #333; font-weight: bold; text-align: center; color: #FFF;">Description</td>
+    <td style="border: thin solid #666; padding: 6px; background: #333; font-weight: bold; text-align: center; color: #FFF;">Organization</td>
+    <td style="border: thin solid #666; padding: 6px; background: #333; font-weight: bold; text-align: center; color: #FFF;">Amenities</td>
+  </tr>
+#reservation_start#  <tr style="background: #bgColor#;">
+    <td style="border: thin solid #666; padding: 6px;"><strong>#branchName#</strong><br />
+    #roomName#</td>
+    <td style="border: thin solid #666; padding: 6px;">#startTime# - 
+      #endTime#</td>
+    <td style="border: thin solid #666; padding: 6px;">#desc#</td>
+    <td style="border: thin solid #666; padding: 6px;">#organization#</td>
+    <td style="border: thin solid #666; padding: 6px;">#amenities#</td>
+  </tr>#reservation_end#
+#reservations_start#  <tr style="background: #bgColor#;">
+    <td rowspan="#rowspan#" style="border: thin solid #666; padding: 6px;"><strong>#branchName#</strong><br />
+    #roomName#</td>
+    <td style="border: thin solid #666; padding: 6px;">#startTime# - 
+      #endTime#</td>
+    <td style="border: thin solid #666; padding: 6px;">#desc#</td>
+    <td style="border: thin solid #666; padding: 6px;">#organization#</td>
+    <td style="border: thin solid #666; padding: 6px;">#amenities#</td>
+  </tr>
+#subRes_start#<tr style="background: #bgColor#;">
+  <td style="border: thin solid #666; padding: 6px;">#startTime# - 
+    #endTime#</td>
+  <td style="border: thin solid #666; padding: 6px;">#desc#</td>
+  <td style="border: thin solid #666; padding: 6px;">#organization#</td>
+  <td style="border: thin solid #666; padding: 6px;">#amenities#</td>
+</tr>#subRes_end#
+#reservations_end#
+</table>
+#some_end#</body></html>

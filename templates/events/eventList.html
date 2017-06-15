@@ -1,0 +1,211 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#startDate, #endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+	
+	$("#hideToggle").click(function(){
+		$(".searchArea").toggle();
+	});
+
+	$("#resetAge").click( function(){
+		$("#ageGroup option:selected").removeAttr("selected");
+		
+	});
+	$("#resetCats").click( function(){
+		$("#categoryGroup option:selected").removeAttr("selected");
+		
+	});
+	
+	if( #hideSearch# ){ $(".searchArea").toggle(); }
+	
+});
+</script>
+<body class="ui-dialog-titlebar-close">
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room - Manage Events</h2>
+</div>
+<a name="top"></a><form name="form1" method="post" action="?page=bookaroom_event_management_upcoming">
+  <br>
+  <table width="100%" class="tableMain">
+    <tr>
+      <td colspan="2">Search/Filter Settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="float:right; cursor:pointer; text-decoration:underline" id="hideToggle">Hide/Show</div></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Branch</td>
+      <td><select name="roomID" id="roomID">
+          
+      #room_start#
+          <option value="#roomVal#"#roomSelected##roomSelectedClass# >#roomDesc#</option>
+          #room_end#
+        
+        </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Start Date</td>
+      <td><input name="startDate" type="text" id="startDate" value="#startDate#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td>End Date</td>
+      <td><input name="endDate" type="text" id="endDate" value="#endDate#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Published</td>
+      <td><select name="published" id="published">
+          
+        #published_start#
+          <option value="#published_val#"#published_selected#>#published_desc#</option>
+          #published_end#
+      
+        </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Registration type</td>
+      <td><select name="regType" id="regType">
+          
+        #regType_start#
+          <option value="#regType_val#"#regType_selected#>#regType_desc#</option>
+          #regType_end#
+      
+        </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Search Terms</td>
+      <td><input name="searchTerms" type="text" id="searchTerms" value="#searchTerms#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Age Group<br />
+        <span style="font-size:.8em">Hold down control to select multiple entries.</span></td>
+      <td><select name="ageGroup[]" size="4" multiple="multiple" id="ageGroup">
+          
+        #ageGroup_start#
+          <option value="#ageGroup_val#" #ageGroup_selected#>#ageGroup_desc#</option>
+          #ageGroup_end#
+      
+        </select>
+        <input type="button" name="resetAge" id="resetAge" value="Clear" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Categories<br />
+        <span style="font-size:.8em">Hold down control to select multiple entries.</span></td>
+      <td><select name="categoryGroup[]" size="4" multiple="multiple" id="categoryGroup">
+          
+        
+        #categoryGroup_start#
+        
+          <option value="#categoryGroup_val#" #categoryGroup_selected#>#categoryGroup_desc#</option>
+          
+        #categoryGroup_end#
+      
+      
+        </select>
+        <input type="button" name="resetCats" id="resetCats" value="Clear" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td colspan="2" align="center"><input name="action" type="hidden" id="action" value="filterResults">
+        <input type="submit" name="submit" id="submit_search" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+#search_start#<br />
+<br />
+#error_start#
+<p style="color: #F00;"> #errorMSG#</p>
+#error_end#
+<h1>Search Results</h1>
+<form name="form2" method="post" action="?page=bookaroom_event_management_upcoming">
+  <div style="width: 900px; white-space: nowrap;">
+    <div style="display: inline-block; width: 30%; white-space: normal;">
+      <h2><em>#rowCount# result(s), per page: #per_page#.</em></h2>
+      <h3>
+        <input type="submit" name="submit_count" id="submit_10" value="10">
+        <input type="submit" name="submit_count" id="submit_25" value="25">
+        <input type="submit" name="submit_count" id="submit_50" value="50">
+        <input type="submit" name="submit_count" id="submit_100" value="100">
+        <input type="submit" name="submit_count" id="submit_all" value="All">
+      </h3>
+    </div>
+    <div style="display: inline-block; width: 70%; white-space: normal; text-align:right">
+      <h3>Pages</h3>
+      #some_pages_start#
+      <h2>
+      <input type="submit" name="submit_nav" id="submit_nav_prev" value="Prev"#submit_prev_disabled#>
+      &nbsp;&nbsp;&nbsp;
+      <select name="pageNum" id="pageNum">
+        
+          #page_num_start#
+        <option value="#page_num#"#page_num_selected#>#page_num#</option>
+        #page_num_end#
+        
+      </select>
+      / #totalPages#
+      <input name="action" type="hidden" id="action" value="filterResults">
+      <input name="roomID" type="hidden" id="roomID" value="#pn_roomID#">
+      <input name="endDate" type="hidden" id="endDate" value="#pn_endDate#">
+      <input name="published" type="hidden" id="published" value="#pn_published#">
+      <input name="searchTerms" type="hidden" id="searchTerms" value="#pn_searchTerms#">
+      <input name="startDate" type="hidden" id="startDate" value="#pn_startDate#">
+      #pn_ageGroup_start#
+      <input name="ageGroup[]" type="hidden" id="ageGroup-#pn_ageGroup#" value="#pn_ageGroup#">
+      #pn_ageGroup_end#
+      #pn_categories_start#
+      <input name="categoryGroup[]" type="hidden" id="categoryGroup-#pn_categoryGroup#" value="#pn_categoryGroup#">
+      #pn_categories_end#
+      <input name="regType" type="hidden" id="regType" value="#pn_regType#">
+      <input name="branchID" type="hidden" id="branchID" value="#pn_branchID#">
+      <input name="noloc-branchID" type="hidden" id="noloc-branchID" value="#pn_noloc-branchID#">
+      <input name="submit_nav" type="submit" id="submit_prev" title="Switch Page" value="Go!">
+      &nbsp;&nbsp;&nbsp;
+      <input type="submit" name="submit_nav"#submit_next_disabled# id="submit_nav_next" value="Next">
+      #some_pages_end##none_pages_start#
+      <h2>1/1</h2>
+      #none_pages_end# </div>
+  </div>
+
+<table width="100%" class="tableMain freeWidth">
+  <tr>
+    <td>Event ID</td>
+    <td>Date/Time</td>
+    <td>Title/Desc</td>
+    <td>Branch/Room</td>
+    <td>Registrations</td>
+    <td>Actions</td>
+  </tr>
+  #searchItem_start#
+  <tr>
+    <td>#eventID#</td>
+    <td nowrap="nowrap">#date#<br />
+      <em>#time#</em></td>
+    <td><p><strong>#title#</strong><br />
+        #desc#<br />
+        #extraInfo# </p></td>
+    <td nowrap="nowrap"><p><strong>#branch#</strong><br />
+        #room#</p></td>
+    <td nowrap="nowrap">#staffEvent_start#<strong>Staff Event<br />
+      </strong>#staffEvent_end##registration_start##registered# / #total#<br />
+      <a href="?page=bookaroom_event_management&amp;action=manage_registrations&amp;eventID=#eventID#" target="_new">Manage Registrations</a>#registration_end##noRegistration_start#None Required#noRegistration_end#<br />
+      <a href="?page=bookaroom_event_management&amp;action=manage_attendance&amp;eventID=#eventID#" target="_new">Attendance Data</a><br />
+      <a href="#eventLink#?action=viewEvent&amp;eventID=#eventID#" target="_new">View &amp; Register</a><br /></td>
+    <td nowrap="nowrap">#multi_start#<a href="?page=bookaroom_event_management&amp;action=edit_instance&amp;eventID=#eventID#" target="_new">Edit Instance</a><br />
+      <a href="?page=bookaroom_event_management&amp;action=edit_event&amp;eventID=#eventID#" target="_new">Edit Event</a><br />
+      <a href="?page=bookaroom_event_management&amp;action=delete_instance&amp;eventID=#eventID#" target="_new">Delete Instance</a><br />
+      <a href="?page=bookaroom_event_management&amp;action=delete_multi&amp;eventID=#eventID#" target="_new">Delete Event</a><br />
+      #multi_end##single_start# <a href="?page=bookaroom_event_management&action=edit_single&amp;eventID=#eventID#" target="_new">Edit</a><br />
+      <a href="?page=bookaroom_event_management&action=delete&amp;eventID=#eventID#">Delete</a><br />
+      #single_end#<a href="?page=bookaroom_event_management&amp;action=copy&amp;eventID=#eventID#" target="_new">Copy</a></td>
+  </tr>
+  #searchItem_end#
+  #searchNone_start#
+  <tr>
+    <td colspan="6">Nothing matches your search criteria.</td>
+  </tr>
+  #searchNone_end#
+</table>
+<h2><a href="#top">Back to the top</a> 
+</h2>#search_end#
+</form>

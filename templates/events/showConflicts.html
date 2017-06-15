@@ -1,0 +1,55 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Events</h2>
+</div>
+<h2>Event Conflicts</h2>
+<form name="form1" method="post" action="">
+  <table class="tableMain freeWidth">
+    <tr>
+      <td>Date</td>
+      <td>Time</td>
+      <td>Type</td>
+      <td>Desc</td>
+      <td>Location</td>
+      <td>Action</td>
+    </tr>
+#good_start#    <tr>
+      <td>#date#</td>
+      <td colspan="5" align="center">No conflict</td>
+      </tr>#good_end#
+#conflict_start#    <tr>
+      <td>#date#</td>
+      <td nowrap="nowrap">#time#</td>
+      <td>#type#</td>
+      <td>#desc#</td>
+      <td>#location#</td>
+        <td#rowSpan_start# rowspan="#rowspan#"#rowSpan_end# nowrap="nowrap">
+         <!-- <select name="newVal[#date#]" id="newVal[#date#]">
+            #dropList_start#<option class="#dropList_class#"#dropList_disabled##dropList_selected# value="#dropList_val#">#dropList_desc#</option>#dropList_end#
+          </select><br />-->
+          <input name="delete[#date#]" type="checkbox" value="#date#"#date_checked# /> Delete
+      </td>
+    </tr>#conflict_end#
+#deleted_start#    <tr>
+      <td>#date#</td>
+      <td colspan="4" align="center" nowrap="nowrap">No conflict - Deleted</td>
+      <td nowrap="nowrap">
+          <input name="delete[#date#]" type="checkbox" value="#date#"#date_checked# /> Delete
+      </td>
+    </tr>#deleted_end#
+    #extra_start#    <tr>
+      <td>#date#</td>
+      <td nowrap="nowrap">#time#</td>
+      <td>#type#</td>
+      <td>#desc#</td>
+      <td>#location#</td>
+    </tr>#extra_end#    
+    <tr>
+      <td colspan="6" align="center">
+      <input type="hidden" name="recurrence" id="recurrence" value="#recurrence#" />
+        <input type="hidden" name="action" id="action" value="checkConflicts" />
+        <input type="submit" name="button" id="button" value="Submit"></td>
+    </tr>
+  </table>
+</form>

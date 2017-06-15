@@ -1,0 +1,22 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Events - Age Groups Admin - Deactivate</h2>
+</div>
+<h2>Deactivate an age group</h2>
+#error_start#
+<p><h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+<table width="100%" border="0" class="tableMain">
+  <tr>
+    <td>Deactivate </td>
+  </tr>
+  <tr>
+    <td>Are you sure you want to deativate #groupName#? This is not permanent and any events that have used this age group will still display it. It will not be available for future events unless you reactivate it.</td>
+  </tr>
+  <tr>
+    <td class="redBold"><a href="?page=bookaroom_event_settings&action=deactivateFinal&amp;groupID=#groupID#&hash=#hash#&time=#time#">Yes. Deactivate #groupName#.</a></td>
+  </tr>
+</table>
+<p><a href="?page=bookaroom_event_settings">Cancel and return to Age Group management.</a></p>
+</p>

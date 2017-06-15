@@ -1,0 +1,25 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Events - Category Admin - Edit</h2>
+</div>
+#error_start#
+<p><h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+<h2>Add a new category</h2>
+<form action="?page=bookaroom_event_settings_categories" method="post" name="addCategory" id="addCategory">
+  <table width="100%" border="0" class="tableMain">
+    <tr>
+      <td>Option</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td>Category name</td>
+      <td><input name="newName" type="text" id="newName" value="#newName#"></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center"><input name="groupID" type="hidden" id="groupID" value="#groupID#"><input name="action" type="hidden" id="action" value="editCheck">        <input type="submit" name="button2" id="button2" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+</p>

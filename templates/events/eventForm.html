@@ -1,0 +1,37 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Events</h2>
+</div>
+<h2>New Event</h2>
+#error_start#<h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+<form name="form1" method="post" action="?page=bookaroom_event_management">
+  <table class="tableMain">
+    <tr>
+      <td>Setting</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td width="75">Branch      
+      <input name="branchID" type="hidden" id="branchID" value="#branchID#" /></td>
+      <td>
+	  #branchNone_start#<h3>There are no branches to select.</h3>#branchNone_end##branchSel_start#<h3>#branchDesc#</h3>#branchSel_end##branch_start#<p><a href="?page=bookaroom_event_management&branchID=#branchID#" >#branchDesc#</a></p>#branch_end#
+      </td>
+    </tr>
+    <tr>
+      <td>Room      
+      <input name="roomID" type="hidden" id="roomID" value="#roomID#" /></td>
+      <td>
+      #roomBranch_start#Please select a branch.#roomBranch_end#
+      #roomNone_start#There are no roomes in this branch.#roomNone_end#
+      #roomSel_start#<h3>#roomDesc#</h3>#roomSel_end##room_start#<p><a href="?page=bookaroom_event_management&roomID=#roomID#">#roomDesc#</a></p>#room_end#</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="action" type="hidden" id="action" value="checkLocation" /><input type="submit" name="Submit" id="submit" value="Submit" /></td>
+    </tr>
+
+  </table>
+  <h3>&nbsp;</h3>
+</form>

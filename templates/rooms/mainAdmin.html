@@ -1,0 +1,39 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Rooms</h2>
+</div>
+<h2>Current Rooms by Branch</h2>
+#none_start#
+<p>You haven't created any rooms.</p>
+#none_end##some_start#
+<table class="tableMain">
+<tr>
+    <td colspan="2">Branch List</td>
+  </tr>
+  #branch_start#
+  <tr>
+    <td colspan="2" class="subHeader">#branchName#</td>
+  </tr>
+  #line_start#
+  <tr>
+    <td class="bufferLeft"><strong>#roomDesc#</strong></td>
+    <td><a href="?page=bookaroom_Settings_Rooms&branchID=#branchID#&roomID=#roomID#&action=edit">Edit</a> | <a href="?page=bookaroom_Settings_Rooms&branchID=#branchID#&roomID=#roomID#&action=delete">Delete</a></td>
+  </tr>
+  <tr>
+    <td colspan="2" class="bufferLeftDouble"><em>Amenities: #amenityList#</em></td>
+  </tr>
+  #line_end#
+  #no_line_start#
+  <tr>
+    <td colspan="2">No rooms in this branch.<a href="#"></a></td>
+  </tr>
+  #no_line_end##branch_end#
+</table>
+#some_end#
+#someBranch_start#
+<p><a href="?page=bookaroom_Settings_Rooms&action=add">Create a new room.</a></p>
+#someBranch_end#
+  #noneBranch_start#
+<p><a href="#"> </a>You haven't created any branches yet so you can't create any rooms.</p>
+<p><a href="?page=bookaroom_Settings_Branches&amp;action=add">Create a new branch.</a> #noneBranch_end# </p>

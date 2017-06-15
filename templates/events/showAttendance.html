@@ -1,0 +1,51 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room - Attendance</h2>
+</div>
+<form name="form1" method="post" action="?page=bookaroom_event_management">
+  <table class="tableMain">
+    <tr>
+      <td>Event ID</td>
+      <td>Date/Time</td>
+      <td>Title/Desc</td>
+      <td>Branch/Room</td>
+      <td>Registrations</td>
+    </tr>
+    <tr>
+      <td>#eventID#</td>
+      <td nowrap="nowrap">#date#<br />
+        <em>#time#</em></td>
+      <td><strong>#title#</strong><br />
+        #desc#</td>
+      <td nowrap="nowrap"><p><strong>#branch#</strong><br />
+          #room#</p></td>
+      <td nowrap="nowrap">#registered# / #registeredTotal#</td>
+    </tr>
+  </table>
+  <br />
+   #error_start#<h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Attendance Information</td>
+    </tr>
+    <tr>
+      <td>Num. Attended</td>
+      <td><input name="attCount" type="text" id="attCount" value="#attCount#" /></td>
+    </tr>
+    <tr>
+      <td>Notes</td>
+      <td><textarea name="attNotes" id="attNotes" cols="45" rows="5">#attNotes#</textarea></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="eventID" type="hidden" id="eventID" value="#eventID#" />
+        <input name="action" type="hidden" id="action" value="edit_attendance" />
+        <input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+  <p><a href="?page=bookaroom_event_management_upcoming">Cancel and go back to search.</a></p>
+</form>

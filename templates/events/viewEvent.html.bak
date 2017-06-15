@@ -1,0 +1,214 @@
+<link href="#pluginLocation#/css/calendar.css" rel="stylesheet" type="text/css" />
+<table class="tableMain">
+  <tr>
+    <td colspan="2">Event Information</td>
+  </tr>
+  <tr>
+    <td>Title:</td>
+    <td>#eventTitle#</td>
+  </tr>
+  <tr>
+    <td>Date</td>
+    <td><span class="eventVal">#eventDate#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Time:</span></td>
+    <td><span class="eventVal">#eventTime#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Branch:</span></td>
+    <td><span class="eventVal">#eventBranch#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Location:</span></td>
+    <td><span class="eventVal">#eventRoom#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Description:</span></td>
+    <td><span class="eventVal">#eventDesc##extraInfo#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Categories:</span></td>
+    <td><span class="eventVal">#eventCats#</span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader botBop">Age groups:</span></td>
+    <td><span class="eventVal botBop">#eventAges#</span></td>
+  </tr>
+</table>
+<br />
+#fullPresenter_start#<table class="tableMain">
+  <tr>
+    <td colspan="2">Presenter Information</td>
+  </tr>
+  #presenter_start#
+  <tr>
+    <td><span class="eventHeader">Presenter:</span></td>
+    <td><span class="eventVal">#eventPresenter#</span></td>
+  </tr>
+  #presenter_end#
+  #website_start#
+  <tr>
+    <td><span class="eventHeader">Website:</span></td>
+    <td><span class="eventVal"><a href="#eventWebsite#" target="_blank">#eventWebtext#</a></span></td>
+  </tr>
+  <tr>#website_end#
+    #publicName_start#
+    <td><span class="eventHeader">Contact Name:</span></td>
+    <td><span class="eventVal">#eventContact#</span></td>
+  </tr>
+  #publicName_end#
+  #publicEmail_start#
+  <tr>
+    <td><span class="eventHeader">Contact Email:</span></td>
+    <td><span class="eventVal"><a href="mailto:#eventEmail#">#eventEmail#</a></span></td>
+  </tr>
+  #publicEmail_end#
+  #phone_start#
+  <tr>
+    <td><span class="eventHeader">Contact Phone:</span></td>
+    <td><span class="eventVal">#eventPhone#</span></td>
+  </tr>
+  #phone_end#
+</table>
+<br />#fullPresenter_end#
+#error_start#<div style="color: red"><p><strong>Error!</strong></p><p><strong>#errorMSG#</strong></p></div>#error_end#
+<form id="form1" name="form1" method="post" action="?page=bookaroom_event_management_staff&action=viewEvent&eventID=#eventID#">
+ #success_start#
+   <table class="tableMain">
+     <tr>
+       <td colspan="2">Registration was successful</td>
+     </tr>
+     <tr>
+       <td colspan="2"><p>Your registration was entered successfully. </p>
+       <p>You will not receive an email confirmation. Please print this for your records.</p></td>
+     </tr>
+     <tr>
+       <td><span class="eventHeader">Full Name:</span></td>
+       <td><span class="eventVal">
+         #fullName#
+       </span></td>
+     </tr>
+     <tr>
+       <td><span class="eventHeader">Phone number:</span></td>
+       <td><span class="eventVal">#phone#</span></td>
+     </tr>
+     <tr>
+       <td><span class="eventHeader">Email address:</span></td>
+       <td><span class="eventVal">#email#</span></td>
+     </tr>
+     <tr>
+       <td><span class="eventHeader">Notes:</span></td>
+       <td><span class="eventVal">#notes#</span></td>
+     </tr>
+   </table>
+   #success_end##reg_start#
+   <table class="tableMain">
+    <tr>
+      <td colspan="2">Registration</td>
+    </tr>
+    <tr>
+      <td><span class="eventHeader">Full Name:</span></td>
+      <td><span class="eventVal">
+        <input name="fullName" type="text" id="fullName" value="#fullName#" />
+      </span></td>
+    </tr>
+    <tr>
+      <td><span class="eventHeader">Phone number:</span></td>
+      <td><span class="eventVal">
+        <input name="phone" type="text" id="phone" value="#phone#" size="15" maxlength="15" />
+      </span></td>
+    </tr>
+    <tr>
+      <td><span class="eventHeader">Email address:</span></td>
+      <td><span class="eventVal">
+        <input name="email" type="text" id="email" value="#email#" />
+      </span></td>
+    </tr>
+    <tr>
+      <td><span class="eventHeader">Email reminder:</span><br />
+        <span style="font-size:.8em">You will recieve an email reminder #remindDays# before the event.</span></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><span class="eventHeader">Notes:</span></td>
+      <td><span class="eventVal">
+        <textarea name="notes" id="notes" cols="45" rows="5">#notes#</textarea>
+      </span></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><span class="eventVal">
+        <input name="action" type="hidden" id="action" value="checkReg" />
+        <input name="eventID" type="hidden" id="eventID" value="#eventID#" />
+        <input name="bookaroom_RegFormSub" type="hidden" id="bookaroom_RegFormSub" value="#bookaroom_RegFormSub#" />
+        <input type="submit" name="button" id="button" value="Submit" />
+      </span></td>
+    </tr>
+  </table>#reg_end#
+#waitingList_start#<table class="tableMain">
+  <tr>
+    <td colspan="2">Waiting List</td>
+  </tr>
+  <tr>
+    <td colspan="2">This event is full. Please enter your information below if you would like to be added to the waiting list. You will be notified if anyone cancels and a spot becomes available.</td>
+    </tr>
+  <tr>
+    <td><span class="eventHeader">Full Name:</span></td>
+    <td><span class="eventVal">
+      <input name="fullName" type="text" id="fullName" value="#fullName#" />
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Phone number:</span></td>
+    <td><span class="eventVal">
+      <input name="phone" type="text" id="phone" value="#phone#" size="15" maxlength="15" />
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Email address:</span></td>
+    <td><span class="eventVal">
+      <input name="email" type="text" id="email" value="#email#" />
+    </span></td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Email reminder:</span><br />
+      <span style="font-size:.8em">You will recieve an email reminder #remindDays# before the event.</span></td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td><span class="eventHeader">Notes:</span></td>
+    <td><span class="eventVal">
+      <textarea name="notes" id="notes" cols="45" rows="5">#notes#</textarea>
+    </span></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td><span class="eventVal">
+      <input name="action" type="hidden" id="action" value="checkReg" />
+      <input name="eventID" type="hidden" id="eventID" value="#eventID#" />
+      <input name="bookaroom_RegFormSub" type="hidden" id="bookaroom_RegFormSub" value="#bookaroom_RegFormSub#" />
+      <input type="submit" name="button2" id="button2" value="Submit" />
+    </span></td>
+  </tr>
+</table>
+#waitingList_end#
+#waitingFull_start#
+<table class="tableMain">
+  <tr>
+    <td colspan="2">Registration</td>
+  </tr>
+  <tr>
+    <td colspan="2">This event is currently full.</td>
+  </tr>
+</table>
+#waitingFull_end# #noReg_start#
+<table class="tableMain">
+  <tr>
+    <td colspan="2">Registration</td>
+  </tr>
+  <tr>
+    <td colspan="2">This event doesn't require registration.</td>
+  </tr>
+  </table>#noReg_end#
+</form>

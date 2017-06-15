@@ -1,0 +1,498 @@
+#botRow {
+    border-spacing: 10px;
+    display: table;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+#botRow .col1 {
+    vertical-align: top;
+    border: thin solid #666;
+    border-radius: 20px;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#botRow .col2 {
+    border: thin solid #666;
+    border-radius: 20px;
+    vertical-align: top;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+#botRow .col2 .options {
+    margin: 0px;
+    padding: 0px;
+    vertical-align: top;
+}
+#botRow .header {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#botRow .instructions {
+    background: #EEE;
+    border-bottom-color: #666;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: auto;
+}
+#botRow .instructions,
+#botRow .options {
+    padding: 10px;
+    vertical-align: top;
+}
+#botSubmit { display: inline }
+#calDisplay {
+    display: table;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+#calDisplay .calContent {
+    background-color: #EEE;
+    border: thin solid #666;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    padding: 4px;
+}
+#calDisplay .calContent a,
+#calDisplay .calToday a {
+    left: 0;
+    padding-top: 4px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    white-space: nowrap;
+}
+#calDisplay .calContent,
+#calDisplay .calToday {
+    height: 30px;
+    position: relative;
+    text-decoration: none;
+}
+#calDisplay .calNoDay {
+    background-color: #FFF;
+    border: thin solid #EEE;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    padding: 4px;
+		height: 30px;
+}
+#calDisplay .calSelectedDay {
+    background-color: #4F4;
+    border: thin solid #000;
+    font-weight: bold;
+    height: 30px;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    padding: 4px;
+}
+#calDisplay .calToday {
+    background-color: #FFC;
+    border: thin solid #000;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    padding: 4px;
+}
+#calDisplay .calWeek {
+    float: left;
+    width: 100%;
+}
+#calDisplay .calWeek .calCell {
+    cursor: pointer;
+    display: table-cell;
+    float: left;
+    text-align: center;
+    width: 14.2%;
+    white-space: nowrap;
+}
+#calDisplay .dayHeader {
+    background-color: #666;
+    border: thin solid #333;
+    color: #FFF;
+    font-weight: bold;
+    margin-bottom: 2px;
+    margin-right: 2px;
+    padding: 4px;
+    white-space: nowrap;
+}
+#calForm {
+    margin-bottom: 10px;
+    position: relative;
+}
+#calForm #calYear,
+#calForm #calMonth {
+    background: #EEE;
+    color: #000;
+    display: block;
+    font-size: .9em;
+    height: 28px;
+    margin: 2px;
+    padding: 2px;
+}
+#calForm #submitCal {
+    background: #EEE;
+    color: #000;
+    display: block;
+    font-size: 1em;
+    height: 28px;
+    margin: 4px;
+    padding: 4px;
+}
+#calForm .calContain {
+    clear: right;
+    float: left;
+}
+.calContainAdmin {
+    clear: none;
+    float: left;
+}
+#calFormCont { display: inline-block }
+#formRow {
+    border-collapse: separate;
+    border-spacing: 2px;
+    display: table;
+    width: 100%;
+}
+#formRow .formAmenities {
+    clear: both;
+    float: left;
+    margin-right: 5px;
+    white-space: nowrap;
+    width: 48%;
+}
+#formRow .formDiv {
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px #888888;
+    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+}
+#formRow .formInput {
+    border: thin solid #666;
+    border-radius: 5px;
+    display: table-cell;
+    padding: 10px;
+    width: 70%;
+}
+#formRow .instructions {
+    background: #EEE;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: auto;
+}
+#formRow .question {
+    border: thin solid #666;
+    border-radius: 5px;
+    display: table-cell;
+    font-size: 1.1em;
+    font-weight: bold;
+    min-width: 100px;
+    padding: 10px;
+    vertical-align: top;
+    width: 30%;
+}
+#formRow .question label { font-weight: bold }
+#formRow .wideCol {
+    border: thin solid #666;
+    border-radius: 20px;
+    display: table-row;
+    width: 100%;
+}
+#formRow .wideCol .error {
+    background-color: #F99;
+    color: #000;
+}
+
+/*
+#formRow .wideCol > div:nth-child(even) { background: #F00 }
+#formRow .wideCol > div:nth-of-type(odd) { background: #00F }
+*/
+
+#formRow input,
+#formRow textarea {
+    box-shadow: 3px 3px 5px #888888;
+    width: 90%;
+}
+#formRow input,
+#formRow textarea,
+#formRow select {
+    background-color: #FFF;
+    border: thin solid #666;
+    border-radius: 5px;
+    color: #000;
+    margin: 0px;
+}
+#formRow input[type="radio"], 
+#formRow input[type="checkbox"] { box-shadow: none !important }
+#hoursForm #resetHours,
+#hoursForm #submitHours {
+    background-color: #EEE;
+    border: thin solid #666;
+    border-radius: 5px;
+    color: #000;
+    box-shadow: 3px 3px 5px #888888;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 25px;
+    margin-left: 0px;
+}
+
+#formRow input[type="radio"] {
+	width: 20px;
+}
+
+#hoursTable { width: 100% }
+#hoursTable .calHours .calCheckBox { padding-left: 10px }
+#hoursTable.hoursTableClean { border-radius: 0px }
+#hoursTable .calTime { white-space: nowrap }
+#hoursTable label { display: block }
+#hoursTable tr td {
+    border-bottom-color: #666;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-left-style: none;
+    border-right-style: none;
+    border-top-style: none;
+    padding: 2px;
+    text-align: center;
+}
+#hoursTable tr:nth-child(1) .calCheckBox { border-radius: 20px 0 0 0 }
+#hoursTable.hoursTableClean tr:nth-child(1) .calCheckBox { border-radius: 0 0 0 0 }
+#hoursTable tr:nth-child(1) .calStatus { border-radius: 0 20px 0 0 }
+#hoursTable.hoursTableClean tr:nth-child(1) .calStatus { border-radius: 0 0 0 0 }
+#hoursTable tr:nth-child(1) td {
+    background: #666;
+    color: #EEE;
+    font-weight: bold;
+}
+#hoursTable tr:nth-child(even) { background: #FFF }
+#hoursTable tr:nth-child(odd) { background: #EEE }
+#hoursTable tr:nth-last-child(1) .calCheckBox { border-radius: 0 0 0 20px }
+#hoursTable tr:nth-last-child(1) .calStatus { border-radius: 0 0 20px 0 }
+#hoursTable tr:nth-last-child(1) td { border: none }
+#topRow {
+    border-spacing: 10px;
+    min-width: 320px;
+    display: block;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+#topRow #errorArea {
+    background-color: #FFF;
+    border: thin solid #666;
+    border-radius: 7px;
+    box-shadow: 3px 3px 5px #888888;
+    color: #C00;
+    margin: 10px;
+    padding: 4px;
+    width: auto;
+}
+#topRow #errorArea em {
+    color: #000;
+    font-style: italic;
+    font-weight: bold;
+}
+#topRow #errorArea p {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#topRow .col {
+    border: thin solid #666;
+    border-radius: 20px;
+    display: block;
+    float: left;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+
+#topRow .header {
+    font-size: 1.3em;
+    font-weight: bold;
+}
+#topRow .instructions {
+    background: #EEE;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: 150px;
+}
+#topRow .instructions,
+#topRow .options { padding: 10px }
+#topRow .instructionsSmooth {
+    background: #EEE;
+    border-bottom-color: #999;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    height: auto;
+    padding: 10px;
+}
+#topRow .itemDesc {
+    font-size: .9em;
+    padding-left: 30px;
+}
+#topRow .normalItem { padding-left: 20px }
+#topRow .normalItem a:hover { text-decoration: underline }
+#topRow .selectedItem {
+    font-size: 1.1em;
+    font-weight: bold;
+    padding-left: 10px;
+}
+#topSubmit { display: none }
+.calNav {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.calNav .curMonth {
+    float: left;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-align: center;
+    width: 50%;
+}
+.calNav .nextMonth {
+    float: left;
+    text-align: right;
+    width: 25%;
+}
+.calNav .prevMonth {
+    clear: left;
+    float: left;
+    width: 25%;
+}
+.changeRes_table {
+    display: table;
+    width: 800px;
+    border-spacing: 4px;
+    margin-left: -4px;
+}
+.changeRes_row { display: table-row }
+.changeRes_cell,
+.changeRes_cellHeader {
+    display: table-cell;
+    width: 50%;
+    padding: 4px;
+    border: thin solid #333;
+}
+.changeRes_cellHeader,
+.changeRes_cellCalHeader,
+.changeRes_cellHoursHeader {
+    background: #333;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 1.2em;
+}
+.changeRes_cellCal,
+.changeRes_cellHours,
+.changeRes_cellCalHeader,
+.changeRes_cellHoursHeader {
+    display: table-cell;
+    padding: 4px;
+    border: thin solid #333;
+}
+.changeRes_cellCal,
+.changeRes_cellCalHeader {
+    width: 30%;
+    vertical-align: top;
+}
+.changeRes_cellHours,
+.changeRes_cellHoursHeader {
+    width: 70%;
+    vertical-align: top;
+}
+#calWeekCont {
+    float: left;
+    clear: both;
+    width: 100%;
+    display: table;
+}
+.calWeek {
+    float: left;
+    clear: none;
+    display: table-row;
+}
+.calDay { display: table-cell }
+.errorMSG {
+    color: #F00;
+    font-weight: bold;
+}
+/* popup */
+.popup {
+    width:100%;
+    height:100%;
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    background:rgba(0,0,0,0.75);
+}
+ 
+/* Inner */
+.popup-inner {
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-height: 80%;
+    max-width:700px;
+    width:90%;
+    padding:40px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    -webkit-transform:translate(-50%, -50%);
+    transform:translate(-50%, -50%);
+    box-shadow:0px 2px 6px rgba(0,0,0,1);
+    border-radius:3px;
+    background:#fff;
+	z-index: 1;
+}
+ 
+/* Close Button */
+.popup-close {
+    width:30px;
+    height:30px;
+    display:inline-block;
+    position:absolute;
+    top:20px;
+    right:20px;
+    transition:ease 0.25s all;
+    -webkit-transform:translate(50%, -50%);
+    transform:translate(50%, -50%);
+    border-radius:1000px;
+    background:rgba(0,0,0,0.8);
+    font-family:Arial, Sans-Serif;
+    font-size:20px;
+    text-align:center;
+    line-height:100%;
+    color:#fff;
+	z-index: 50;
+}
+ 
+.popup-close:hover {
+    -webkit-transform:translate(50%, -50%) rotate(180deg);
+    transform:translate(50%, -50%) rotate(180deg);
+    background:rgba(0,0,0,1);
+    text-decoration:none;
+}

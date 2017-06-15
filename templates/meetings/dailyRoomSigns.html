@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="JavaScript" type="text/javascript">
+$(function() {
+	// Setup date drops
+	$( '#timestamp' ).datepicker({ dateFormat: 'mm/dd/yy' });
+});
+</script>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+
+<div id="printForm">
+  <div class=wrap>
+    <div id="icon-options-general" class="icon32"></div>
+    <h2>Book a Room - Meeting Room Door Signs</h2>
+  </div>
+  <p>This page is formatted to print directly from the browser. </p>
+  <form name="form1" method="post" action="">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Settings</td>
+      </tr>
+      <tr>
+        <td>Date</td>
+        <td><input name="timestamp" type="text" id="timestamp" value="#timestamp#"></td>
+      </tr>
+      <tr>
+        <td>Branch</td>
+        <td><select name="branchID" id="branchID">
+            
+        #branch_start#
+            <option value="#branch_val#"#branch_selected#>#branch_desc#</option>
+            #branch_end#
+      
+          </select></td>
+      </tr>
+      <tr>
+        <td colspan="2" align="center"><input type="submit" name="button" id="button" value="Submit"></td>
+      </tr>
+    </table>
+  </form>
+  <hr>
+</div>
+<div style="text-align: center;">
+  <h1>Meeting Room Schedule</h1>
+  <p class="roomDate"> #date#</p>
+  #room_start#
+  <p class="roomTitle">#meetingRoom_name#</p>
+  #meeting_start#
+  <p class="roomInfo"><strong>#times#</strong> &nbsp;&nbsp;&nbsp;#meetingName#</p>
+  #meeting_end#
+  #room_end# <br />
+</div>
+  <!--
+	<div class="page-breaker"></div> 
+
+
+    #newDay_start#<p class="roomTitleDaily">#meetingRoomName#</p>
+    #meeting_start#<p class="roomInfoDaily"><strong>#times#</strong> &nbsp;&nbsp;&nbsp;#meetingName#</p>
+    #meeting_end#<div class="page-breaker"></div> #newDay_end#
+	-->

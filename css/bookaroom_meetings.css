@@ -1,0 +1,465 @@
+#calDisplay tr .calContent
+{
+	background-color: #EEE;
+	border: 1px solid #999;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	padding: 4px;
+	text-align: center;
+}
+#calDisplay tr .calNoDay
+{
+	background-color: #FFF;
+	border: 1px solid #EEE;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	padding: 4px;
+}
+#calDisplay tr .calSelectedDay
+{
+	background-color: #4F4;
+	border: 1px solid #000;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	padding: 4px;
+	text-align: center;
+}
+#calDisplay tr .calToday
+{
+	background-color: #FFC;
+	border: 1px solid #000;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	padding: 4px;
+	text-align: center;
+}
+#calDisplay tr .dayHeader
+{
+	background-color: #999;
+	border: 1px solid #333;
+	color: #FFF;
+	font-weight: bold;
+	margin-bottom: 2px;
+	margin-right: 2px;
+	padding: 4px;
+	text-align: center;
+}
+#calDisplay tr td
+{
+	margin: 0px;
+	padding: 0px;
+	width: 14.2%;
+}
+#calNav tr .curMonth
+{
+	text-align: center;
+	width: 50%;
+}
+#calNav tr .nextMonth
+{
+	text-align: right;
+	width: 25%;
+}
+#calNav tr .prevMonth
+{
+	width: 25%;
+}
+#bookaroom_meetingTable .itemDesc
+{
+	padding-left: 30px;
+}
+#bookaroom_meetingTable .normalItem
+{
+	padding-left: 10px;
+}
+#bookaroom_meetingTable .normalItem a:hover
+{
+	text-decoration: underline;
+}
+#bookaroom_meetingTable .selectedItem
+{
+	font-size: 1.3em;
+	font-weight: bold;
+}
+#bookaroom_meetingTable td
+{
+	border: none;
+	vertical-align: : top;
+}
+#bookaroom_meetingTable tr td
+{
+	height: 100%;
+}
+.branchContainer
+{
+	border: 1px solid #CCC;
+	border-radius: 15px;
+	clear: both;
+	float: left;
+	moz-border-radius: 15px;
+	padding: 10px;
+	width: 95%;
+}
+.branchContainer .branchAddress
+{
+	font-style: italic;
+	padding-left: 15px;
+}
+.branchContainer .branchLinks
+{
+	padding-left: 15px;
+}
+.branchContainer .branchLinks .map
+{
+	float: left;
+}
+.branchContainer .branchTitle
+{
+	font-size: 18px;
+	font-weight: bold;
+}
+.branchRoomsContainer
+{
+	clear: both;
+	float: left;
+	margin-bottom: 25px;
+	padding: 10px;
+	width: 90%;
+}
+.branchRoomsContainer .branchRoom
+{
+	border-bottom-color: #CCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-left-color: #CCC;
+	border-left-width: 1px;
+	border-right-color: #CCC;
+	border-right-width: 1px;
+	border-top-color: #CCC;
+	border-top-width: 1px;
+	clear: both;
+	float: left;
+	padding-left: 25px;
+	padding-top: 15px;
+	width: 100%;
+}
+.branchRoomsContainer .branchRoom .roomCol1
+{
+	float: left;
+	width: 30%;
+}
+.branchRoomsContainer .branchRoom .roomCol1 h3
+{
+	margin: 0px;
+	padding: 0px;
+}
+.branchRoomsContainer .branchRoom .roomCol2
+{
+	float: left;
+	width: 60%;
+}
+.branchRoomsContainer .branchRoom .roomCol3
+{
+	float: left;
+	width: 10%;
+	white-space:nowrap;
+}
+.branchRoomsContainer .branchRoom .roomColWide
+{
+	float: left;
+	width: 90%;
+}
+.branchRoomsContainer .branchRoom .roomColWide h4
+{
+	margin: 0px;
+	padding: 0px;
+}
+.instrButton
+{
+	background-color: #EEE;
+	border: 1px solid #999;
+	border-radius: 6px;
+	color: #555;
+}
+.mainCol
+{
+	border: 1px solid #999;
+	border-radius: 12px;
+	height: 100%;
+	margin: auto;
+}
+.mainCol .instructions
+{
+	background: #F5F5F5;
+	border-bottom-color: #CCC;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-radius: 12px;
+	height: 160px;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+.mainCol .options
+{
+	padding: 10px;
+}
+
+
+.tableMain {
+	border-collapse:collapse;
+    border-spacing: 0px;
+	width: 600px;
+}
+
+.tableMain.freeWidth {
+	width: auto;
+}
+
+.tableMain tr td {
+	padding: 6px;
+	margin: 0px;
+	border: thin solid #CCC;
+}
+
+.tableMain tr:nth-child(odd) {
+	background: #EEE;
+}
+.tableMain tr:nth-child(even) {
+	background: #FFF;
+}
+.tableMain tr:nth-child(1) {
+	background: #000;
+	font-weight: bold;	
+	color: #FFF;
+}
+.tableMain tr:nth-child(1) a {
+	font-weight: bold;	
+	color: #FFF;
+}
+.tableMain .subHeader {
+	background: #666;
+	font-weight: bold;	
+	color: #FFF;
+}
+
+.tableMain .redBold {
+	background-color: #F00;
+}
+.tableMain .redBold a{
+	font-weight: bold;
+	color: #FFF;
+	font-size: 1.1em;
+}
+
+.errorText {
+	font-weight: bold;
+	color: #F00;	
+}
+
+.tableMain .bufferLeft {
+	padding-left: 20px;
+}
+.tableMain .bufferLeftDouble {
+	padding-left: 40px;
+}
+.tableMain .bufferLeftTriple {
+	padding-left: 60px;
+}
+.errorText a {
+	font-weight: bold;
+	color: #F00;	
+}
+
+.tableMain input:disabled
+{
+	color: #BBB;
+	background:#DDD;
+	border: thin solid #DFDFDF;
+}
+
+
+.tableMain option[disabled], .tableMain option.disabled
+{
+	color: #FFF;
+	background:#333;
+}
+
+ .tableMain option.noloc
+{
+	color: #FFF;
+	background:#888;
+}
+
+.tableMain .error
+{
+	background-color: #FCC;
+
+}
+/*
+.tableMain input[type=radio] {
+    display:none; 
+    margin:10px;
+}
+ 
+.tableMain input[type=radio] + label {
+    display:inline-block;
+    margin:-2px;
+    padding: 4px 12px;
+    background-color: #CCC;
+	border: thin solid #666;
+}
+
+.tableMain input[type=radio]:checked + label {
+	background-image: none;
+	background-color:#EEF;
+	border: thin solid #666;
+}
+*/
+.nudgeRight:before
+{
+	content: "&nbsp;&nbsp;&nbsp;";	
+}
+
+.dropHeader 
+{
+	color: #FFF;
+	background: #777;
+	font-weight: bold;
+}
+.roomDate {
+	font-size: 1.3em;	
+}
+.roomTitle {
+	padding-top: 25px;
+	font-size: 1.6em;
+	font-weight: bold;
+}
+.roomInfo {
+	font-size: 1.3em;
+}
+.roomTitleDaily {
+	padding-top: 25px;
+	font-size: 1.8em;
+	font-weight: bold;
+	page-break-before: always;
+}
+.roomInfoDaily {
+	font-size: 1.6em;
+}
+
+
+
+@media screen and (max-width: 500px) {
+	.branchRoomsContainer .branchRoom .roomCol3
+	{
+		clear: left;
+	}
+
+}
+
+@media print {
+
+	#adminmenu {
+		display: none;
+	}
+	#adminmenushadow {
+		display: none;
+	}
+	#adminmenuwrap {
+		display: none;
+	}
+	#adminmenuback {
+		display: none;
+	}
+	#wpadminbar {
+		display: none;
+	}
+	#mainHeader {
+		display: none;
+	}
+	#wpfooter {
+		display: none;
+	}
+	#wpcontent {
+		position: absolute;
+		top: 0px;
+		left: -165px;
+		width: 100%;
+	}
+	#printForm {
+		display: none;
+	}
+	
+}
+
+#settingsContent {
+	padding-right: 50px;
+	max-width: 900px;
+	
+}
+
+#settingsContent hr {
+    border: 0;
+    height: 2px;
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.85), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.85), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.85), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.85), rgba(0,0,0,0)); 
+}
+
+#settingsContent > ul {
+	padding-top: 15px;
+
+}
+
+#settingsContent > ul > li {
+	list-style-type: square; 	
+	margin-left: 2em;
+	margin-bottom: 15px;
+}
+
+#settingsContent .settingsHeader {
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+#settingsContent > ul > li > ul  {
+	font-weight: normal;
+	list-style-type: disc; 
+	margin-left: 2em;
+}
+
+#settingsContent .anchorDrop:before {
+  display: block; 
+  content: " "; 
+  margin-top: -50px; 
+  height: 50px; 
+  visibility: hidden; 
+}
+
+.lightMe:before {
+  font-family: "dashicons";
+	content: "\f339";
+	font-size: 1.2em;
+	vertical-align:middle;
+	padding-right: 8px;
+
+}
+
+.gearMe:before {
+  font-family: "dashicons";
+	content: "\f111";
+	font-size: 1.2em;
+	vertical-align:middle;
+	padding-right: 8px;
+
+}
+
+.help_list>div { font-size: 22px; font-weight:bold; margin-top:25px;}
+.help_list>div>div { font-size: 16px; font-weight:bold; margin-top: 15px; margin-left: 40px;}
+.help_list>div>div>div { font-size: 13px; font-weight:normal; margin-top: 6px; margin-left: 40px;}
+
+.help_list ul { list-style:disc; margin-left: 26px; }
+.help_list li { margin-top: 8px; }
+

@@ -1,0 +1,39 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#attendance_startDate, #attendance_endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+	
+});
+
+</script>
+
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Reports</h2>
+</div>
+<h2>Available Reports </h2>
+<form name="form1" method="post" action="">
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Attendance Report for Events</td>
+    </tr>
+    <tr>
+      <td>Start Date</td>
+      <td>
+      <input name="attendance_startDate" type="text" id="attendance_startDate" value="#attendance_startDate#" size="12"></td>
+    </tr>
+    <tr>
+      <td>End Date</td>
+      <td>
+      <input name="attendance_endDate" type="text" id="attendance_endDate" value="#attendance_endDate#" size="12"></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value="Submit"></td>
+    </tr>
+  </table>
+</form>

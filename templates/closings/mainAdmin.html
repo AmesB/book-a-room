@@ -1,0 +1,85 @@
+<script type="text/javascript">
+
+function checkAll(typeCheck) {
+	typeFinal = "true";
+	if( typeCheck === undefined ) {
+			typeFinal = null;
+	}
+
+	for (i = 0; i < document.formRooms["closingMulti[]"].length; i++) {
+		document.formRooms["closingMulti[]"][i].checked = typeFinal ;
+	}
+}
+</script>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Closings</h2>
+</div>
+<h2>New Closing</h2>
+<p><a href="?page=bookaroom_Settings_Closings&amp;action=add">Add a new closing.</a></p>
+<p>&nbsp;</p>
+<h2>Current Closings</h2>
+#someClosings_start#
+<table class="tableMain freeWidth">
+  <tr>
+    <td>Reason</td>
+    <td>Date</td>
+    <td>Type</td>
+    <td>Reoccuring</td>
+    <td>Rooms</td>
+    <td>Actions</td>
+  </tr>
+  #itemClosings_start#
+  <tr>
+    <td>#closingName#</td>
+    <td nowrap="nowrap">#date#</td>
+    <td>#type#</td>
+    <td>#reoccuring#</td>
+    <td nowrap="nowrap">#rooms#</td>
+    <td align="right" nowrap="nowrap"><a href="?page=bookaroom_Settings_Closings&amp;closingID=#closingID#&amp;action=edit">Edit</a> | <a href="?page=bookaroom_Settings_Closings&amp;closingID=#closingID#&amp;action=delete">Delete</a></td>
+  </tr>
+  #itemClosings_end#
+</table>
+#someClosings_end##noneClosings_start#
+<h3>There are currently no scheduled closings </h3>
+#noneClosings_end#
+<h2>&nbsp;</h2>
+<h2>Expired Closings</h2>
+#multiError_start#<p style="color:red"><strong>#multiError# </strong></p>
+#multiError_end##someExpired_start#
+<form id="formRooms" name="formRooms" method="post" action="?page=bookaroom_Settings_Closings">
+<table class="tableMain freeWidth">
+  <tr>
+    <td>Reason</td>
+    <td>Date</td>
+    <td>Type</td>
+    <td>Reoccuring</td>
+    <td>Rooms</td>
+    <td>Actions</td>
+    <td>Delete</td>
+  </tr>
+    #itemExpired_start#
+    <tr>
+      <td><label for="closingID_#closingID#">#closingName#</label></td>
+      <td nowrap="nowrap"><label for="closingID_#closingID#">#date#</label></td>
+      <td><label for="closingID_#closingID#">#type#</label></td>
+      <td><label for="closingID_#closingID#">#reoccuring#</label></td>
+      <td nowrap="nowrap"><label for="closingID_#closingID#">#rooms#</label></td>
+      <td align="right" nowrap="nowrap"><a href="?page=bookaroom_Settings_Closings&amp;closingID=#closingID#&amp;action=edit">Edit</a></td>
+      <td><input name="closingMulti[]" type="checkbox" id="closingMulti_#closingID#" value="#closingID#" />
+        </td>
+    </tr>
+    #itemExpired_end#
+    <tr>
+      <td colspan="7" align="center"><input name="action" type="hidden" id="action" value="deleteMulti" />
+        <input type="submit" name="button" id="button" value="Submit" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <input type="button" name="button_checkAll" id="button_checkAll" value="Check All" onclick="checkAll('true');" />
+      &nbsp;&nbsp;
+<input type="button" name="button_clearAll" id="button_clearAll" value="Clear" onclick="checkAll();" /> </td>
+    </tr>
+  </table>
+</form>
+#someExpired_end##noneExpired_start#
+<h3>There are currently no expired closings </h3>
+#noneExpired_end#

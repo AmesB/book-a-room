@@ -1,0 +1,336 @@
+#calEventWrapper {
+	clear: both;
+	display: table;
+	width: 100%;
+}
+#calEventWrapper .calDateWrapper {
+	position: relative;
+	display: table-cell;
+	padding-right: 10px;
+	float:left;
+	width: 180px;
+	padding: 10px;
+}
+#calEventWrapper .calDateDayName, #calEventWrapper .calDateDayDate, #calEventWrapper .calDateTop {
+	text-align: right;
+	padding: 4px;
+	width: 100%;
+}
+#calEventWrapper .calDateDayName {
+	font-size: 1.75em;
+}
+#calEventWrapper .calEventListContents {
+	padding-left: 10px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+}
+#monthWrapper {
+	width: 100%;
+	float: left;
+	clear: right;
+	position: relative;
+	margin-bottom: 15px;
+}
+#monthWrapper .monthDisp {
+	width: 7.1%;
+	float: left;
+	text-align:center;
+}
+#monthWrapper .monthTitle {
+	width: 100%;
+	float: none;
+	clear: both;
+	text-align:center;
+	font-size: 1.5em;
+}
+#calEventWrapper .miniCalContainer {
+	width:100%;
+	position: relative;
+	float: left;
+	clear: right;
+	padding-left:6px;
+	margin-bottom: 10px;
+}
+#calEventWrapper .calDay {
+	width: 20px;
+	height: 20px;
+	border: thin solid #DDD;
+	float: left;
+	margin: 1px;
+	font-size: .9em;
+	text-align: center;
+	background: #EEE;
+}
+#calEventWrapper .calDay a {
+	color: #000;
+	display: block;
+	cursor: pointer;
+}
+#calEventWrapper .calDay.selDay a {
+	color: #FFF;
+	display: block;
+	cursor: pointer;
+}
+#monthWrapper .monthDisp.selected {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+#calEventWrapper .calDay.noDay {
+	background: #FFF;
+	border: thin solid #FFF;
+}
+#calEventWrapper .calDay.selDay {
+	background: #933;
+	color: #FFF;
+}
+#calEventWrapper .calDay.calHeader {
+
+	background: #555;
+	color: #FFF;
+}
+
+
+
+#weekWrapper {
+	width: 100%;
+	float: left;
+	clear: right;
+	position: relative;
+	margin-bottom: 15px;
+}
+#weekWrapper .weekDisp {
+	float: left;
+	text-align:center;
+
+}
+#weekWrapper .weekTitle {
+	width: 100%;
+	float: none;
+	clear: both;
+	text-align:center;
+	font-size: 1.5em;
+}
+#calEventWrapper .calDateDayDate {
+	font-size: 1.2em;
+	
+	
+}
+
+#calEventWrapper .calEventListWrapper {
+	display: table-cell;
+	float: right;
+	width: 78%;
+}
+#calEventWrapper .calSingleDateWrapper {
+	display: table-row;
+	width: 100%;
+	background: #FFF;
+}
+#calEventWrapper .calEventItemTime {
+	font-size: 1.2em;
+	padding: 10px;
+}
+#calEventWrapper .calEventItemName {
+	font-size: 1.5em;
+	color: #933;
+}
+#calEventWrapper .calEventItemName a {
+	color: #933;
+}
+#calEventWrapper .calEventItemDesc {
+}
+#calEventWrapper .calEventItemReg {
+	padding-top: 8px;
+	font-size: .95em;
+}
+
+#calEventWrapper .calEventItemLink {
+}
+
+#calEventWrapper .calEventListWrapper>div:nth-child(even) {
+	background: #F1F1F1;
+}
+#calEventWrapper .calEventListWrapper>div:nth-last-child(1) {
+
+}
+.calDateBorder {
+	float:left;
+	width: 95%;
+	border: thin solid #666;
+	margin-bottom: 15px;
+}
+	#calEventWrapper .calWeek {
+		float: left;
+		clear: right;
+	}
+	
+@media screen and (max-width: 960px) {
+	#calEventWrapper {
+		clear: both;
+		display: block;
+		width: 100%;
+	}
+	#calEventWrapper .calDateWrapper {
+		position: relative;
+		display: block;
+		padding-right: 10px;
+		float:left;
+		width: 100%;
+	}
+	#calEventWrapper .calDateDayName {
+		float: left;
+		text-align: center;
+	}
+
+	#calEventWrapper .calWeek {
+		clear: left;
+	}
+	#calEventWrapper .miniCalContainer {
+		clear: both;
+		width: 100%;
+	}
+	#calEventWrapper .calEventListWrapper {
+		display: inline;
+		float: left;
+		width: 100%;
+	}
+	#monthWrapper .monthDisp {
+		width: 25%;
+		font-size: 1.2em;
+	}
+}
+#weekWrapper .weeks_4 {
+	width: 25%;	
+}
+#weekWrapper .weeks_5 {
+	width: 20%;
+}
+#weekWrapper .weeks_6 {
+	width: 16.5%;
+}
+.filterTitle, .catFilter, .ageFilter {
+	font-size: 1.3em;
+	font-weight: bold;	
+	text-align: center;
+}
+.tableMain {
+	border-collapse:collapse;
+    border-spacing: 0px;
+	width: 100%;
+}
+
+.tableMain.freeWidth {
+	width: auto;
+}
+
+.tableMain tr td {
+	padding: 6px;
+	margin: 0px;
+	border: 2px solid #FFF;
+}
+
+.tableMain td:nth-child(odd) {
+	width: 150px;
+	font-weight: bold;
+}
+.tableMain tr:nth-child(odd) {
+	background: #F3F3F3;
+}
+.tableMain tr:nth-child(even) {
+	background: #FFF;
+}
+.tableMain tr:nth-child(1) {
+	background: #000;
+	font-weight: bold;	
+	color: #FFF;
+}
+.tableMain tr:nth-child(1) a {
+	font-weight: bold;	
+	color: #FFF;
+}
+.tableMain .subHeader {
+	background: #666;
+	font-weight: bold;	
+	color: #FFF;
+}
+
+#filterCont {
+	display: table;
+	width: 100%;
+	background: #EEE;
+	border: thin solid #FFF;
+	margin: 0px;
+	padding: 0px;
+	display: none;
+}
+
+#filterBottom {
+	background: #999;
+	padding:8px;
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #FFF;
+	border-radius: 0px 0px 16px 16px;
+	border: 1px solid #FFF;
+		text-align: center;
+}
+#filterHead {
+	background: #999;
+	padding:8px;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: #FFF;
+	border-radius: 16px 16px 0px 0px;
+	border: 1px solid #FFF;
+text-align: center;
+}
+.filterRow {
+	display: table-row;
+
+}
+
+.filterSmaller {
+	display: table-cell	;
+	padding:4px;
+	width:130px;
+	border: 1px solid #FFF;
+}
+
+.filterLarger {
+	display: table-cell;
+	padding:4px;
+	width: 312px;
+	border: 1px solid #FFF;
+}
+#hideToggle {
+	cursor:pointer;
+	text-decoration: underline;	
+}
+
+.tableSearch {
+	border-collapse:collapse;
+    border-spacing: 0px;
+	width: 100%;
+}
+
+.tableSearch.allWidth {
+	width: 100%;
+}
+
+.tableSearch tr td {
+	padding: 6px;
+	margin: 0px;
+	border: 2px solid #FFF;
+}
+
+.tableSearch tr:nth-child(odd) {
+	background: #F3F3F3;
+}
+.tableSearch tr:nth-child(even) {
+	background: #FFF;
+}
+.tableSearch tr:nth-child(1) {
+	background: #000;
+	font-weight: bold;	
+	color: #FFF;
+}

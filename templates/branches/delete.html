@@ -1,0 +1,68 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Branches</h2>
+</div><h2>Delete Branch</h2>
+<table class="tableMain">
+  <tr>
+    <td>Option</td>
+    <td>Setting</td>
+  </tr>
+
+  <tr>
+    <td><strong>Branch Name</strong></td>
+    <td>#branchDesc#</td>
+  </tr>
+  <tr>
+    <td><strong>Address</strong></td>
+    <td>#branchAddress#</td>
+  <tr>
+    <td><strong>Map Link</strong></td>
+    <td><a href="#branchMapLink#" target="_blank">Click here to view map link</a></td>
+  <tr>
+    <td><strong>Image URL</strong></td>
+    <td>#branchImageURL#</td>
+  <tr>
+    <td><strong>Sunday</strong></td>
+    <td>#times_0#</td>
+  <tr>
+    <td><strong>Monday</strong></td>
+    <td>#times_1#</td>
+  <tr>
+    <td><strong>Tuesday</strong></td>
+    <td>#times_2#</td>
+  <tr>
+    <td><strong>Wednesday</strong></td>
+    <td>#times_3#</td>
+  <tr>
+    <td><strong>Thursday</strong></td>
+    <td>#times_4#</td>
+  <tr>
+    <td><strong>Friday</strong></td>
+    <td>#times_5#</td>
+  <tr>
+    <td><strong>Saturday</strong></td>
+    <td>#times_6#</td>
+  </tr>
+</table>
+<p>Deleting a branch is permanent and cannot be undone. This will not remove any meeting reservations, but it will make people unable to reserve rooms at this branch and will delete all rooms and room containers that exist at this branch. </p>
+<h2>Rooms and Containers Affected</h2>
+<h3>If you delete #branchName#, you will also delete the following room containers and rooms.</h3>
+<table class="tableMain">
+  <tr>
+    <td>Container</td>
+    <td>Rooms</td>
+  </tr>
+  #closedRoomsNone_start#
+  <tr>
+    <td colspan="2">No rooms or containers would be affected by deleting this branch</td>
+  </tr>
+  #closedRoomsNone_end#
+  #closedRoomsSome_start#
+  <tr>
+    <td valign="top">#containerLink_start#<a href="/wp-admin/admin.php?page=bookaroom_Settings_RoomCont&amp;&amp;roomContID=#roomContID#&amp;action=edit">#container#</a>#containerLink_end##containerNoLink_start##container##containerNoLink_end#</td>
+    <td>#roomsList_start#<a href="/wp-admin/admin.php?page=bookaroom_Settings_Rooms&amp;branchID=4&amp;roomID=#roomID#&amp;action=edit">#roomName#</a>#roomsList_end#</td>
+  </tr>
+  #closedRoomsSome_end#
+</table>
+<h3><a class="errorText" href="?page=bookaroom_Settings_Branches&amp;branchID=#branchID#&amp;action=deleteCheck">Click here to permanantly delete this branch.</a></h3>

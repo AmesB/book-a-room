@@ -1,0 +1,198 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration</h2>
+</div>
+<h2>Main Settings</h2>
+#error_start#
+<p style="color: red"><strong>#errorMsg#</strong></p>
+<p>#error_end# </p>
+<p>Please see the bottom of the page for simple instructions and a key to each setting.</p>
+<form id="form1" name="form1" method="post" action="?page=bookaroom_Settings">
+  <table class="tableMain">
+    <tr>
+      <td nowrap="nowrap">Description</td>
+      <td>Setting</td>
+      <td>Default</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_baseIncrement" class="tip" >Base increment in minutes</label></td>
+      <td><input name="bookaroom_baseIncrement" type="text" id="bookaroom_baseIncrement" value="#bookaroom_baseIncrement#" size="4" maxlength="4" title="test" /></td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_setupIncrement">Setup increments</label></td>
+      <td><input name="bookaroom_setupIncrement" type="text" id="bookaroom_setupIncrement" value="#bookaroom_setupIncrement#" size="4" maxlength="4" /></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_cleanupIncrement">Cleanup increments</label></td>
+      <td><input name="bookaroom_cleanupIncrement" type="text" id="bookaroom_cleanupIncrement" value="#bookaroom_cleanupIncrement#" size="4" maxlength="4" /></td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td><label for="bookaroom_reservation_URL">URL for reservations page<br />
+          <em>(Please see instructions for more information) </em></label></td>
+      <td><input name="bookaroom_reservation_URL" type="text" id="bookaroom_reservation_URL" value="#bookaroom_reservation_URL#" size="48" maxlength="255" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td><label for="bookaroom_paymentLink">URL for payment link<br />
+        <em>Enter the FULL URL including http: or https:</em></label></td>
+      <td><input name="bookaroom_paymentLink" type="text" id="bookaroom_paymentLink" value="#bookaroom_paymentLink#" size="48" maxlength="255" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">URL for event calendar<br />
+        <em>Leave empty if on same WP site</em></td>
+      <td><input name="bookaroom_eventLink" type="text" id="bookaroom_eventLink" value="#bookaroom_eventLink#" size="48" maxlength="255" /></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_setupColor">Background color for Setup</label></td>
+      <td><input name="bookaroom_setupColor" type="text" id="bookaroom_setupColor" value="#bookaroom_setupColor#" size="7" maxlength="7" /></td>
+      <td>#BBF</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_setupFont">Font color for Setup</label></td>
+      <td><input name="bookaroom_setupFont" type="text" id="bookaroom_setupFont" value="#bookaroom_setupFont#" size="7" maxlength="7" /></td>
+      <td>#000</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_reservedColor">Background color for Reserved</label></td>
+      <td><input name="bookaroom_reservedColor" type="text" id="bookaroom_reservedColor" value="#bookaroom_reservedColor#" size="7" maxlength="7" /></td>
+      <td>#448</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_reservedFont">Font color for Reserved</label></td>
+      <td><input name="bookaroom_reservedFont" type="text" id="bookaroom_reservedFont" value="#bookaroom_reservedFont#" size="7" maxlength="7" /></td>
+      <td>#FFF</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Days before meeting to send reminders</td>
+      <td><input name="bookaroom_daysBeforeRemind" type="text" id="bookaroom_daysBeforeRemind" value="#bookaroom_daysBeforeRemind#" size="7" maxlength="7" /></td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_reserveBuffer">Days Buffer for Reserve</label></td>
+      <td><input name="bookaroom_reserveBuffer" type="text" id="bookaroom_reserveBuffer" value="#bookaroom_reserveBuffer#" size="7" maxlength="7" /></td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_reserveAllow">Days Allowed to Reserve</label></td>
+      <td><input name="bookaroom_reserveAllowed" type="text" id="bookaroom_reserveAllowed" value="#bookaroom_reserveAllowed#" size="7" maxlength="7" /></td>
+      <td>90</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap"><label for="bookaroom_defaultEmailDaily2">Default Email for Daily Reservations</label></td>
+      <td><input name="bookaroom_defaultEmailDaily" type="text" id="bookaroom_defaultEmailDaily" value="#bookaroom_defaultEmailDaily#" size="32" maxlength="254" /></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">For Profit Room Deposit</td>
+      <td>$
+        <input name="bookaroom_profitDeposit" type="text" id="bookaroom_profitDeposit" value="#bookaroom_profitDeposit#" size="5" maxlength="5" /></td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Non-profit Room Deposit</td>
+      <td>$
+        <input name="bookaroom_nonProfitDeposit" type="text" id="bookaroom_nonProfitDeposit" value="#bookaroom_nonProfitDeposit#" size="5" maxlength="5" /></td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">For Profit price per increment</td>
+      <td>$
+        <input name="bookaroom_profitIncrementPrice" type="text" id="bookaroom_profitIncrementPrice" value="#bookaroom_profitIncrementPrice#" size="5" maxlength="5" /></td>
+      <td>30</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Non-profit price per increment</td>
+      <td>$
+        <input name="bookaroom_nonProfitIncrementPrice" type="text" id="bookaroom_nonProfitIncrementPrice" value="#bookaroom_nonProfitIncrementPrice#" size="5" maxlength="5" /></td>
+      <td>0</td>
+    <tr>
+      <td nowrap="nowrap">Waiting list default</td>
+      <td><input name="bookaroom_waitingListDefault" type="text" id="bookaroom_waitingListDefault" value="#bookaroom_waitingListDefault#" size="5" maxlength="5" /></td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Hide Meeting Room Contract</td>
+      <td><input name="bookaroom_hide_contract" type="checkbox" id="bookaroom_hide_contract" value="TRUE"#bookaroom_hideContractChecked#></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Hide Public Event Names</td>
+      <td><input name="bookaroom_obfuscatePublicNames" type="checkbox" id="bookaroom_obfuscatePublicNames" value="TRUE"#bookaroom_obfuscatePublicNamesChecked#>
+        Public Events Show as &quot;In Use&quot;</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Screen Width</td>
+      <td><select name="bookaroom_screenWidth" id="bookaroom_screenWidth">
+          
+          
+          #screenWidth_start#
+          
+          <option value="#screenWidth_val#" #screenWidth_selected#>#screenWidth_disp#</option>
+          
+          #screenWidth_end#
+   
+
+        
+        </select></td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td nowrap="nowrap">Library Card Regex</td>
+      <td><input name="bookaroom_libcardRegex" type="text" id="bookaroom_libcardRegex" value="#bookaroom_libcardRegex#" size="48" /></td>
+      <td>10</td>
+    </tr>    
+    <tr>
+      <td colspan="3" nowrap="nowrap"><input name="action" type="hidden" value="updateSettings" />
+        <input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+  </table>
+</form>
+<h3>Instructions &amp; Key</h3>
+<table width="0" border="0" cellspacing="0" cellpadding="4">
+  <tr>
+    <td align="left" valign="top"><strong>Base increment</strong></td>
+    <td valign="top">Specify how many minutes are used per scheduling increment. </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><label for="bookaroom_setupIncrement2"><strong>Setup/Cleanup increments</strong></label></td>
+    <td valign="top">Add a buffer, in increments, to the beginning and/or end of each meeting request. If you have both a setup and cleanup specified, you may have a large amount of time between meetings, so you may want to choose one or the other.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>Font/Background colors</strong></td>
+    <td valign="top">Set the colors for reserved and setup/cleaning slots on the signup calendar.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>Days Buffer for Reserve</strong></td>
+    <td valign="top">The number of days, from today, that people can reserve. A zero would mean customers could reserve a room on today's date. A two would mean customers couldn't make a reservation sooner than two days from today's date.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>
+      <label for="bookaroom_reserveAllow2">Days Allowed to Reserve</label>
+    </strong></td>
+    <td valign="top">The number of days, after today, that people can reserve. A ninety would mean customers couldn't make a reservation later than ninety days from today's date.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>Default Email for Daily Reservations</strong></td>
+    <td valign="top">Enter the email that the reservations will come from. This should be the person or email group that will get responses via replies to the email alerts.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>For/Non-Profit Room Deposits</strong></td>
+    <td valign="top">Enter the amount that needs to be deposited for the reservation. </td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>For/Non-Profit price per increment</strong></td>
+    <td valign="top">Enter the amount that each increment will cost.</td>
+  </tr>
+  <tr>
+    <td align="left" valign="top"><strong>Screen Width</strong></td>
+    <td valign="top">If your theme is &quot;thin&quot; you can force the display to be thinner so that everything renders correctly.</td>
+  </tr>
+</table>
+<p>&nbsp;</p>

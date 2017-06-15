@@ -1,0 +1,44 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Rooms</h2>
+</div>
+<h2>Delete Room</h2>
+<table class="tableMain">
+  <tr>
+    <td>Option</td>
+    <td>Setting</td>
+  </tr>
+  <tr>
+    <td><strong>Room Name</strong></td>
+    <td>#roomDesc#</td>
+  </tr>
+  <tr>
+    <td><strong>Branch</strong></td>
+    <td>#branch#</td>
+    #amenity_some_start#
+  <tr>
+    <td rowspan="#rowSpan#" valign="top"><strong>Amenities</strong></td>
+    <td>#amenity1#</td>
+  </tr>
+  #amenity_more_start#
+  <tr>
+    <td>#amenity_more#</td>
+  </tr>
+  #amenity_more_end##amenity_some_end#
+  #amenity_one_start#
+  <tr>
+    <td rowspan><strong>Amenities</strong></td>
+    <td>#amenity#</td>
+  </tr>
+  #amenity_one_end#
+  #amenity_none_start#
+  <tr>
+    <td rowspan><strong>Amenities</strong></td>
+    <td>No Amenities</td>
+  </tr>
+  #amenity_none_end#
+</table>
+<p>Deleting a room is permanent and cannot be undone.</p>
+<p><a class="errorText" href="?page=bookaroom_Settings_Rooms&amp;roomID=#roomID#&amp;action=deleteCheck">Click here to permanantly delete this room.</a></p>
+</form>

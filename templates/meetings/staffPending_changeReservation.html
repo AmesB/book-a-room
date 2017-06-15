@@ -1,0 +1,269 @@
+<!-- <link href="#pluginLocation#/css/bookaroom_day.css" rel="stylesheet" type="text/css" /> -->
+<script language="javascript">
+
+function checkSubmit() {
+	var hourChecks = document.getElementsByName('hours[]');
+
+	var boxCount = 0;	
+
+	for (var t=0, checkLength = hourChecks.length; t<checkLength; t++) {
+		if( hourChecks[t].type == 'checkbox' && hourChecks[t].checked == true ) {
+			boxCount++;
+		}
+    }
+
+	if( boxCount > 0 ) {
+		document.forms["hoursForm"].submit();
+	} else {
+		alert( "Error!\nYou haven't selected any times to reserve."	);
+	}
+}
+
+function checkHours(curChecked) {
+	/* are there only two checked boxes? */
+	//alert();
+	var hourChecks = document.getElementsByName('hours[]');
+	var boxArr = new Array();
+	var boxCount = 0;
+	var lastItem = false;
+
+	// count total boxes checked
+	for (var t=0, checkLength = hourChecks.length; t<checkLength; t++) {
+		if( hourChecks[t].type == 'checkbox' && hourChecks[t].checked == true ) {
+			boxArr[boxCount++] = t;
+		}
+    }
+
+	// is this unchecking - clear under
+	if( hourChecks[curChecked].checked == false && curChecked < boxArr[0] ) {
+		hourChecks[curChecked].checked = false;
+	} else if( hourChecks[curChecked].checked == false ) {
+		for (var t=curChecked, checkLength = hourChecks.length; t<checkLength; t++) {	
+			hourChecks[t].checked = false;
+		}
+	// is checked box higher? clear underneath (after first)
+	}else if(  hourChecks[curChecked].checked == true && boxArr[1] > curChecked ) {
+		var chkstat = true;
+		for (var t=curChecked, checkLength = hourChecks.length; t < checkLength; t++) {
+			hourChecks[t].checked = chkstat;
+			chkstat = false;
+			
+		}
+	// are there multiple and this is the first? just uncheck it
+	} else if( boxArr.length > 1) {
+		for( var s=boxArr[0]+1, e=boxArr[boxArr.length-1]; s<e; s++ ) {
+			var curHour = document.getElementById( 'hours_'+s );
+			
+			if( curHour.value == false ) {
+				hourChecks[curChecked].checked = false;
+				alert( "Error!\nI'm sorry, but there is already a reservation in the time you've selected. Please make sure your reservation times don't overlap someone else's reservation." );
+				break;
+			} else {
+				hourChecks[s].checked = true;
+			}
+		}
+	}
+}
+</script>
+<link href="/css/dataTable.css" rel="stylesheet" type="text/css" />
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Add/Change Event</h2>
+#error_start#
+<p style="color: red"><strong>#errorMSG#</strong></p>
+#error_end#
+<div class="changeRes_table">
+  <div class="changeRes_row">
+    <div class="changeRes_cellHeader">Branch</div>
+    <div class="changeRes_cellHeader">Room</div>
+  </div>
+  <div class="changeRes_row">
+    <div class="changeRes_cell">#branchSelected_start#
+      <p><strong>#branchName#</strong></p>
+      #branchSelected_end#
+      #branchSome_start#
+      <p><a href="?page=bookaroom_meetings_events&branchID=#branchID#&timestamp=#timestamp#">#branchName#</a></p>
+      #branchSome_end#
+      #branchNoneExist_start#There are no branches available.#branchNoneExist_end# </div>
+    <div class="changeRes_cell">#roomSelected_start#
+      <p><strong>#roomName#</strong><br />
+        Occupancy: #occupancy#</p>
+      #roomSelected_end#
+      #roomSome_start#
+      <p><a href="?page=bookaroom_meetings_events&roomID=#roomID#&timestamp=#timestamp#">#roomName#</a><br />
+        Occupancy: #occupancy#</p>
+      #roomSome_end#
+      #roomNoneOrBranch_start#There are no branches or rooms available.#roomNoneOrBranch_end# #roomNoneExist_start#There are no rooms available in this branch.#roomNoneExist_end# #roomNoBranch_start#Please select a branch.#roomNoBranch_end#</div>
+  </div>
+</div>
+<div class="changeRes_table">
+  <div class="changeRes_row">
+    <div class="changeRes_cellCalHeader">Calendar</div>
+    <div class="changeRes_cellHoursHeader">Hours</div>
+  </div>
+  <div class="changeRes_row">
+    <div class="changeRes_cellCal">
+      <div class="calNav">
+        <div class="prevMonth"><a href="?page=bookaroom_meetings_events&timestamp=#prevTimestamp#&roomID=#roomID#&res_id=#res_id#">&lt;&nbsp;Prev</a></div>
+        <div class="curMonth">#month# #year#</div>
+        <div class="nextMonth"><a href="?page=bookaroom_meetings_events&timestamp=#nextTimestamp#&roomID=#roomID#&res_id=#res_id#">Next ></a></div>
+      </div>
+      <div id="calDisplay">
+        <div class="calWeek">
+          <div class="calCell">
+            <div class="dayHeader">Su</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">Mo</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">Tu</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">We</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">Th</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">Fr</div>
+          </div>
+          <div class="calCell">
+            <div class="dayHeader">Sa</div>
+          </div>
+        </div>
+        #week_start#
+        <div class="calWeek"> #noDay_start#
+          <div class="calCell">
+            <div class="calNoDay">&nbsp;</div>
+          </div>
+          #noDay_end#
+          #selDay_start#
+          <div class="calCell">
+            <div class="calSelectedDay"><a href="?page=bookaroom_meetings_events&timestamp=#timestamp#&roomID=#roomID#&res_id=#res_id#">#dateNum#</a></div>
+          </div>
+          #selDay_end#
+          #today_start#
+          <div class="calCell">
+            <div class="calToday"><a href="?page=bookaroom_meetings_events&timestamp=#timestamp#&roomID=#roomID#&res_id=#res_id#">#dateNum#</a></div>
+          </div>
+          #today_end#
+          #regDay_start#
+          <div class="calCell">
+            <div class="calContent"><a href="?page=bookaroom_meetings_events&timestamp=#timestamp#&roomID=#roomID#&res_id=#res_id#">#dateNum#</a></div>
+          </div>
+          #regDay_end# </div>
+        #week_end# </div>
+      <div class="calNav">
+        <div id="calFormCont">
+          <form action="?page=bookaroom_meetings_events" method="get" id="calForm">
+            <div class="calContainAdmin">
+              <select name="calMonth" id="calMonth">
+                
+          #month_start#
+          
+                <option value="#monthKey#"#monthSelected#>#monthDisp#</option>
+                
+          #month_end#
+        
+              </select>
+            </div>
+            <div class="calContainAdmin">
+              <select name="calYear" id="calYear">
+                
+          #year_start#
+          
+                <option value="#yearKey#"#yearSelected#>#yearDisp#</option>
+                
+          #year_end#
+        
+              </select>
+            </div>
+            <div class="calContainAdmin">
+              <input name="roomID" type="hidden" value="#calRoomID#" />
+              <input name="page" type="hidden" value="bookaroom_meetings_events" />
+              <input name="action" type="hidden" value="changeReservation" />
+              <input type="submit" name="submitCal" id="submitCal" value="Go" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="changeRes_cellHours">
+      #hoursRoomsSome_start#<form action="" method="post" id="hoursForm">
+        <table id="hoursTable" class="hoursTableClean">
+          <tr class="calHours">
+            <td>Select </td>
+            <td class="calTime">Time</td>
+            <td>Status</td>
+          </tr>
+          #hourReg_start#
+          <tr class="calHours">
+            <td><label for="hours_#hoursCount#">
+                <input id="hours_#hoursCount#" name="hours[]" type="checkbox" value="#iterTimestamp#" onchange="checkHours('#hoursCount#')"#hoursChecked# />
+              </label></td>
+            <td class="calTime"><label for="hours_#hoursCount#">#timeDisp#</label></td>
+            <td><label for="hours_#hoursCount#">Open</label></td>
+          </tr>
+          #hourReg_end#
+          #hourSetup_start#
+          <tr class="calHoursSetup" style="background: #setupColor#; color: #setupFont#">
+            <td><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+            <td class="calTime">#timeDisp#</td>
+            <td>&nbsp;</td>
+          </tr>
+          #hourSetup_end#
+          #hourUnavailable_start#
+          <tr class="calHoursReserved" style="background: #reservedColor#; color: #reservedFont#">
+            <td><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+            <td class="calTime">#timeDisp#</td>
+            <td>Unavailable</td>
+          </tr>
+          #hourUnavailable_end#
+          #hourReserved_start#
+          <tr class="calHoursReserved" style="background: #reservedColor#; color: #reservedFont#">
+            <td><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+            <td class="calTime">#timeDisp#</td>
+            <td>#desc#</td>
+          </tr>
+          #hourReserved_end#
+          #hourLast_start#
+          <tr class="calHoursReserved">
+            <td><input id="hours_#hoursCount#" name="hours[]" type="hidden" value="" onchange="checkHours()" /></td>
+            <td class="calTime">#timeDisp#</td>
+            <td>&nbsp;</td>
+          </tr>
+          #hourLast_end#
+        </table>
+        <input name="roomID" type="hidden" id="roomID" value="#roomID#" />
+        <input name="res_id" type="hidden" id="res_id" value="#res_id#" />
+        <input name="timestamp" type="hidden" id="timestamp" value="#timestamp#" />
+        <input name="action" type="hidden" id="action" value="#action#" />
+        <input type="submit" name="button" id="button" value="Submit" />
+      </form>#hoursRoomsSome_end##hoursRoomsNone_start#
+      <table id="hoursTable" class="hoursTableClean">
+        <tr class="calHours">
+          <td class="calCheckBox">Select </td>
+          <td class="calTime">Time</td>
+          <td class="calStatus">Status</td>
+        </tr>
+        <tr class="calHours hoursTableClean">
+          <td class="calCheckBox">&nbsp;</td>
+          <td class="calTime">There are no rooms available to request at this branch.</td>
+          <td class="calStatus">&nbsp;</td>
+        </tr>
+      </table>#hoursRoomsNone_end##hoursRoomsClosed_start#
+      <table id="hoursTable" class="hoursTableClean">
+        <tr class="calHours">
+          <td class="calCheckBox">Select </td>
+          <td class="calTime">Time</td>
+          <td class="calStatus">Status</td>
+        </tr>
+        <tr class="calHours">
+          <td class="calCheckBox">&nbsp;</td>
+          <td class="calTime">This branch isn't open today.</td>
+          <td class="calStatus">&nbsp;</td>
+        </tr>
+      </table>#hoursRoomsClosed_end#
+    </div>
+  </div>
+</div>

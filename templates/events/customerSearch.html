@@ -1,0 +1,101 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#startDate, #endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+	
+	$("#hideToggle").click(function(){
+		$(".searchArea").toggle();
+	});
+
+	$("#resetAge").click( function(){
+		$("#ageGroup option:selected").removeAttr("selected");
+		
+	});
+	$("#resetCats").click( function(){
+		$("#categoryGroup option:selected").removeAttr("selected");
+		
+	});
+});
+
+</script>
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Search Registrations</h2>
+</div>
+<form name="form1" method="post" action="?page=bookaroom_event_management_customerSearch">
+  #error_start#
+  <p style="color: #F00;"> #errorMSG#</p>
+  #error_end#
+  <table width="100%" class="tableMain">
+    <tr>
+      <td colspan="2">Search/Filter Settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<div style="float:right; cursor:pointer; text-decoration:underline" id="hideToggle">Hide/Show</div></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Branch</td>
+      <td><select name="roomID" id="roomID">
+      #room_start#<option value="#roomVal#"#roomSelected##roomSelectedClass##roomDisabled# >#roomDesc#</option>#room_end#
+        </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Start Date</td>
+      <td><input name="startDate" type="text" id="startDate" value="#startDate#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td>End Date</td>
+      <td><input name="endDate" type="text" id="endDate" value="#endDate#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Name</td>
+      <td><input name="searchName" type="text" id="searchName" value="#searchName#" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Email</td>
+      <td><input name="searchEmail" type="text" id="searchEmail" value="#searchEmail#" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Phone number</td>
+      <td><input name="searchPhone" type="text" id="searchPhone" value="#searchPhone#"></td>
+    </tr>
+    <tr class="searchArea">
+      <td colspan="2" align="center"><input name="action" type="hidden" id="action" value="filterResults">        <input type="submit" name="button" id="button" value="Submit"></td>
+    </tr>
+  </table>
+</form>
+#search_start#<br />
+<h3>Search Results</h3>
+<table width="100%" class="tableMain freeWidth">
+  <tr>
+    <td>Event ID</td>
+    <td>Name</td>
+    <td>Date/Time</td>
+    <td>Title/Desc</td>
+    <td>Branch/Room</td>
+    <td>Registrations</td>
+  </tr>
+#searchItem_start#  <tr>
+    <td>#eventID#</td>
+    <td nowrap="nowrap"><strong>#name#</strong>#phone_start#<br />
+    #phoneNumber##phone_end##email_start#<br />
+    #emailAddress##email_end#</td>
+    <td nowrap="nowrap">#date#<br />
+      <em>#time#</em></td>
+    <td><p><strong>#title#</strong><br />
+    #desc#<br />
+    <em>#extraInfo# </em></p></td>
+    <td nowrap="nowrap"><p><strong>#branch#</strong><br />
+    #room#</p></td>
+    <td nowrap="nowrap">
+        <p>
+         #reg_start#Registered#reg_end##waiting_start#<em style="color:red"><strong>On waiting list [#curWait#/#totalWait#]</strong></em>#waiting_end#<br />
+          <a href="?page=bookaroom_event_management&amp;action=manage_registrations&amp;eventID=#eventID#" target="_blank">        Manage Registrations</a></p>
+    </td>
+    </tr>#searchItem_end#
+#searchNone_start#  <tr>
+    <td colspan="6">Nothing matches your search criteria.</td>
+  </tr>#searchNone_end#
+</table>
+#search_end#

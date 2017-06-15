@@ -1,0 +1,531 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+:target:before {
+	content: "";
+	display: block;
+	height: 40px; /* fixed header height*/
+	margin: -40px 0 0; /* negative fixed header height */
+}
+</style>
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2><em>Book a Room</em> Administration</h2>
+</div>
+<div id="settingsContent">
+  <h1><a name="topOfPage" class="anchorDrop" id="topOfPage"></a>Help!</h1>
+  <p>The Book a Room plug-in comes in two parts. </p>
+  <p>The <strong>Meeting Room plugin</strong> manages most of the heavy lifting. It manages staff and public meeting room reservations, settings and administrative functions.</p>
+  <p>The <strong>Event Calendar plugin</strong> displays several different things. It shows the public event calendar and gives users detailed event information. It also provides registration forms and a public search function. </p>
+  <p>The Event Calendar plug-in can be installed in a separate Wordpress installation. This allows you to offer your events on a different sub-domain if needed. It can also run side-by-side with the Meeting Room plug-in on the same site.   </p>
+  <hr>
+  <h1>The Meeting Room System Main Menu</h1>
+  <p>The main menu is broken into two sections, management and options. Click on an option to view more in-depth information.</p>
+  <div class="help_list">
+    <div><a href="#head_installing">Installing and Configuring</a></div>
+    <div><a href="#head_usage_and_tips">Usage and Tips</a></div>
+    <h1><br>
+      Menu Breakdown </h1>
+    <div><a href="#head_create_manage_events"> Create/Manage Events </a>
+      <div><a href="#sub_create_event">Create Event </a></div>
+      <div><a href="#sub_manage_events">Manage Events </a></div>
+      <div><a href="#sub_search_registrations">Search Registrations </a></div>
+      <div><a href="#sub_view_staff_events">View Staff Events </a></div>
+    </div>
+    <div><a href="#head_manage_reservations">Manage Reservations </a>
+      <div><a href="#sub_statuses">Statuses</a></div>
+      <div> <a href="#sub_search">Search</a></div>
+    </div>
+    <div><a href="#head_daily_schedules"> Daily Schedules </a>
+      <div><a href="#sub_contact_list"> Contact List </a></div>
+      <div><a href="#sub_daily_meetings"> Daily Meetings </a></div>
+      <div><a href="#sub_daily_room_signs"> Daily Room Signs </a></div>
+    </div>
+    <div><a href="#head_event_settings"> Event Settings </a>
+      <div><a href="#sub_manage_age_groups">Manage Age Groups </a></div>
+      <div><a href="#sub_manage_categories"> Manage Categories </a></div>
+    </div>
+    <div><a href="#head_meeting_room_settings"> Meeting Room Settings </a>
+      <div> <a href="#sub_settings">Settings</a></div>
+      <div> <a href="#sub_amenities_admin">Amenities Admin</a></div>
+      <div> <a href="#sub_branch_admin">Branch Admin</a></div>
+      <div> <a href="#sub_room_admin">Room Admin</a></div>
+      <div> <a href="#sub_containers_admin">Containers Admin</a></div>
+      <div><a href="#sub_city_admin"> City Admin </a></div>
+      <div><a href="#sub_email_admin"> Email Admin </a></div>
+      <div><a href="#sub_content_admin"> Content Admin </a></div>
+      <div><a href="#sub_closings_admin"> Closings Admin </a></div>
+    </div>
+  </div>
+  <p>
+  <hr>
+  </p>
+  <div class="help_list"> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_installing"></a>Installing and Configuring 
+      <!-- sub header -->
+      <div> A quick setup that will get you up and running.
+        <!-- content -->
+        <div>
+          <p>Installation requires a few, simple steps after you have  initially installed the plugin. You can configure further but these are the  simplest things you can do to get things running.</p>
+          <ul>
+            <li>Create a page for Reservations and a page for  the Event Calendar.</li>
+            <ul>
+              <li>On the Meeting Room Page, the content should be  the shortcode <strong>[meetingRooms]</strong></li>
+              <li>On the Event Calendar (which can run on another  sub-domain), use the shortcode <strong><u>[showCalendar]</u></strong></li>
+            </ul>
+          </ul>
+          <ul>
+            <li>Enter the page URLS.</li>
+            <ul>
+              <li>Go to <em>Meeting  Room Settings &gt; Settings</em>.</li>
+              <li>Add the URL for your Meeting Room page and Event  Calendar pages in the appropriate boxes.</li>
+              <li>Add everything after your site&rsquo;s URL including a  trailing and leading slash. For instance, if your Meeting Room page is <strong><a href="http://meetings.heightslibrary.org/reserve-a-meeting-room/">http://meetings.heightslibrary.org/reserve-a-meeting-room/</a></strong>,  then you would enter <strong>/reserve-a-meeting-room/</strong> into the form.<strong></strong></li>
+              <li>If you are hosting the event calendar on a  separate page, please use the complete URL in the Event Calendar box.<br>
+                <strong></strong></li>
+            </ul>
+            <li>Enter an Email into the<strong> Default Email for Daily reservations.</strong></li>
+            <ul>
+              <li>This email will be the default on the daily  reports.<br>
+              </li>
+            </ul>
+            <li>Enter pricing.</li>
+            <ul>
+              <li>Enter the deposit and per increment costs for  profit and non-profit rooms.<br>
+              </li>
+            </ul>
+            <li>Create some amenities.</li>
+            <ul>
+              <li>If you have amenities available, go to the  Amenities Admin and create a new amenity. Things that are checked &lsquo;Reservable&rsquo;  would be items that can be brought into the room like a TV, Blu-Ray player or  Whiteboard. Things that always in the room, like a sink, microwave, fridge or  PA system would not have to be reservable.<br>
+              </li>
+            </ul>
+            <li>Create a branch</li>
+            <ul>
+              <li>Go to <em>Meeting  Room Settings &gt; Branch Admin</em>.</li>
+              <li>Add a branch.</li>
+              <ul>
+                <li>You must fill in a name, address and map link.</li>
+                <li>Make sure that Available to the public is  checked.</li>
+                <li>If you want to be able to schedule events that  don&rsquo;t have a specific room, check <em>Has &lsquo;No  Location&rsquo;</em></li>
+                <li>For a closed day, do not enter hours. Otherwise,  enter start and closing times for the branch.<br>
+                </li>
+              </ul>
+            </ul>
+            <li>Create a room.<br>
+              <em>Rooms are actual, physical spaces. Create one for each  space, even if you can partition rooms together to form a larger room.</em></li>
+            <ul>
+              <li>Go to <em>Meeting  Room Settings &gt; Room Admin</em>.</li>
+              <li>Click <em>Create  a new room</em>.</li>
+              <li>Enter the room name, select the branch and  choose any amenities, then submit.<br>
+              </li>
+            </ul>
+            <li>Create a room container.<br>
+              <em>Room Containers are reservable spaces and are made up  of one or more rooms.  If you have a Room  A and a Room B, but can also turn them into one large meeting room, you would  make 3 containers. One for Room A, one for Room B and one containing both.</em></li>
+            <ul>
+              <li>Go to <em>Meeting  Room Settings &gt; Containers Admin</em>.</li>
+              <li>Click Add a new container next to the name of  the branch you want this room container to reside.</li>
+              <li>Enter a container name. This can be simple, like  &ldquo;Room A&rdquo;, or more descriptive, like &ldquo;Room A &amp; B&rdquo; or &ldquo;John Doe Room&rdquo; if the area  is named.</li>
+              <li>Enter the max occupancy.</li>
+              <li>Clicking public means that this room is available  to be reserved by the public, not just for staff events.</li>
+              <li>Clicking Hide on daily? will remove it from the  daily schedules. This is useful for staff reservable areas like art galleries  and display cases that you want to track but not take up space on daily reports  or signs.</li>
+              <li>Choose at least one room to be inside the  container.</li>
+            </ul>
+            <li>Misc. data.</li>
+            <ul>
+              <li>You will need to enter appropriate email  addresses and customize the emails on the <em>Email  Admin</em> page.</li>
+              <li>You will need to enter your meeting room  contract on the <em>Content Admin</em> page.</li>
+              <li>If you have any closings for holidays or other  reasons, you can enter them on the <em>Closing  Admin</em> screen.</li>
+            </ul>
+            <li>Configure the Event Calendar plugin.</li>
+            <ul>
+              <li>Go to <em>Settings  &gt; Event Settings</em>. This is in the regular Wordpress settings options.</li>
+              <li>Create a random security key. I usually just  mash the keyboard.</li>
+              <li>Enter the database information from the site  that you installed the main Book a Room plugin.</li>
+            </ul>
+          </ul>
+          <p>This is the minimum required to get the plugin up and  running. You can get more information about other settings and features in the  rest of this documentation.</p>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_usage_and_tips" id="head_usage_and_tips"></a>Usage and Tips<!-- sub header -->
+      <div><!-- content -->
+        <div>Please
+        check the Book a Room plugin page for more tips and tricks.</div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_create_manage_events" id="head_create_manage_events"></a>Create/Manage Events 
+      <!-- sub header -->
+      <div> <a name="sub_create_event" id="head_create_manage_events2"></a>Create Event 
+        <!-- content -->
+        <div>
+          <p>You can create both public and staff events from this menu. 
+            The form is broken into several sections:</p>
+          <ul>
+            <li><strong>Location</strong> - the branch and room of the event. If your branch is set to allow &quot;No Location&quot;, that will be an option, also.</li>
+            <li><strong>Recurrence settings</strong> - Choose between a single or recurring event.
+              <ul>
+                <li><strong><em>Event Date</em></strong> - For a single event, the date of the event. For a recurring event, the first date of the event.</li>
+                <li><strong><em>Recurrence</em></strong> - Select the type of recurrence.
+                  <ul>
+                    <li><strong>Single</strong> - A single event.</li>
+                    <li><strong>Daily</strong> - An event that spans several days.
+                      <ul>
+                        <li><strong><em>Every n Days(s)</em></strong> - An event that reoccurs every <em>n </em> days. If you choose every 3 days and start on a Monday, it will schedule the event for Monday, Thursday, Sunday, Wednesday, Saturday, etc. </li>
+                        <li><strong><em>Weekdays</em></strong> - This will schedule the event sequentially every day except for Saturday and Sunday.</li>
+                        <li><strong><em>Weekends</em></strong> - This will schedule the event sequentially every Saturday and Sunday, only.</li>
+                        <li>End Choice - You can choose to continue recurrence for n number of occurrences&nbsp;or choose a date to end by.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Weekly</strong> -  Weekly scheduling allows you to specify how many weeks to skip and what days of the week to schedule.
+                      <ul>
+                        <li><strong><em>Every n weeks on&nbsp;</em></strong> - This allows&nbsp;you to skip weeks if needed. 1 one means every week. A 2 skips a week. A 3 would skip 2 weeks, and so on. </li>
+                        <li><strong><em>Week days</em></strong> - Select the days of the week you want to schedule the event. </li>
+                        <li><strong><em>End Choice</em></strong> - You can choose to continue recurrence for n number of occurrences&nbsp;or choose a date to end by.</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><strong>Time Settings</strong> - Set the start and end time (or all day status) for your event(s).
+              <ul>
+                <li><em><strong>All Day</strong></em> - If this is set to yes, the room will be reserved for the entire day. </li>
+                <li><strong><em>Start/End Time</em></strong> - If the event is NOT set to all day, set a start and end time. The time format must be in this format: hh:mm am/pm. Make sure there is a space between the minutes and the am or pm.</li>
+              </ul>
+            </li>
+            <li><strong>Event Settings</strong> - Basic settings for the event.
+              <ul>
+                <li><em><strong>Event Title</strong></em> - This is the title of the event. This will be publicly shown and searchable. Shorter is better.</li>
+                <li><strong><em>Event Description</em></strong> - This is the public description of the event.</li>
+                <li><strong><em>Registration Required</em></strong>
+                  <ul>
+                    <li><strong>Yes</strong> - This limits the number of registrations and requires that users must register.</li>
+                    <li><strong>No</strong> - This is an open event with no registration.</li>
+                    <li><strong>Staff</strong> - This is a staff event.&nbsp;Registration is required and the event is visible on the Staff Events page.</li>
+                  </ul>
+                </li>
+                <li><strong><em>Max. Registrations</em></strong> - The total&nbsp;number of people who can register for the event.</li>
+                <li><strong><em>Waiting List</em></strong> - The number of people who can sign up on the waiting list once the registration is full.</li>
+                <li><strong><em>Registration Begin Date</em></strong> - The date that patrons can begin registering</li>
+              </ul>
+            </li>
+            <li><strong>Contact Settings</strong>
+              <ul>
+                <li><strong><em>Contact Name, Phone, and Email</em></strong> - These are publicly displayed on the event information. This is the go-to person for information on the event.</li>
+                <li><strong><em>Presenter</em></strong> - The name of the person presenting.</li>
+                <li><strong><em>Website</em></strong> - The URL of the presenter's website.</li>
+                <li><strong><em>Website Text</em></strong>&nbsp;- The text that will be linked to the website in the previous field.</li>
+              </ul>
+            </li>
+            <li><strong>Amenities</strong> - Choose from the list of Amenities available for this meeting.</li>
+            <li><strong>Categories</strong> - Choose at least one Category (although you can check more than one)&nbsp;that applies to the event. This will be searchable.</li>
+            <li><strong>Age Group</strong> - Choose at least one Age Group (although you can check more than one)&nbsp;that applies to the event. This will be searchable.</li>
+            <li><strong>Other Options</strong>
+              <ul>
+                <li><strong>Your Name - </strong>Enter a name or initials to indentify yourself.</li>
+                <li><strong>Internal/Do not publish - </strong>If this is checked, the event will not show up on the public calendar. Use this for staff and internal events you don't want advertised to patrons.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div><a name="sub_manage_events" id="head_create_manage_events3"></a>Manage Events<!-- content -->
+        <div>
+          <p>The top of the page on the Manage Events screen is an advanced search area. Hitting submit will list every event. Use the search boxes and filters to define a date range, the type of event, the age groups, categories, etc. Once you have submitted and found results, you should see a list of events and options. The search area automatically closes after a search. You can open it again by clicking on the Hide/Show link on the heading of the Search/Filter Settings box. </p>
+          <p>The events listed will be paginated and you can specify how many items per page and which page you want to view above the search results. </p>
+          <p><strong>The following options will appear in the list of events if your search returns any.</strong></p>
+          <ul>
+            <li><strong>Manage Reservations</strong> - Allows viewing and deleting of registrations. Any registrations in the waiting list will move up automatically if a registration above it is deleted. It will also notify the user via email or, if they only entered a phone number, the number of the person who has gone from&nbsp;the waiting list to full registration so that you can contact them easily.</li>
+            <li><strong>Attendance Data</strong> - After an event, enter the attendance numbers and notes here. This will add to the monthly sums of attendees.</li>
+            <li><strong>View and Register</strong> - Takes you to the patron view so that you can view the public event notice and register users over the phone or in person.</li>
+            <li><strong>Edit/Delete Instance</strong> -&nbsp;Edit or delete one instance of a recurring event. Because some things are based on the main ticket for a recurring event, you are limited to what you may&nbsp;edit. Deleting an instance leaves all other instances of the recurring event&nbsp;alone.</li>
+            <li><strong>Edit/Delete Event</strong> - Editing or Deleting an event will give you near full control over editing or deleting a single event.</li>
+            <li><strong>Copy</strong> - Open a new event and copy the data from the current event to the new one.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div><a name="sub_search_registrations" id="head_create_manage_events4"></a>Search Registrations<!-- content -->
+        <div>The Search registrations section allows you to easily find a registered user using simple search filters.
+          <ul>
+            <li><strong>Manage Reservations</strong> - Allows viewing and deleting of registrations. Any registrations in the waiting list will move up automatically if a registration above it is deleted. It will also notify the user via email or, if they only entered a phone number, the number of the person who has gone from&nbsp;the waiting list to full registration so that you can contact them easily.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div><a name="sub_view_staff_events" id="head_create_manage_events5"></a>View Staff Events<!-- content -->
+        <div>A version of the public calendar that is only available to logged in (staff) users and which only shows staff events. </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_manage_reservations" id="head_manage_reservations"></a>Manage Reservations 
+      <!-- sub header -->
+      <div> <a name="sub_statuses" id="head_create_manage_events6"></a>Statuses<!-- content -->
+        <div>Each ticket starts as a Pending ticket. The following statuses are available:
+          <ul>
+            <li><strong>Statuses</strong>
+              <ul>
+                <li><strong>Pending</strong> - New requests that have not been approved or paid.</li>
+                <li><strong>Pend. Payments</strong> - Approved, for-profit requests that have not been paid</li>
+                <li><strong>Pend. 501(c)3</strong> - Approved, non-profit requests that have not turned in their paperwork.</li>
+                <li><strong>Approved</strong> - Approved and&nbsp;have either paid or successfully submitted paperwork for 501(3)(c).</li>
+                <li><strong>Denied</strong> - A denied request is no longer listed&nbsp;or on the calendar. Users will automatically get an email if they are denied.</li>
+                <li><strong>Archived</strong> - Archived requests are still on the calendar and saved but don't appear in any of the above lists. Useful for cleaning up old tickets.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <!-- sub header --><!-- sub header --><!-- sub header --><!-- sub header --><!-- sub header --><!-- sub header -->
+      <div> <a name="sub_search" id="head_create_manage_events12"></a>Search 
+        <!-- content -->
+        <div>
+          <p>When searching for a request, make sure you define some filters. You can filter by location, date, type, status and search terms.
+</p>
+          <p>If your search returns any results, you can view most of the important information, edit indivitual requests or bulk&nbsp;change statuses on multiple requests.</p>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_daily_schedules" id="head_daily_schedules"></a>Daily Schedules 
+      <!-- sub header -->
+      <div> <a name="sub_contact_list" id="head_create_manage_events13"></a>Contact List 
+        <!-- content -->
+        <div>The contact list will provide a printable list of every person who has requested a room on a certain day. If you have a power outage or other issue that requires closing rooms or the library, this sheet will allow you to easily contact anyone who has a reservation to let them know that the room isn't available.        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_daily_meetings" id="head_create_manage_events14"></a>Daily Meetings 
+        <!-- content -->
+        <div>Daily meetings provides a list of all of a days meetings in a printable sheet(s).
+        These can also be emailed out easily using the small form at the bottom. The default value is managed in the settings.</div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_daily_room_signs" id="head_create_manage_events15"></a>Daily Room Signs 
+        <!-- content -->
+        <div>The Daily Room signs will allow you to pick a date, branch and print a&nbsp;nicely formatted list of today's meetings&nbsp;so that you can post them.</div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_event_settings" id="head_event_settings"></a>Event Settings 
+      <!-- sub header -->
+      <div><a name="sub_manage_age_groups" id="head_create_manage_events16"></a>Manage Age Groups<!-- content -->
+        <div>When adding events, you must select at least one Age Group. You can add, edit and delete Age Groups here. This also creates a way for patrons to filter by Age Group when searching.</div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div><a name="sub_manage_categories" id="head_create_manage_events17"></a>Manage Categories
+        <div>When adding events, you must select at least one category. You can add, edit and delete Categories here. This also creates a way for patrons to filter by Category when searching.
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+    <hr>
+    <!-- END SECTION --> 
+    <!-- START SECTION --> 
+    <!-- title -->
+    <div><a name="head_meeting_room_settings" id="head_meeting_room_settings"></a>Meeting Room Settings<!-- sub header -->
+      <div> <a name="sub_settings" id="head_create_manage_events18"></a>Settings 
+        <!-- content -->
+        <div>
+          <ul>
+            <li><strong>Base increment in minutes</strong><br>
+            The number if minutes in each increment.<br>
+            </li>
+            <li><strong>Setup increments</strong><br>
+            The number of increments before each meeting.</li>
+            <li><strong>Cleaup increments</strong><br>
+            The number of increments after each meeting.            </li>
+            <li><strong>URL for reservations page*</strong><br>
+            This is the URL to the page you have designated as your event registrations page.</li>
+            <li><strong>URL for payment link*</strong><br>
+            This is not used at the moment. Eventually it will help integrate online payments.</li>
+            <li><strong>URL for event calendar*</strong><br>
+              This is the URL to the page you have designated as your calendar page.<br>
+            </li>
+            <li>Font color<br>
+              These settings allow you to tweak the font and background colors for Setup (and/or cleanup)
+            and Reserved times on the event form.</li>
+            <li>Days before meeting to send reminders </li>
+          </ul>
+          <p>&nbsp;</p>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_amenities_admin" id="head_create_manage_events19"></a>Amenities Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_branch_admin" id="head_create_manage_events20"></a>Branch Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_room_admin" id="head_create_manage_events21"></a>Room Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_containers_admin" id="head_create_manage_events22"></a>Containers Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_city_admin" id="head_create_manage_events23"></a>City Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_email_admin" id="head_create_manage_events24"></a>Email Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_content_admin" id="head_create_manage_events25"></a>Content Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+      <div> <a name="sub_closings_admin" id="head_create_manage_events26"></a>Closings Admin 
+        <!-- content -->
+        <div>Morbi porta nisi non urna cursus, nec cursus metus lobortis. Vestibulum et enim ante. Interdum et malesuada fames ac ante ipsum primis in faucibus. Duis eu porta nibh. Ut ac efficitur ante. Donec hendrerit vitae risus a placerat. Suspendisse aliquet, turpis vel varius accumsan, ante metus tristique magna, quis placerat lorem sapien in leo. Duis sed diam eget quam facilisis mollis quis nec ante.
+          <ul>
+            <li>Mauris consectetur metus volutpat ex dapibus, egestas ornare magna interdum.</li>
+            <li>Maecenas et ipsum cursus, scelerisque ante a, vehicula justo.</li>
+            <li>Nulla rutrum enim eu nisi cursus, vitae laoreet neque pellentesque.</li>
+            <li>Phasellus et nulla vel purus porta sagittis cursus vel nibh.</li>
+            <li>Etiam eu massa in quam convallis iaculis eu ut odio.</li>
+          </ul>
+        </div>
+        <!-- back to top link --> 
+        <a href="#topOfPage">Back to the top.</a> </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

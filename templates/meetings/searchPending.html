@@ -1,0 +1,174 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="javascript">
+$(function() {
+	// Setup date drops
+	$( '#startDate, #endDate' ).datepicker({ dateFormat: 'mm/dd/yy' });
+		
+	$("#hideToggle").click(function(){
+		$(".searchArea").toggle();
+	});
+});
+	
+function toggle(source) {
+  checkboxes = document.getElementsByName('res_id[]');
+  for(var i in checkboxes)
+    checkboxes[i].checked = source.checked;
+}
+
+jQuery(function() {
+    //----- OPEN
+    jQuery('[data-popup-open]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-open');
+        jQuery('[data-popup="' + targeted_popup_class + '"]').fadeIn(350);
+ 
+        e.preventDefault();
+    });
+ 
+    //----- CLOSE
+    jQuery('[data-popup-close]').on('click', function(e)  {
+        var targeted_popup_class = jQuery(this).attr('data-popup-close');
+        jQuery('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+ 
+        e.preventDefault();
+    });
+});
+
+jQuery(document).keyup(function(e) {
+  if (e.keyCode == 27) jQuery('.popup').fadeOut(350);
+});
+</script>
+
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room - Search Reservations</h2>
+</div>
+<form action="?page=bookaroom_meetings_search" method="post" name="form2" id="form2">
+  <br />
+  <table width="100%" class="tableMain">
+    <tr>
+      <td colspan="2">Search/Filter Settings&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div style="float:right; cursor:pointer; text-decoration:underline" id="hideToggle">Hide/Show</div></td>
+    </tr>
+    <tr>
+      <td>Branch/Room</td>
+      <td><select name="roomID" id="roomID">
+      #room_start#<option value="#roomVal#"#roomSelected##roomSelectedClass# >#roomDesc#</option>#room_end#
+        </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Start Date</td>
+      <td><input name="startDate" type="text" id="startDate" value="#startDate#" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td>End Date</td>
+      <td><input name="endDate" type="text" id="endDate" value="#endDate#" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Type</td>
+      <td><select name="nonProfit" id="regType">
+        
+        #nonProfit_start#
+        <option value="#nonProfit_val#"#nonProfit_selected#>#nonProfit_desc#</option>
+        #nonProfit_end#
+      
+      </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Status</td>
+      <td><select name="status" id="status">
+        
+        
+        #status_start#
+        
+        <option value="#status_val#"#status_selected#>#status_desc#</option>
+        
+        #status_end#
+      
+      
+      </select></td>
+    </tr>
+    <tr class="searchArea">
+      <td>Search Terms</td>
+      <td><input name="searchTerms" type="text" id="searchTerms" value="#searchTerms#" /></td>
+    </tr>
+    <tr class="searchArea">
+      <td colspan="2" align="center"><input name="action" type="hidden" id="action" value="filterResults" />
+        <input type="submit" name="button2" id="button2" value="Submit" /></td>
+    </tr>
+  </table>
+</form><br />
+#some_start#
+<form id="form1" name="form1" method="post" action="?page=bookaroom_meetings">
+  <table class="tableMain freeWidth">
+    <tr>
+      <td><input type="checkbox" name="checkAll" id="checkAll" onClick="toggle(this)" /></td>
+      <td>Branch &amp; Room</td>
+      <td>Date &amp; Time</td>
+      <td>Created</td>
+      <td>Event Name</td>
+      <td>Contact Name</td>
+      <td>Contact</td>
+      <td>Nonprofit?</td>
+      <td>Status</td>
+    </tr>
+    #line_start#
+  <tr>
+    <td><input name="res_id[]" type="checkbox" id="res_id[#res_id#]" value="#res_id#" /></td>
+    <td><strong>#branchName#</strong><br />
+      #roomName#</td>
+    <td nowrap="nowrap">#date#<br />
+      #startTime# - #endTime#</td>
+    <td nowrap="nowrap">#createdDate#<br />
+      #createdTime#</td>
+    <td>#eventName#</td>
+    <td><a class="btn" data-popup-open="popup-#itemCount#" href="#">#contactName#</a>
+(#notesNum#)        
+  <div class="popup" data-popup="popup-#itemCount#">
+          <div class="popup-inner">
+            <h2>Notes</h2>
+            <p>#noteInformation#</p>
+            <p><a data-popup-close="popup-#itemCount#" href="#">Close</a></p>
+            <a class="popup-close" data-popup-close="popup-#itemCount#" href="#">x</a> </div>
+        </div></td>
+    <td><p><a href="mailto:#email#" target="_new">#email#</a><br />
+      #phone#</p></td>
+    <td nowrap="nowrap"><strong>#nonprofit#</strong><br />
+      Dep: $#deposit#<br />
+      Room: $#roomPrice#</td>
+    <td align="right" nowrap="nowrap"><p>#status#<br />
+     <a href="?page=bookaroom_meetings&amp;action=view&amp;res_id=#res_id#" target="_new">View</a> | <a href="?page=bookaroom_meetings&amp;action=edit&amp;res_id=#res_id#" target="_new">Edit</a></td>
+  </tr>    #line_end#
+  <tr>
+    <td colspan="9"><select name="status" id="status">
+      <option selected="selected" value="pending">New Pending</option>
+      <option value="pendPayment">Pending Payment/501(c)3</option>
+      <option value="approved">Accepted with Payment/501(c)3</option>
+      <option value="denied">Denied</option>
+      <option value="archived">Archived</option>
+    </select>      <input name="action" type="hidden" id="action" value="changeStatus" />   
+<input type="submit" name="button" id="button" value="Submit" /></td>
+    </tr>
+
+  </table>
+</form>
+#some_end##none_start#
+<table class="tableMain">
+  <tr>
+    <td><input type="checkbox" name="null" id="null" disabled="disabled" /></td>
+    <td nowrap="nowrap">Branch &amp; Room</td>
+    <td nowrap="nowrap">Date &amp; Time</td>
+    <td nowrap="nowrap">Created</td>
+    <td nowrap="nowrap">Event Name</td>
+    <td nowrap="nowrap">Contact Name</td>
+    <td nowrap="nowrap">Email</td>
+    <td nowrap="nowrap">Nonprofit?</td>
+    <td nowrap="nowrap">Actions</td>
+  </tr>
+  <tr>
+    <td colspan="9" align="center"><strong>No search results</strong></td>
+  </tr>
+</table>
+#none_end#

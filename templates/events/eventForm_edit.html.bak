@@ -1,0 +1,523 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="JavaScript" type="text/javascript">
+var rowNum = 0;
+	function addRow(frm) {
+	rowNum ++;
+	var row = '<p id="rowNum'+rowNum+'"><input class="dates" type="text" name="addDateVals[]" value="'+frm.add_name.value+'" readOnly="true"> <input type="button" value="Remove" onclick="removeRow('+rowNum+');"></p>';
+	jQuery('#itemRows').append(row);
+	frm.add_name.value = '';
+}
+function removeRow(rnum) {
+	jQuery('#rowNum'+rnum).remove();
+}
+
+
+$(function() {
+	// Setup date drops
+	$( '#eventStart, #weekly_endBy, #regDate, #add_name, #daily_endBy' ).datepicker();
+	
+	// If all day is checked, disable the times
+	if( $('input[name="allDay"]:checked').val() == 'true' ) {
+		$('#startTime, #endTime').prop('disabled', true);
+	}
+	else {
+		$('#startTime, #endTime').prop('disabled', false);
+	}
+	
+	// All day active switch
+	$('input[name=allDay]:radio').change(function(){
+		if( $(this).val() == 'true' ) {
+			$('#startTime, #endTime').prop('disabled', true);
+		}
+		else {
+			$('#startTime, #endTime').prop('disabled', false);
+		}
+	});
+	
+	// registration - switch
+	$('input[name=registration]:radio').change(function(){
+		if( $(this).val() == 'no') {
+			$('#waitingList, #maxReg, #regDate').prop('disabled', true);
+		}
+		else {
+			$('#waitingList, #maxReg, #regDate').prop('disabled', false);
+		}
+	});
+	
+	// registration - on load
+	
+	if( typeof $('input[name=registration]:checked' ) !== 'undefined' ){
+		if( $('input[name=registration]:checked').val() == 'no' ){
+			$('#waitingList, #maxReg, #regDate').prop('disabled', true);
+		}
+		else {
+			$('#waitingList, #maxReg, #regDate').prop('disabled', false);
+		}
+	}
+	
+
+	// Daily - if you focus on eveyNDays, change radio button
+	$('#dailyEveryNDaysVal').on('focus', function(){
+		$('#dailyEveryNDays').attr('checked','checked');
+	});
+	
+	// Daily - if you select weekends or weekdays, disable everyNDays
+	if( typeof $('input[name=weeklyType]:checked').val() !='undefined' ) {
+		if( $('input[name=dailyType]:radio').val() !== 'everyNDays' ){
+			$('#dailyEveryNDaysVal').attr('disabled',true);
+		};
+	};
+	
+	$('input[name=dailyType]:radio').change(function(){
+		if($(this).val() == 'everyNDays'){
+			$('#dailyEveryNDaysVal').attr('disabled',false);
+		}
+		else {
+			$('#dailyEveryNDaysVal').attr('disabled',true);
+		}
+	});
+	
+	$('input[name=dailyEndType]:radio').change(function(){
+		if($(this).val() == 'Occurrences'){
+			$('#daily_Occurrence').attr('disabled',false);
+			$('#daily_endBy').attr('disabled',true);			
+		}
+		else {
+			$('#daily_Occurrence').attr('disabled',true);
+			$('#daily_endBy').attr('disabled',false);			
+		}
+	});
+	
+	if( typeof $('input[name=dailyEndType]:checked').val() !='undefined' ) {
+		if($('input[name=dailyEndType]:checked').val() == 'Occurrences'){
+			$('#daily_Occurrence').attr('disabled',false);
+			$('#daily_endBy').attr('disabled',true);			
+		}
+		else {
+			$('#daily_Occurrence').attr('disabled',true);
+			$('#daily_endBy').attr('disabled',false);			
+		}
+	}
+	
+	$('#daily_Occurrence').on('focus', function(){
+		$('#dailyEndTypeOccurrences').attr('checked','checked');
+		$('#daily_endBy').attr('disabled',true);	
+	});
+
+	$('#daily_endBy').on('focus', function(){
+		$('#dailyEndTypeEndby').attr('checked','checked');
+		$('#daily_Occurrence').attr('disabled',true);
+	});	
+
+	// weekly - if Occurrences value is entered, disable end by
+	if( typeof $('input[name=weeklyType]:checked').val() !='undefined' ) {
+		if($('input[name=weeklyType]:checked').val() == 'Occurrences'){
+			$('#weekly_Occurrence').attr('disabled',false);
+			$('#weekly_endBy').attr('disabled',true);			
+		}
+		else {
+			$('#weekly_Occurrence').attr('disabled',true);
+			$('#weekly_endBy').attr('disabled',false);			
+		}
+	}
+	$('input[name=weeklyType]:radio').change(function(){
+		if($(this).val() == 'Occurrences'){
+			$('#weekly_Occurrence').attr('disabled',false);
+			$('#weekly_endBy').attr('disabled',true);			
+		}
+		else {
+			$('#weekly_Occurrence').attr('disabled',true);
+			$('#weekly_endBy').attr('disabled',false);			
+		}
+	});
+	
+	$('#weekly_Occurrence').on('focus', function(){
+		$('#weeklyTypeOccurrences').attr('checked','checked');
+		$('#weekly_endBy').attr('disabled',true);	
+	});
+	
+	$('#weekly_endBy').on('focus', function(){
+		$('#weeklyTypeEndBy').attr('checked','checked');
+		$('#weekly_Occurrence').attr('disabled',true);
+	});	
+		
+	// Recurrence drop down and hidden inputs
+	$('#recurrence').change(function(){
+		switch ( $(this).val() ) { 
+			case 'daily':
+				$('.daily').slideDown('fast');
+				$('.weekly').slideUp('fast');				
+				$('.monthly').slideUp('fast');
+				$('.addDates').slideUp('fast');
+				break;
+			case 'weekly':
+				$('.daily').slideUp('fast');
+				$('.weekly').slideDown('fast');				
+				$('.monthly').slideUp('fast');
+				$('.addDates').slideUp('fast');				
+				break;
+			case 'monthly':
+				$('.daily').slideUp('fast');
+				$('.weekly').slideUp('fast');
+				$('.monthly').slideDown('fast');
+				$('.addDates').slideUp('fast');
+				break;
+			case 'addDates':
+				$('.daily').slideUp('fast');
+				$('.weekly').slideUp('fast');
+				$('.monthly').slideUp('fast');
+				$('.addDates').slideDown('fast');
+				break;
+			default:
+				$('.daily').slideUp('fast');
+				$('.weekly').slideUp('fast');
+				$('.monthly').slideUp('fast');
+				$('.addDates').slideUp('fast');
+				break;
+		};
+	});
+});
+</script>
+<style>
+.daily, .weekly, .monthly, .addDates {
+	display: none;
+}
+.#showName# {
+ display: block;
+}
+</style>
+<div class="wrap">
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room - Events</h2>
+</div>
+<h2>New Event</h2>
+#error_start#<h3 style="color: red;"><strong>#errorMSG#</strong></h3></p>
+#error_end#
+<form name="form" method="post" action="?page=bookaroom_event_management_upcoming">
+  <table class="tableMain">
+   <tr>
+      <td colspan="2">Location</td>
+    </tr>
+    <tr>
+      <td width="150">Branch/Room</td>
+      <td>
+	  <select name="roomID" id="roomID">
+	    #room_start#<option value="#roomVal#"#roomSelected##roomDisabled# >#roomDesc#</option>#room_end#
+
+	    </select></td>
+    </tr>
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Recurrence settings </td>
+    </tr>
+    <tr>
+      <td >Event Date</td>
+      <td><input name="eventStart" type="text" id="eventStart" value="#eventStart#" size="10" maxlength="10" class="#class_eventStart#" /></td>
+    </tr>
+    <tr>
+      <td width="150">Recurrence</td>
+      <td><select name="recurrence" id="recurrence" class="#class_recurrence#">
+          
+          #reoc_start#
+          <option value="#reoc_val#" #reoc_selected#>#reoc_disp#</option>
+          #reoc_end#
+        
+        </select></td>
+    </tr>
+  </table>
+  <br />
+  <div class="daily">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Daily Recurrence</td>
+      </tr>
+      <tr>
+        <td width="150" rowspan="3">Options</td>
+        <td class="#class_dailyType_everyNDays#"><input name="dailyType" type="radio" id="dailyEveryNDays" value="everyNDays" #everyNDays_checked# />
+          Every
+          <input name="dailyEveryNDaysVal" type="text" id="dailyEveryNDaysVal" size="3" maxlength="3" value="#dailyEveryNDaysVal#" />
+          Day(s)</td>
+      </tr>
+      <tr>
+        <td class="#class_dailyType_weekdays#"><input type="radio" name="dailyType" id="dailyWeekdays" value="weekdays" #weekdays_checked# />
+          <label for="dailyWeekdays">Weekdays</label></td>
+      </tr>
+      <tr>
+        <td class="#class_dailyType_weekends#"><input type="radio" name="dailyType" id="dailyWeekends" value="weekends" #weekends_checked# />
+          <label for="dailyWeekends">Weekends</label></td>
+      </tr>
+      <tr>
+        <td rowspan="2">End choice</td>
+        <td class="#class_dailyEndType_Occurrences#"><input type="radio" name="dailyEndType" id="dailyEndTypeOccurrences" value="Occurrences"#daily_Occurrence_checked# />
+          <input name="daily_Occurrence" type="text" id="daily_Occurrence" value="#daily_Occurrence#" size="3" maxlength="3" class="#class_dailyEndType_Occurrences_form#" />
+          Occurrences</td>
+      </tr>
+      <tr>
+        <td class="#class_dailyEndType_endBy#"><input type="radio" name="dailyEndType" id="dailyEndTypeEndby" value="endBy"#daily_endBy_checked# />
+          <input name="daily_endBy" type="text" id="daily_endBy" value="#daily_endBy#" size="10" maxlength="10" class="#class_dailyEndType_endBy_form#" />
+          End by</td>
+      </tr>
+    </table>
+    <br />
+  </div>
+  <div class="weekly">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Weekly Recurrence</td>
+      </tr>
+      <tr>
+        <td width="150" rowspan="2">Options</td>
+        <td> Every
+          <input name="everyNWeeks" type="text" id="everyNWeeks" value="#everyNWeeks#" size="3" maxlength="3" class="#class_everyNWeeks#" />
+          Weeks on</td>
+      </tr>
+      <tr>
+        <td class="#class_weeklyDay#"><table width="100%">
+            <tr>
+              <td>Su</td>
+              <td>Mo</td>
+              <td>Tu</td>
+              <td>We</td>
+              <td>Th</td>
+              <td>Fr</td>
+              <td>Sa</td>
+            </tr>
+            <tr> #weekly_start#
+              <td><input name="weeklyDay[]" type="checkbox" value="#weekly_val#"#weekly_checked# /></td>
+              #weekly_end# </tr>
+          </table></td>
+      </tr>
+      <tr>
+        <td rowspan="2">End choice</td>
+        <td class="#class_weeklyEndType_Occurrences#"><input type="radio" name="weeklyEndType" id="weeklyTypeOccurrences" value="Occurrences"#weekly_Occurrence_checked# />
+          <input name="weekly_Occurrence" type="text" id="weekly_Occurrence" value="#weekly_Occurrence#" size="3" maxlength="3" class="#class_weeklyEndType_Occurrences_form#" />
+          Occurrences</td>
+      </tr>
+      <tr>
+        <td class="#class_weeklyEndType_endBy#"><input type="radio" name="weeklyEndType" id="weeklyTypeEndBy" value="endBy"#weekly_endBy_checked# />
+          <input name="weekly_endBy" type="text" id="weekly_endBy" value="#weekly_endBy#" size="10" maxlength="10" class="#class_weeklyEndType_endBy_form#" />
+          End by</td>
+      </tr>
+    </table>
+    <br />
+  </div>
+  <!--
+  <div class="monthly">  <h3>Monthly Recurrence</h3>
+  <table class="tableMain">
+    <tr>
+      <td width="150">Setting</td>
+      <td>Value</td>
+    </tr>
+    <tr>
+      <td rowspan="3">Options</td>
+      <td><input type="radio" name="radio3" id="radio8" value="radio3" />
+        <label for="radio8"></label>
+        Every
+        <label for="textfield"></label>
+        <input name="textfield2" type="text" id="textfield" size="3" maxlength="3" />
+        Day(s)</td>
+    </tr>
+    <tr>
+      <td><input type="radio" name="radio3" id="radio9" value="radio3" />
+        Weekdays</td>
+    </tr>
+    <tr>
+      <td><input type="radio" name="radio3" id="radio10" value="radio3" />
+        Weekends</td>
+    </tr>
+  </table>
+</div>
+  -->
+  <div class="addDates">
+    <table class="tableMain">
+      <tr>
+        <td colspan="2">Additional Dates</td>
+      </tr>
+      <tr>
+        <td width="150">Dates<br />
+          (You <strong>must</strong> click Add Date to add the date.)</td>
+        <td class="#class_addDates#"><div id="itemRows">
+            <input type="text" name="add_name" id="add_name" />
+            <input onclick="addRow(this.form);" type="button" value="Add Date" />
+            #row_start#
+            <p id="rowNum#rowNum#">
+              <input class="#class_addDatesForm_#rowNum##" type="text" name="addDateVals[]" value="#rowVal#" readOnly="true">
+              <input type="button" value="Remove" onclick="removeRow(#rowNum#);">
+            </p>
+            #row_end# </div></td>
+      </tr>
+    </table>
+    <br />
+  </div>
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Time settings </td>
+    </tr>
+    <tr>
+      <td width="150">All Day?</td>
+      <td><input name="allDay" id="allDayTrue" type="radio" value="true"#allDay_true_checked# />
+        Yes
+        <input name="allDay" type="radio" id="allDayFalse" value="false"#allDay_false_checked# />
+        No</td>
+    </tr>
+    <tr>
+      <td>Start Time (hh:mm am/pm)</td>
+      <td><input name="startTime" type="text" id="startTime" value="#startTime#" size="8" maxlength="8" class="#class_startTime#" /></td>
+    </tr>
+    <tr>
+      <td>End Time (hh:mm am/pm)</td>
+      <td><input name="endTime" type="text" id="endTime" value="#endTime#" size="8" maxlength="8" class="#class_endTime#" /></td>
+    </tr>
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Event settings</td>
+    </tr>
+    <tr>
+      <td width="150">Event Tite</td>
+      <td><input name="eventTitle" type="text" class="#class_eventTitle#" id="eventTitle" value="#eventTitle#" size="55"/></td>
+    </tr>
+    <tr>
+      <td>Event Description</td>
+      <td><textarea name="eventDesc" cols="55" rows="6" id="eventDesc" class="#class_eventDesc#">#eventDesc#</textarea></td>
+    </tr>
+    <tr>
+      <td>Registration Required</td>
+      <td class="#class_registration#" ><input type="radio" name="registration" id="registrationTrue" value="yes"#reg_true_selected# />
+        Yes
+        <input type="radio" name="registration" id="registrationFalse" value="no"#reg_false_selected# />
+        No
+        <input type="radio" name="registration" id="registrationStaff" value="staff"#reg_staff_selected# />
+        Staff Only</td>
+    </tr>
+    <tr>
+      <td>Max. Registrations</td>
+      <td><input name="maxReg" type="text" id="maxReg" value="#maxReg#" size="3" maxlength="3" class="#class_maxReg#" /></td>
+    </tr>
+    <tr>
+      <td>Waiting List</td>
+      <td><input name="waitingList" type="text" id="waitingList" value="#waitingList#" size="3" maxlength="3" class="#class_maxReg#" /></td>
+    </tr>
+    <tr>
+      <td>Registration Begin Date</td>
+      <td><input name="regDate" type="text" id="regDate" value="#regDate#" class="#class_regDate#" /></td>
+    </tr>
+    <tr>
+      <td>Private Notes</td>
+      <td><textarea name="privateNotes" id="privateNotes" cols="55" rows="6">#privateNotes#</textarea></td>
+    </tr>
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Contact settings</td>
+    </tr>
+    <tr>
+      <td>Contact Name</td>
+      <td><input name="publicName" type="text" id="publicName" value="#publicName#" /></td>
+    </tr>
+    <tr>
+      <td>Contact Phone</td>
+      <td><input name="publicPhone" type="text" id="publicPhone" value="#publicPhone#" class="#class_publicPhone#" /></td>
+    </tr>
+    <tr>
+      <td>Contact Email</td>
+      <td><input name="publicEmail" type="text" id="publicEmail" value="#publicEmail#" /></td>
+    </tr>
+    <tr>
+      <td width="150">Presenter</td>
+      <td><input name="presenter" type="text" id="presenter" value="#presenter#" /></td>
+    </tr>
+    <tr>
+      <td>Website (<em>http://url.com</em>)</td>
+      <td><input name="website" type="text" id="website" value="#website#" class="#class_website#" /></td>
+    </tr>
+    <tr>
+      <td>Website Text</td>
+      <td><input name="websiteText" type="text" id="eventTitle10" value="#websiteText#" /></td>
+    </tr>
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Amenities</td>
+    </tr>
+    <tr> #amenityNone_start#
+      <td colspan="2">No amenities available for this location.</td>
+    </tr>
+    #amenityNone_end#
+    #amenity_start#
+    
+      <td width="150">#amenity#</td>
+      <td><input name="amenity[]" type="checkbox" id="amenity[#amenityVal#]" value="#amenityVal#"#amenity_checked# /></td>
+    </tr>#amenity_end#
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="4">Categories</td>
+    </tr>
+    <tr> #categoryNone_start#
+      <td colspan="4">No age groups available.</td>
+    </tr>
+    #categoryNone_end#
+    #category_start#
+    <tr>
+      <td width="250" class="#class_category#"><label for="category[#categoryVal#]">#category#</label></td>
+      <td width="50" class="#class_category#"><input name="category[#categoryVal#]" type="checkbox" id="category[#categoryVal#]" value="#categoryVal#"#category_checked# /></td>
+      <td width="250" class="#class_category#"><label for="category[#categoryVal_right#]">#category_right#</label></td>
+      <td width="50" class="#class_category#">#category_right_start#
+        <input name="category[#categoryVal_right#]" type="checkbox" id="category[#categoryVal_right#]" value="#categoryVal_right#"#category_right_checked# />
+        #category_right_end#</td>
+    </tr>
+    #category_end#
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="4">Age Group</td>
+    </tr>
+    <tr> #ageGroupNone_start#
+      <td colspan="4">No age groups available.</td>
+    </tr>
+    #ageGroupNone_end#
+    #ageGroup_start#
+    <tr>
+      <td width="250" class="#class_ageGroup#"><label for="ageGroup[#ageGroupVal#]">#ageGroup#</label></td>
+      <td width="50" class="#class_ageGroup#"><input name="ageGroup[#ageGroupVal#]" type="checkbox" id="ageGroup[#ageGroupVal#]" value="#ageGroupVal#"#ageGroup_checked# /></td>
+      <td width="250" class="#class_ageGroup#"><label for="ageGroup[#ageGroupVal_right#]">#ageGroup_right#</label></td>
+      <td width="50" class="#class_ageGroup#">#ageGroup_right_start#
+        <input name="ageGroup[#ageGroupVal_right#]" type="checkbox" id="ageGroup[#ageGroupVal_right#]" value="#ageGroupVal_right#"#ageGroup_right_checked# />
+        #ageGroup_right_end#</td>
+    </tr>
+    #ageGroup_end#
+  </table>
+  <br />
+  <table class="tableMain">
+    <tr>
+      <td colspan="2">Other options</td>
+    </tr>
+    <tr>
+      <td width="150">Your name</td>
+      <td><input name="yourName" type="text" id="yourName" value="#yourName#" size="42" class="#class_yourName#" /></td>
+    </tr>
+    <tr>
+      <td>Internal/Do not publish?</td>
+      <td><input name="doNotPublish" type="checkbox" id="doNotPublish" value="true"#doNotPublish_checked# /></td>
+    </tr>
+  </table>
+  <h3>Submit when complete to check for conflicts</h3>
+  <table class="tableMain">
+    <tr>
+      <td><input name="action" type="hidden" id="action" value="edit" />
+        <input name="eventID" type="hidden" id="eventID" value="#eventID#" />
+<input type="submit" name="Submit" id="submit" value="Submit" /></td>
+    </tr>
+  </table>
+</form>

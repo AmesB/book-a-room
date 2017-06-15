@@ -1,0 +1,238 @@
+<script type="text/javascript">
+	function showHelp(divID) {
+		var helpDiv = document.getElementById(divID);
+		
+		if( helpDiv.style.display == 'none') {
+			var finalShow = "block";
+		} else {
+			var finalShow = "none";
+		}
+		
+		
+		
+		//helpDiv.style.top = heightShown+"px";
+		helpDiv.style.display = finalShow;
+	}
+</script>
+<link href="/css/tableMain.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+.emailHelpMain {
+	width: 600px;
+	float:left;
+	clear: both;
+	border-radius: 8px;
+	box-shadow: 5px 5px 15px #555555;
+	padding: 10px;
+	margin:10px;
+	background-color: #FFF;
+	border: thin solid #000;
+}
+.emailHelp {
+	position: relative;
+	display: table;
+}
+.emailHelp .helpRow {
+	display: table-row;
+}
+.emailHelp .helpRow:nth-child(odd) {
+	background: #DDD;
+}
+.emailHelp .helpRow:nth-child(1) {
+	background: #000;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+.emailHelp .helpRow div:nth-child(odd) {
+	font-weight:bold;
+}
+.emailHelp .helpRow div {
+	display: table-cell;
+	padding: 3px;
+	width: 150px;
+}
+.emailForm {
+	position: relative;
+	top: 0px;
+}
+.helpFormMain {
+	float: left;
+	clear: left;
+}
+#helpButton {
+	cursor: pointer;
+}
+.helpRow_left {
+	width: 300px;
+	float: left;
+}
+.helpRow_right {
+	width: 300px;
+	float: right;
+}
+.mainText {
+	width: 600px;
+}
+</style>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Content</h2>
+</div>
+<div class="mainText">
+  <p>In the content settings, please insert your Meeting Room contract information. The text below will pop up when the user clicks on Reserve and needs to be accepted before they continue.</p>
+  <p>HTML is accepted.</p>
+</div>
+<p> #errorCount_start#</p>
+<p style="color:red; font-weight:bold">You have <em>#errorCount#</em> errors.</p>
+#errorCount_end#
+
+#error_settings_start#
+<p style="color:red; font-weight:bold">#error_settings_MSG#</p>
+#error_settings_end#
+<form id="form1" name="form1" method="post" action="">
+  
+  #contentAlerts_start#
+  <div class="helpFormMain">
+    <h2>#header#</h2>
+    #contentAlerts_error_start#
+    <p style="color:red; font-weight:bold">#contentAlerts_MSG#</p>
+    #contentAlerts_error_end#
+    <table class="tableMain">
+      <tr>
+        <td>Setting
+          <div id="helpButton" onclick="showHelp('emailHelp_#wordpressSettingName#')" style="float:right; clear:left;">Help!</div></td>
+      </tr>
+      <tr>
+        <td><textarea name="#wordpressSettingName#" id="#wordpressSettingName#" cols="100" rows="10">#contentAlert_val#</textarea></td>
+      </tr>
+      <tr>
+        <td><input name="action" type="hidden" id="action" value="updateContent" />
+          <input type="submit" name="submit" id="submit" value="Save Changes" /></td>
+      </tr>
+    </table>
+  </div>
+  <div class="emailForm">
+    <div id="emailHelp_#wordpressSettingName#" class="emailHelpMain" style="display: none">
+      <div class="emailHelp">
+        <div class="helpRow_left">
+          <div class="helpRow">
+            <div>Item</div>
+            <div>Variable</div>
+          </div>
+          <div class="helpRow">
+            <div>Address</div>
+            <div>{contactAddress1}</div>
+          </div>
+          <div class="helpRow">
+            <div>Address 2</div>
+            <div>{contactAddress2}</div>
+          </div>
+          <div class="helpRow">
+            <div>Amenities</div>
+            <div>{amenity}</div>
+          </div>
+          <div class="helpRow">
+            <div>Branch Name</div>
+            <div>{branchName}</div>
+          </div>
+          <div class="helpRow">
+            <div>City</div>
+            <div>{contactCity}</div>
+          </div>
+          <div class="helpRow">
+            <div>Contact Name</div>
+            <div>{contactName}</div>
+          </div>
+          <div class="helpRow">
+            <div>Date</div>
+            <div>{date}</div>
+          </div>
+          <div class="helpRow">
+            <div>Deposit Profit</div>
+            <div>{costDepositProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Deposit Nonprofit</div>
+            <div>{costDepositNonProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Content</div>
+            <div>{contactContent}</div>
+          </div>
+          <div class="helpRow">
+            <div>End Time</div>
+            <div>{endTime}</div>
+          </div>
+          <div class="helpRow">
+            <div>Event Name</div>
+            <div>{eventName}</div>
+          </div>
+          <div class="helpRow">
+            <div>Number of Attendees</div>
+            <div>{numAttend}</div>
+          </div>
+        </div>
+        <div class="helpRow_right">
+          <div class="helpRow">
+            <div>Item</div>
+            <div>Variable</div>
+          </div>
+          <div class="helpRow">
+            <div>Nonprofit</div>
+            <div>{nonProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Primary Phone</div>
+            <div>{contactPhonePrimary}</div>
+          </div>
+          <div class="helpRow">
+            <div>Purpose</div>
+            <div>{desc}</div>
+          </div>
+          <div class="helpRow">
+            <div>Room Cost Profit</div>
+            <div>{costRoomProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Room Cost Nonprofit</div>
+            <div>{costRoomNonProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Room Name</div>
+            <div>{roomName}</div>
+          </div>
+          <div class="helpRow">
+            <div>Secondary Phone</div>
+            <div>{contactPhoneSecondary}</div>
+          </div>
+          <div class="helpRow">
+            <div>Start Time</div>
+            <div>{startTime}</div>
+          </div>
+          <div class="helpRow">
+            <div>State</div>
+            <div>{contactState}</div>
+          </div>
+          <div class="helpRow">
+            <div>Total Cost Profit</div>
+            <div>{costTotalProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Total Cost Nonprofit</div>
+            <div>{costTotalNonProfit}</div>
+          </div>
+          <div class="helpRow">
+            <div>Website</div>
+            <div>{contactWebsite}</div>
+          </div>
+          <div class="helpRow">
+            <div>Zip</div>
+            <div>{contactZip}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  #contentAlerts_end#
+</form>

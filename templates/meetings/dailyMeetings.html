@@ -1,0 +1,168 @@
+<style type="text/css">
+@media print {
+#adminmenu {
+	display: none;
+}
+#adminmenu {
+	display: none;
+}
+#adminmenushadow {
+	display: none;
+}
+#adminmenuwrap {
+	display: none;
+}
+#adminmenuback {
+	display: none;
+}
+#wpadminbar {
+	display: none;
+}
+#mainHeader {
+	display: none;
+}
+#wpfooter {
+	display: none;
+}
+#wpcontent {
+	position: absolute;
+	top: 0px;
+	left: -165px;
+	width: 100%;
+}
+#printForm {
+	display: none;
+}
+}
+.contactHeader {
+	font-size: 1.25em;
+	font-weight: bold;
+	padding-bottom: 10px;
+}
+.noMeeting {
+	width: 600px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+#mainTable tr td {
+	border: thin solid #666;
+	padding: 6px;
+	font-size: 1.1em;
+}
+#mainTable tr:nth-of-type(odd) {
+	background: #DDD;
+}
+#mainTable tr:nth-of-type(1) {
+	background: #44F;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+}
+#mainTable tr:nth-of-type(2) {
+	background: #333;
+	font-weight: bold;
+	text-align: center;
+	color: #FFF;
+}
+#emailError {
+	color: #F00;
+	font-weight: bold;
+	font-style: italic;
+}
+</style>
+<link href="/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+<script src="//code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+<script language="JavaScript" type="text/javascript">
+$(function() {
+	// Setup date drops
+	$( '#date' ).datepicker({ dateFormat: 'mm/dd/yy' });
+});
+</script>
+<link href="/css/dataTable.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<div id="mainHeader">
+  <link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+  <div class=wrap>
+    <div id="icon-options-general" class="icon32"></div>
+    <h2>Book a Room - Daily Meetings</h2>
+  </div>
+  <form action="" method="post">
+    <p>Show all (including Pending and Pending Payment)?
+      <label for="viewAll">
+        <input name="viewAll" type="checkbox" id="viewAll" value="TRUE"#viewAll_checked# />
+      </label>
+    </p>
+    <p>      <strong>Choose a date: </strong><br>
+      <input name="timestamp" type="text" id="date" value="#formDate#" size="30">
+      <input type="submit" name="button" id="button" value="Submit">
+    </p>
+  </form>
+  <p><em><strong>This page is printer friendly! Just hit print to get a print-formatted page.</strong></em></p>
+</div>
+<div class="contactHeader">
+  <p>Meeting room schedule for #dateChosen#.</p>
+</div>
+#none_start#
+<div class="noMeeting">There are no meetings on this date.</div>
+#none_end#
+#some_start#
+<table width="100%" id="mainTable">
+  <tr>
+    <td colspan="5">#dateChosen#</td>
+  </tr>
+  <tr>
+    <td nowrap>Location</td>
+    <td nowrap>Time</td>
+    <td>Organization</td>
+    <td style="min-width: 200px;">Description</td>
+    <td style="min-width: 150px;">Amenities</td>
+  </tr>
+  #reservation_start#
+  <tr>
+    <td nowrap="nowrap"><strong>#branchName#</strong><br />
+      #roomName#<br />
+      <em><strong>#type#</strong></em><strong></strong></td>
+    <td nowrap="nowrap">#startTime# - 
+      #endTime#</td>
+    <td>#organization#</td>
+    <td>#desc#</td>
+    <td>#amenities#</td>
+  </tr>
+  #reservation_end#
+  #reservations_start#
+  <tr>
+    <td rowspan="#rowspan#" nowrap="nowrap"><strong>#branchName#</strong><br />
+      #roomName#<br />
+      <strong><em>#type#</em></strong></td>
+    <td nowrap="nowrap">#startTime# - 
+      #endTime#</td>
+    <td>#organization#</td>
+    <td>#desc#</td>
+    <td>#amenities#</td>
+  </tr>
+  #subRes_start#
+  <tr>
+    <td nowrap="nowrap">#startTime# - 
+      #endTime#</td>
+    <td nowrap="nowrap">#organization#</td>
+    <td>#desc#</td>
+    <td>#amenities#</td>
+  </tr>
+  #subRes_end#
+  #reservations_end#
+</table>
+#some_end#
+<div id="printForm">
+  <form action="" method="post">
+    <p><strong>Send this in an email: </strong><br />
+      <input name="emailAddress" type="text" id="date2" value="#defaultEmail#" size="30" />
+      <input name="timestamp" type="hidden" id="timestamp" value="#formDate#" />
+      <input name="action" type="hidden" id="act" value="sendEmail" />
+      <input type="submit" name="button2" id="button2" value="Submit" />
+      <br />
+    <div id="emailError">#emailError#</div>
+    </p>
+  </form>
+</div>

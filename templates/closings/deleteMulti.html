@@ -1,0 +1,44 @@
+<script type="text/javascript">
+
+function checkAll(typeCheck) {
+	typeFinal = "true";
+	if( typeCheck === undefined ) {
+			typeFinal = null;
+	}
+
+	for (i = 0; i < document.formRooms["closingMulti[]"].length; i++) {
+		document.formRooms["closingMulti[]"][i].checked = typeFinal ;
+	}
+}
+</script>
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+  <div id="icon-options-general" class="icon32"></div>
+  <h2>Book a Room Administration - Closings</h2>
+</div>
+<h2>Delete Multiple Expired Closings</h2>
+<p>Deleting closings is permanent. Please double check the closings if you want to continue.</p>
+<form id="formRooms" name="formRooms" method="post" action="?page=bookaroom_Settings_Closings">
+  <table class="tableMain">
+    <tr>
+      <td>Reason</td>
+      <td>Date</td>
+      <td>Type</td>
+      <td>Rooms</td>
+    </tr>
+    #multiClosing_start#
+    <tr>
+      <td>#closingName#</td>
+      <td nowrap="nowrap">#date#</td>
+      <td>#type#</td>
+      <td nowrap="nowrap">#rooms#
+      <input name="closingMulti[]" type="hidden" id="closingMulti_#closingID#" value="#closingID#" /></td>
+    </tr>
+    #multiClosing_end#
+    <tr>
+      <td colspan="4" align="center"><input name="action" type="hidden" id="action" value="deleteMultiCheck" />
+        <input type="submit" name="button" id="button" value="Continue and Delete" /></td>
+    </tr>
+  </table>
+</form>
+<p><a href="?page=bookaroom_Settings_Closings">Return to Closings Home.</a></p>

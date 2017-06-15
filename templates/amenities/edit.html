@@ -1,0 +1,30 @@
+<link href="#pluginLocation#/css/bookaroom_meetings.css" rel="stylesheet" type="text/css" />
+<div class=wrap>
+<div id="icon-options-general" class="icon32"></div>
+<h2>Book a Room Administration - Amenities</h2>
+</div>
+<h2>#actionName# Amenity</h2>
+#error_start#<strong>#errorMsg#</strong><br /><br />#error_end#
+<form id="form1" name="form1" method="post" action="?page=bookaroom_Settings_Amenities&amenityID=#amenityID#&action=#action#">
+  <table border="0" cellspacing="1" cellpadding="2" class="tableMain">
+    <tr>
+      <td>Option</td>
+      <td>Value</td>
+    </tr>
+<tr>
+      <td>Amenity Name</td>
+      <td><input name="amenityDesc" type="text" id="amenityDesc" value="#amenityDesc#" maxlength="64" /></td> 
+      <br />
+</tr>
+<tr>
+      <td>Reservable?</td>
+      <td><input name="amenity_isReservable" type="checkbox" id="amenity_isReservable" value="true"#amenity_isReservable_checked# /></td> 
+      <br />
+</tr>
+    <tr>
+      <td colspan="3"><input type="submit" name="button" id="button" value="Submit" />
+</td>
+    </tr>
+  </table>
+</form>
+<p><a href="?page=bookaroom_Settings">Return to Meeting Room Administration Home.</a></p>
