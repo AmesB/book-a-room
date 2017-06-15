@@ -326,28 +326,28 @@ UNIX_TIMESTAMP( CONCAT_WS( '-', CAST( '{$dateInfo['year']}' AS CHAR ), LPAD( CAS
 		endif;		
 		
 		# event name
-		if( empty( $externals['eventName'] ) ):
-			$final['classes']['eventName'] = 'error';
-			$final['errorMSG'][] = 'You must enter an event name in the <em>Event/Organization name</em> field.';
-		endif;
+#		if( empty( $externals['eventName'] ) ):
+#			$final['classes']['eventName'] = 'error';
+#			$final['errorMSG'][] = 'You must enter an event name in the <em>Event/Organization name</em> field.';
+#		endif;
 		
 		# event name
-		if( empty( $externals['numAttend'] ) ):
-			$final['classes']['numAttend'] = 'error';
-			$final['errorMSG'][] = 'You must enter how many people you expect to attend in <em>Number of attendees</em> field.';
-		elseif( !is_numeric( $externals['numAttend'] )):
-			$final['classes']['numAttend'] = 'error';
-			$final['errorMSG'][] = 'You must enter valid number <em>Number of attendees</em> field.';		
-		elseif( $externals['numAttend'] < 1 || $externals['numAttend'] > $roomContList['id'][$externals['roomID']]['occupancy'] ):
-			$final['classes']['numAttend'] = 'error';
-			$final['errorMSG'][] = "The maximum occupancy of this room is <em>{$roomContList['id'][$externals['roomID']]['occupancy']}</em>. Please enter a valid <em>Number of attendees</em> field.";		
-		endif;
+#		if( empty( $externals['numAttend'] ) ):
+#			$final['classes']['numAttend'] = 'error';
+#			$final['errorMSG'][] = 'You must enter how many people you expect to attend in <em>Number of attendees</em> field.';
+#		elseif( !is_numeric( $externals['numAttend'] )):
+#			$final['classes']['numAttend'] = 'error';
+#			$final['errorMSG'][] = 'You must enter valid number <em>Number of attendees</em> field.';		
+#		elseif( $externals['numAttend'] < 1 || $externals['numAttend'] > $roomContList['id'][$externals['roomID']]['occupancy'] ):
+#			$final['classes']['numAttend'] = 'error';
+#			$final['errorMSG'][] = "The maximum occupancy of this room is <em>{$roomContList['id'][$externals['roomID']]['occupancy']}</em>. Please enter a valid <em>Number of attendees</em> field.";		
+#		endif;
 		
 		# purposr of meeting (desc)
-		if( empty( $externals['desc'] ) ):
-			$final['classes']['desc'] = 'error';
-			$final['errorMSG'][] = 'You must enter a value in the <em>Purpose of meeting</em> field.';
-		endif;
+#		if( empty( $externals['desc'] ) ):
+#			$final['classes']['desc'] = 'error';
+#			$final['errorMSG'][] = 'You must enter a value in the <em>Purpose of meeting</em> field.';
+#		endif;
 		
 		# contact name
 		if( empty( $externals['contactName'] ) ):
@@ -384,59 +384,59 @@ UNIX_TIMESTAMP( CONCAT_WS( '-', CAST( '{$dateInfo['year']}' AS CHAR ), LPAD( CAS
 		endif;
 		
 		# street address
-		if( empty( $externals['contactAddress1'] ) ):
-			$final['classes']['contactAddress1'] = 'error';
-			$final['errorMSG'][] = 'You must enter a value in the <em>Street Address</em> field.';
-		endif;
+#		if( empty( $externals['contactAddress1'] ) ):
+#			$final['classes']['contactAddress1'] = 'error';
+#			$final['errorMSG'][] = 'You must enter a value in the <em>Street Address</em> field.';
+#		endif;
 		# city
 		#
 		# first, is social selected
-		if( empty( $externals['social'] ) ):
-			if( empty( $externals['contactCity'] ) ):
-				$final['classes']['contactCity'] = 'error';
-				$final['errorMSG'][] = 'You must enter a value in the <em>City</em> field.';
-			endif;
-		else:
-			if( empty( $externals['contactCityDrop'] )):
-				$final['classes']['contactCity'] = 'error';
-				$final['errorMSG'][] = 'You must choose a <em>City</em> from the drop down.';
-			elseif( $externals['contactCityDrop'] == 'other' ):
-				$final['classes']['contactCity'] = 'error';
-				$final['errorMSG'][] = 'To use our meetings rooms for social events, you have to live in one of the cities listed in the <em>City</em> drop down. Please refer to our guidelines for more information.';
-			elseif( !array_key_exists( $externals['contactCityDrop'], $cityList ) ):
-				$final['classes']['contactCity'] = 'error';
-				$final['errorMSG'][] = 'You must choose a valid <em>City</em> from the drop down.';
-			endif;
-		endif;
+#		if( empty( $externals['social'] ) ):
+#			if( empty( $externals['contactCity'] ) ):
+#				$final['classes']['contactCity'] = 'error';
+#				$final['errorMSG'][] = 'You must enter a value in the <em>City</em> field.';
+#			endif;
+#		else:
+#			if( empty( $externals['contactCityDrop'] )):
+#				$final['classes']['contactCity'] = 'error';
+#				$final['errorMSG'][] = 'You must choose a <em>City</em> from the drop down.';
+#			elseif( $externals['contactCityDrop'] == 'other' ):
+#				$final['classes']['contactCity'] = 'error';
+#				$final['errorMSG'][] = 'To use our meetings rooms for social events, you have to live in one of the cities listed in the <em>City</em> drop down. Please refer to our guidelines for more information.';
+#			elseif( !array_key_exists( $externals['contactCityDrop'], $cityList ) ):
+#				$final['classes']['contactCity'] = 'error';
+#				$final['errorMSG'][] = 'You must choose a valid <em>City</em> from the drop down.';
+#			endif;
+#		endif;
 		
 		# state
-		if( get_option( 'bookaroom_addressType' ) ==  'usa' ):
-			if( empty( $externals['contactState'] ) ):
-				$final['classes']['contactState'] = 'error';
-				$final['errorMSG'][] = 'You must choose an item from the <em>State</em> drop-down.';
-			elseif( !array_key_exists( $externals['contactState'], self::getStates() ) ):
-				$final['classes']['contactState'] = 'error';
-				$final['errorMSG'][] = 'That state is invalid. Please choose a valid item from the <em>State</em> drop-down.';
-			endif;
-		elseif( empty( $externals['contactState'] ) ):
-				$final['classes']['contactState'] = 'error';
-				$stateName = get_option( 'bookaroom_state_name' );
-				$final['errorMSG'][] = "You must enter a value in the <em>{$stateName}</em> drop-down.";
-		endif;
+#		if( get_option( 'bookaroom_addressType' ) ==  'usa' ):
+#			if( empty( $externals['contactState'] ) ):
+#				$final['classes']['contactState'] = 'error';
+#				$final['errorMSG'][] = 'You must choose an item from the <em>State</em> drop-down.';
+#			elseif( !array_key_exists( $externals['contactState'], self::getStates() ) ):
+#				$final['classes']['contactState'] = 'error';
+#				$final['errorMSG'][] = 'That state is invalid. Please choose a valid item from the <em>State</em> drop-down.';
+#			endif;
+#		elseif( empty( $externals['contactState'] ) ):
+#				$final['classes']['contactState'] = 'error';
+#				$stateName = get_option( 'bookaroom_state_name' );
+#				$final['errorMSG'][] = "You must enter a value in the <em>{$stateName}</em> drop-down.";
+#		endif;
 		
 		# zip code
-		$zipRegex = get_option( 'bookaroom_zip_regex' );
-		$zipExample = get_option( 'bookaroom_zip_example' );
-		
-		if( empty( $externals['contactZip'] ) ):
-			$final['classes']['contactZip'] = 'error';
-			$final['errorMSG'][] = 'You must enter a value in the <em>Zip code</em> field.';
-		elseif( !empty( $zipRegex ) ):
-			if( !preg_match( $zipRegex, $externals['contactZip'] ) ):
-				$final['classes']['contactZip'] = 'error';
-				$final['errorMSG'][] = 'You must enter a valid postal code. Example: '.$zipExample;
-			endif;
-		endif;
+#		$zipRegex = get_option( 'bookaroom_zip_regex' );
+#		$zipExample = get_option( 'bookaroom_zip_example' );
+#		
+#		if( empty( $externals['contactZip'] ) ):
+#			$final['classes']['contactZip'] = 'error';
+#			$final['errorMSG'][] = 'You must enter a value in the <em>Zip code</em> field.';
+#		elseif( !empty( $zipRegex ) ):
+#			if( !preg_match( $zipRegex, $externals['contactZip'] ) ):
+#				$final['classes']['contactZip'] = 'error';
+#				$final['errorMSG'][] = 'You must enter a valid postal code. Example: '.$zipExample;
+#			endif;
+#		endif;
 		
 		# email address
 		if( empty( $externals['contactEmail'] ) ):
